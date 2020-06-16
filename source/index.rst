@@ -17,9 +17,9 @@ The code is open source, and `available on GitHub
    :caption: Contents:
 
    introduction-to-govready-q
-   govready-q-features/index
-   govready-q-user-guide/index
-   govready-q-administrator-guide/index
+   features/index
+   user-guide/index
+   administrator-guide/index
    installation-and-setup/index
    production-deployment-topics/index
    enterprise-integration/index

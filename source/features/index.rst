@@ -1,15 +1,15 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _govready-q-features:
+.. _features:
 
-GovReady-Q Features
-===================
+Features
+========
 
 .. meta::
   :description: TKTK - section description goes here.
 
-GovReady-Q Feature Overview
----------------------------
+Feature Overview
+----------------
 
 -  Easy-to-use, beautiful questionnaires
 -  Jargon-free approach to security controls and compliance

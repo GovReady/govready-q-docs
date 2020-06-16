@@ -1,9 +1,9 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _govready-q-user-guide:
+.. _user-guide:
 
-GovReady-Q User Guide
-=====================
+User Guide
+==========
 
 .. meta::
   :description: TKTK - section description goes here.
