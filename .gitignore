@@ -1,0 +1,21 @@
+# generated files
+.gitconfig
+.DS_Store
+
+# Translations
+*.mo
+*.pot
+
+# Emacs
+*~
+\#*\#
+
+# Sphinx documentation
+_build/
+# Local Sphinx / Read The Docs files
+build
+venv
+
+# notes
+_notes/
+
