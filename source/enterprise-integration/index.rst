@@ -15,3 +15,4 @@ Enterprise Integration
    .. toctree::
       automation-api
       govready-q-and-wazuh-via-docker-compose
+      logs-and-log-management
