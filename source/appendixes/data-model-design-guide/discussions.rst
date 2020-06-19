@@ -5,7 +5,7 @@ The diagram below provides a summary representation of GovReady-Q’s
 Django ``discussion`` data model that handles discussions, comments, and
 invitations.
 
-.. figure:: assets/govready-q-discussion-erd.png
+.. figure:: /assets/govready-q-discussion-erd.png
    :alt: Discussion data model (not all tables represented)
 
    Discussion data model (not all tables represented)

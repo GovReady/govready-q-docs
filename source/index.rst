@@ -13,7 +13,6 @@ The code is open source, and `available on GitHub
 
 .. toctree::
    :maxdepth: 2
-   :glob:
    :caption: Contents:
 
    introduction-to-govready-q

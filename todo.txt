@@ -1,3 +1,4 @@
 * ensure all files have copyright notice comment as first line
 * regularize indentation, see https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html#whitespaces
 * decide on toctree maxdepth style and implement
+* fix internal links

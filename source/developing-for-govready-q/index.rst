@@ -13,5 +13,5 @@ Developing for Govready-Q
 .. topic:: Contents
 
     .. toctree::
-        :maxdepth: 0
+        :maxdepth: 1
 

@@ -5,7 +5,7 @@ The diagram below provides a summary representation of GovReady-Q’s
 Django ``siteapp`` data model, which handles users, organizations,
 projects and folders, and invitations.
 
-.. figure:: assets/govready-q-siteapp-erd.png
+.. figure:: /assets/govready-q-siteapp-erd.png
    :alt: Siteapp data model (not all tables represented)
 
    Siteapp data model (not all tables represented)

@@ -13,5 +13,7 @@ Appendixes
 .. topic:: Contents
 
    .. toctree::
+      :maxdepth: 1
+
       permissions-model
       data-model-design-guide/index

@@ -25,7 +25,7 @@ model. The complete data model spans three categories:
 The tables are described is additional detail below and their
 relationships are summarized in the following diagram:
 
-.. figure:: assets/govready-q-guidedmodules-erd.png
+.. figure:: /assets/govready-q-guidedmodules-erd.png
    :alt: Guidedmodules data model (not all tables represented)
 
    Guidedmodules data model (not all tables represented)
@@ -111,7 +111,7 @@ the starting page of a compliance app, which can list one or more
 
    <!-- ./manage.py test_screenshots --app-source '{ "slug": "apps", "type": "git", "url": "https://github.com/GovReady/govready-apps-dev", "path": "apps" }' --app 'apps/fisma_level' --path test_screenshots/ --size 1024x768 -->
 
-.. figure:: assets/fisma_level_app.png
+.. figure:: /assets/fisma_level_app.png
    :alt: compliance app sample 1
 
    compliance app sample 1
@@ -122,7 +122,7 @@ or a collection of modules and slots to start other compliance apps:
 
    <!-- ./manage.py test_screenshots --app-source '{ "slug": "apps", "type": "git", "url": "https://github.com/GovReady/govready-apps-dev", "path": "apps" }' --app 'apps/generic-web-site' --path test_screenshots/ --size 1024x768 -->
 
-.. figure:: assets/generic_website_app.png
+.. figure:: /assets/generic_website_app.png
    :alt: compliance app sample 2
 
    compliance app sample 2
@@ -379,7 +379,7 @@ First locate the ``AppSource`` “slug” and ``AppVersion`` “appname” that
 identifies a compliance app in GovReady-Q’s database. Find the app in
 the compliance apps catalog and click its *Info* button:
 
-.. figure:: assets/unix_server_app_catalog_entry.png
+.. figure:: /assets/unix_server_app_catalog_entry.png
    :alt: compliance app
 
    compliance app
@@ -415,7 +415,7 @@ Consult the compliance app source code YAML files to determine the
 “module_name” of the ``Module`` and “key” of the ``ModuleQuestion`` —
 which are in the “id” fields in the YAML file.
 
-.. figure:: assets/unix-server-hostname-question.png
+.. figure:: /assets/unix-server-hostname-question.png
    :alt: Module YAML
 
    Module YAML

@@ -13,5 +13,5 @@ Administrator Guide
 .. topic:: Contents
 
     .. toctree::
-        :maxdepth: 0
+        :maxdepth: 1
 

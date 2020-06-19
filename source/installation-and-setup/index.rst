@@ -13,5 +13,5 @@ Installation and Setup
 .. topic:: Contents
 
     .. toctree::
-        :maxdepth: 0
+        :maxdepth: 1
 
