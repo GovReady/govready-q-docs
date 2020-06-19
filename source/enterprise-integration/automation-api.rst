@@ -25,7 +25,7 @@ As an example, the screenshot below shows a demonstration of a macOS
 File Server compliance app. The app asks questions about the hostname of
 the server and the use of security groups.
 
-.. figure:: assets/macosapp.png
+.. figure:: /assets/macosapp.png
    :alt: macOS File Server Compliance App
 
    macOS File Server Compliance App
@@ -61,7 +61,7 @@ browser this question appears as a radio select question with Yes and No
 choices. In the JSON data structure, shown above, it is encoded as the
 JSON strings ``"yes"`` or ``"no"``.
 
-.. figure:: assets/macosapp_q1.png
+.. figure:: /assets/macosapp_q1.png
    :alt: macOS File Server Compliance App Question
 
    macOS File Server Compliance App Question
@@ -70,7 +70,7 @@ Each compliance app that has been started in GovReady Q and added to a
 project folder provides an ``API Docs`` page with samples and data
 schema documentation:
 
-.. figure:: assets/macosapp_api.png
+.. figure:: /assets/macosapp_api.png
    :alt: API Docs Page
 
    API Docs Page

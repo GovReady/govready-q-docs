@@ -12,6 +12,6 @@ Enterprise Integration
 
 .. topic:: Contents
 
-    .. toctree::
-        :maxdepth: 0
+   .. toctree::
+      automation-api
 
