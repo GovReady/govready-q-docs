@@ -15,6 +15,7 @@ Appendixes
    .. toctree::
       :maxdepth: 1
 
+      how-tos-and-faqs
       permissions-model
       data-model-design-guide/index
       version-notes/index
