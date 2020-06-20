@@ -17,3 +17,4 @@ Appendixes
 
       permissions-model
       data-model-design-guide/index
+      version-notes/index
