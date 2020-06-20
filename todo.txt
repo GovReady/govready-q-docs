@@ -1,7 +1,8 @@
 * get all files moved over from govready-q-docs-old
-* sync any changes made to main repo after commit 3fa9a6dbd3fb640fe1ccea7e619676898bba057a
+* sync any docs changes made to main repo after commit 3fa9a6dbd3fb640fe1ccea7e619676898bba057a
 * ensure all files have copyright notice comment as first line
-* regularize indentation, see https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html#whitespaces
+* regularize toctree (and other) indentation, see https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html#whitespaces
 * decide on toctree maxdepth style and implement
 * fix internal links
 * make stubs for new RST files that are needed, make tickets to flesh out
+* create initial style guide for new docs (conventions for file naming, links, toctree depths, etc.)
