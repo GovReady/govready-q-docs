@@ -1,5 +1,5 @@
-Introduction to GovReady-Q
-==========================
+Introduction
+============
 
 Why GovReady-Q?
 ---------------

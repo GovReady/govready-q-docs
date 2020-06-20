@@ -15,7 +15,7 @@ The code is open source, and `available on GitHub
    :maxdepth: 2
    :caption: Contents:
 
-   introduction-to-govready-q
+   introduction
    features/index
    user-guide/index
    administrator-guide/index
