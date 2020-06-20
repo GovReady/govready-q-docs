@@ -24,6 +24,7 @@ The code is open source, and `available on GitHub
    enterprise-integration/index
    contributing-to-govready-q/index
    developing-for-govready-q/index
+   testing-for-govready-q/index
    appendixes/index
 
 Indices and tables

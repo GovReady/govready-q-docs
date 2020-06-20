@@ -18,4 +18,5 @@ Appendixes
       how-tos-and-faqs
       permissions-model
       data-model-design-guide/index
+      system-requirements
       version-notes/index
