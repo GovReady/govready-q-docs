@@ -1,7 +1,5 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _installation-and-setup:
-
 Installation and Setup
 ======================
 
@@ -12,6 +10,7 @@ Installation and Setup
 
 .. topic:: Contents
 
-    .. toctree::
-        :maxdepth: 1
+   .. toctree::
+      :maxdepth: 1
 
+      desktop-installation/index
