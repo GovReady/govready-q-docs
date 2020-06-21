@@ -1,11 +1,9 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _govready-q_server_docker:
+Container-based Installation
+============================
 
-Installing GovReady-Q server using Docker
-=========================================
-
-GovReady publishes an official GovReady-Q server container based on Unix Ubuntu.
+GovReady publishes an official GovReady-Q server Docker image based on Ubuntu Linux.
 
 +------------+---------------------------------------------------------+
 | Container  | Where                                                   |
@@ -14,9 +12,9 @@ GovReady publishes an official GovReady-Q server container based on Unix Ubuntu.
 | Release on |                                                         |
 | Docker     |                                                         |
 +------------+---------------------------------------------------------+
-| Release    | `http                                                   |
-| 0.9.0.dev  | s://hub.docker.com/r/govready/govready-0.9.0.dev/ <http |
-| on Docker  | s://hub.docker.com/r/govready/govready-q-0.9.0.dev/>`__ |
+| Release    | https://hub.docker.com/r/govready/govready-0.9.0.dev/   |
+| 0.9.0.dev  |                                                         |
+| on Docker  |                                                         |
 +------------+---------------------------------------------------------+
 | Nightly    | https://hub.docker.com/r/govready/govready-q-nightly/   |
 | Build on   |                                                         |
@@ -34,9 +32,6 @@ Choose the Docker install guide that best fits your needs.
 +-------------------------------+---------------------------------------------------------------+
 | Docker (Unix) Advanced Config | :ref:`Advanced config <advanced_container_configuration>`     |
 +-------------------------------+---------------------------------------------------------------+
-| Docker GovReady+Wazuh (Unix)  | :ref:`Docker GovReady+Wazuh <govready-q_server_wazuh_docker>` |
-+-------------------------------+---------------------------------------------------------------+
-
 
 .. topic:: Contents
 

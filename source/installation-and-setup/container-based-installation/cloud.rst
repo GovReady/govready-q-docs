@@ -58,6 +58,7 @@ become available.
 Alternatively, you can use GovReady-Q's ``docker_container_run.sh`` script.
 
 .. code-block:: bash
+
     wget https://raw.githubusercontent.com/GovReady/govready-q/master/deployment/docker/docker_container_run.sh
     chmod +x docker_container_run.sh
 

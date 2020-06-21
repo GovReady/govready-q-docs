@@ -18,7 +18,8 @@ To install on a Linux-based server, refer to "Server-based Installation".
 
 .. topic:: Contents
 
-    .. toctree::
+   .. toctree::
+      :maxdepth: 2
 
       desktop-installation/index
       server-based-installation/index
