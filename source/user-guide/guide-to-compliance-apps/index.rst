@@ -1,9 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _user-guide:
-
-User Guide
-==========
+Guide to Compliance Apps
+========================
 
 .. meta::
   :description: TKTK - section description goes here.
@@ -15,4 +13,4 @@ User Guide
    .. toctree::
       :maxdepth: 1
 
-      guide-to-compliance-apps/index
+      understanding-compliance-apps
