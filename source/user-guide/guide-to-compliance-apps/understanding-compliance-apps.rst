@@ -8,7 +8,7 @@ operation including organizational processes.
 Compliance apps collect and assess information about one or more system
 components and translate that information to compliance documentation.
 
-.. figure:: assets/app_diagram.png
+.. figure:: /assets/app_diagram.png
    :alt: Apps map components to security/compliance controls
 
    Apps map components to security/compliance controls
@@ -44,7 +44,7 @@ whose answers are other apps.
 The below diagram depicts an exploded view of the relationships between
 a top level app to a component app to modules and questions.
 
-.. figure:: assets/app_exploded.png
+.. figure:: /assets/app_exploded.png
    :alt: “Top Level” compliance apps contain “component” compliance apps
    that contain modules and questions
 
@@ -103,7 +103,7 @@ The ``app.yaml`` file that exists in every app serves two purposes:
 
 The ``app.yaml`` file looks like this:
 
-.. figure:: assets/app_structure_sm.png
+.. figure:: /assets/app_structure_sm.png
    :alt: App structure
 
    App structure
@@ -267,7 +267,7 @@ be found located.
 The below screenshot of the ``AppSource`` module in the Django admin
 interfaces shows the JSON “spec” file.
 
-.. figure:: assets/appsources.png
+.. figure:: /assets/appsources.png
    :alt: Screenshot of AppSource from GovReady-Q Django admin interface
 
    Screenshot of AppSource from GovReady-Q Django admin interface
