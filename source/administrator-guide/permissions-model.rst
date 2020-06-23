@@ -1,5 +1,5 @@
-GovReady-Q Permissions Model
-============================
+Permissions Model
+=================
 
 This document describes the user permissions model in Q.
 
