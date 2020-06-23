@@ -41,12 +41,12 @@ apps modules.
 Technically speaking, a top level app is a module containing questions
 whose answers are other apps.
 
-The below diagram depicts an exploded view of the relationships between
+The diagram below depicts an exploded view of the relationships between
 a top level app to a component app to modules and questions.
 
 .. figure:: /assets/app_exploded.png
    :alt: “Top Level” compliance apps contain “component” compliance apps
-   that contain modules and questions
+      that contain modules and questions
 
    “Top Level” compliance apps contain “component” compliance apps that
    contain modules and questions
@@ -264,7 +264,7 @@ and private git repositories. And each source specifies a virtual
 filesystem from which one or more top level apps and compliance apps can
 be found located.
 
-The below screenshot of the ``AppSource`` module in the Django admin
+The screenshot below of the ``AppSource`` module in the Django admin
 interfaces shows the JSON “spec” file.
 
 .. figure:: /assets/appsources.png
