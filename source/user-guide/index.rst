@@ -15,4 +15,4 @@ User Guide
    .. toctree::
       :maxdepth: 1
 
-      guide-to-compliance-apps/index
+      compliance-apps/index

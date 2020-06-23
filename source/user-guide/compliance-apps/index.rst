@@ -1,7 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
-Guide to Compliance Apps
-========================
+Compliance Apps
+===============
 
 .. meta::
   :description: TKTK - section description goes here.
