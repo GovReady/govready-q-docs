@@ -14,3 +14,6 @@ Compliance Apps
       :maxdepth: 1
 
       understanding-compliance-apps
+      compliance-app-authoring-tutorial
+      app-sources
+      modules-questions-and-documents-yaml-reference
