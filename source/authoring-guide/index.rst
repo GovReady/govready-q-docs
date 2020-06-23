@@ -1,6 +1,8 @@
 .. Copyright (C) 2020 GovReady PBC
 
-Compliance Apps
+.. _authoring-guide:
+
+Authoring Guide
 ===============
 
 .. meta::

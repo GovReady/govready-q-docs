@@ -18,6 +18,7 @@ The code is open source, and `available on GitHub
    introduction
    features/index
    user-guide/index
+   authoring-guide/index
    administrator-guide/index
    installation-and-setup/index
    production-deployment-topics/index
