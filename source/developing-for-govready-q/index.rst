@@ -10,7 +10,7 @@ Developing for Govready-Q
 
 These pages cover topics related to working with the source of GovReady-Q.
 
-You may also want to refer to the "Installation and Setup" section of the guide, and either "Desktop Installation" or "Server-based Installation," depending on your development environment.
+You may also want to refer to the :ref:`Installation and Setup` section of the guide, and either :ref:`Desktop Installation` or :ref:`Server-based Installation`, depending on your development environment.
 
 .. topic:: Contents
 

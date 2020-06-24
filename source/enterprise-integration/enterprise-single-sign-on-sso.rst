@@ -62,6 +62,9 @@ including headers that normalize to the same Django key (in particular
 headers with underscores), from the client request and **does not permit
 an end-user to submit a fake (or “spoofed”) header value**.
 
-We have an example reverse proxy authentication server at
-https://github.com/GovReady/govready-q/tree/master/tools/simple_iam_proxy_server
-which can be used for debugging purposes.
+We have an example reverse proxy authentication server,
+`simple_iam_proxy_server
+<https://github.com/GovReady/govready-q/tree/master/tools/simple_iam_proxy_server>`__,
+which can be used for debugging purposes.  Some users have also
+reported success in using `mitmproxy <https://mitmproxy.org/>`__ for
+setting HTTP headers.

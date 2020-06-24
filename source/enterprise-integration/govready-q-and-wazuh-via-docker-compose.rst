@@ -10,13 +10,22 @@ together using Docker Compose to launch multiple containers.
 
 The containers that are run are:
 
-govready-q: The GovReady-Q server, that assists teams through the compliance process.
-wazuh: It runs the Wazuh manager, Wazuh API and Filebeat (for integration with Elastic Stack)
-wazuh-kibana: Provides a web user interface to browse through alerts data. It includes Wazuh plugin for Kibana, that allows you to visualize agents configuration and status.
-wazuh-nginx: Proxies the Kibana container, adding HTTPS (via self-signed SSL certificate) and Basic authentication.
-wazuh-elasticsearch: An Elasticsearch container (working as a single-node cluster) using Elastic Stack Docker images. Be aware to increase the vm.max_map_count setting, as it's detailed in the Wazuh documentation.
+govready-q
+  The GovReady-Q server, that assists teams through the compliance process.
 
-Use [Docker Compose](https://docs.docker.com/compose/) to manage the multi-container app.
+wazuh
+  It runs the Wazuh manager, Wazuh API and Filebeat (for integration with Elastic Stack)
+
+wazuh-kibana
+  Provides a web user interface to browse through alerts data. It includes Wazuh plugin for Kibana, that allows you to visualize agents configuration and status.
+
+wazuh-nginx
+  Proxies the Kibana container, adding HTTPS (via self-signed SSL certificate) and Basic authentication.
+
+wazuh-elasticsearch
+  An Elasticsearch container (working as a single-node cluster) using Elastic Stack Docker images. Be aware to increase the vm.max_map_count setting, as it's detailed in the Wazuh documentation.
+
+Use `Docker Compose <https://docs.docker.com/compose/>`__ to manage the multi-container app.
 
 Docker Compose commands are similar to, but different from, regular Docker commands.  Read the Docker Compose docs for more details.
 
@@ -66,5 +75,5 @@ You can check the status of the containers:
 docker-compose ps
 ```
 
-For additional information on wazuh containers, including configuration information, see: [https://github.com/wazuh/wazuh-docker](https://github.com/wazuh/wazuh-docker)
+For additional information on wazuh containers, including configuration information, see: https://github.com/wazuh/wazuh-docker.
 

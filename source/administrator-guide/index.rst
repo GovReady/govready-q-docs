@@ -10,6 +10,8 @@ Administrator Guide
 
 These pages describe topics for system administrators who need to manage GovReady-Q.
 
+Also see :ref:`Configuration with Environment Variables`.
+
 .. topic:: Contents
 
    .. toctree::
