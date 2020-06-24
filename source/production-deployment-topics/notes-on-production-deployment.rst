@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Notes on Production Deployment:
+
 Notes on Production Deployment
 ==============================
 
@@ -94,6 +96,8 @@ You should now be able to log into GovReady-Q using the user created in
 this section.
 
 You can also use the Django admin to create organizations.
+
+.. _Other Configuration Settings:
 
 Other Configuration Settings
 ----------------------------

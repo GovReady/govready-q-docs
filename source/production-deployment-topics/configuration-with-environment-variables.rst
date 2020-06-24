@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Configuration with Environment Variables:
+
 Configuration with Environment Variables
 ----------------------------------------
 
@@ -14,18 +16,16 @@ launching a container with GovReady-Q.
 -  ``admins``: used to configure a display point of contact
    “Administrator” on site and unrelated to the configuration of actual
    administrators configured in the database.
--  ``branding``: used for `custom branding`_.
--  ``db``: if supplied, this is the DB connection used. See `DB
-   configuration`_.
+-  ``branding``: used for :ref:`custom branding<Applying Custom Organization Branding>`.
+-  ``db``: if supplied, this is the DB connection used. See :ref:`Setting Up a Database for Production Workloads`.
 -  ``debug``: should be ``false`` or absent in production environments.
    If set to ``true``, turns on certain debug/development settings.
 -  ``email``: used to configure access to a mail server for sending and
    receiving email. Object has the following format:
    ``{"host": "smtp.server.com", "port": "587", "user": "...", "pw": "....",   "domain": "webserver.example.com"}``.
-   See `Configuring email`_ and `Other Configuration Settings`_. },.
+   See :ref:`Configuring email` and :ref:`Other Configuration Settings`.
 -  ``govready_cms_api_auth``: used to store API key to interact with
-   GovReady’s CMS agent and dashboard. Not relevant to most users. See
-   `GovReady-CMS-API`_.
+   GovReady’s CMS agent and dashboard. Not relevant to most users.
 -  ``govready-url``: this is the fully qualified URL that would appear
    in public URLS to navigate to the GovReady instance. This is the preferred parameter
    for determining settings related to 'http' or 'https', site root, and port.
@@ -34,7 +34,7 @@ launching a container with GovReady-Q.
    root-level GovReady-Q pages.
 -  ``https`` (deprecated): set to true to generate HTTPS headers and urls when site
    is running behind a proxy terminating HTTPS connections. See
-   `Configuring a Reverse Proxy Webserver for Production Use`_.
+   :ref:`Configuring a Reverse Proxy Webserver for Production Use`.
 -  ``mailgun_api_key``: used to hold API key for using mailgun to
    send/receive emails.
 -  ``memcached``: if setting is true, enable a memcached cache using the
@@ -64,7 +64,7 @@ launching a container with GovReady-Q.
 -  ``syslog``: used to set the host and port of a syslog-compatible log
    message sink. (Default: None.)
 -  ``trust-user-authentication-headers``: used to activate reverse proxy
-   authentication. See `Proxy Authentication Server`_.
+   authentication. See :ref:`Proxy Authentication Server`.
 
 Production Deployment Environment Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

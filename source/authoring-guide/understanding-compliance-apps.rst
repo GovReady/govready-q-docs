@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Understanding Compliance Apps:
+
 Understanding Compliance Apps
 =============================
 

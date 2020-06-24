@@ -1,6 +1,6 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _advanced_container_configuration:
+.. _Advanced Container Configuration Options:
 
 Advanced Container Configuration Options
 ========================================
@@ -137,6 +137,8 @@ where ``$DBHOST`` is the hostname of the database server,
 
 You can also use a MySQL or MariaDB server using the syntax
 ``mysql://USER:PASSWORD@HOST:PORT/NAME``.
+
+.. _Configuring email:
 
 Configuring email
 -----------------

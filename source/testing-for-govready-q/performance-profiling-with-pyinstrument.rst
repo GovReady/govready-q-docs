@@ -1,6 +1,6 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _performance_profiling_pyinstrument:
+.. _Performance Profiling with Pyinstrument:
 
 Performance Profiling with Pyinstrument
 =======================================

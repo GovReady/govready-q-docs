@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Modules, Questions, and Documents YAML Reference:
+
 Modules, Questions, and Documents YAML Reference
 ================================================
 

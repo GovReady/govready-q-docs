@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Code scanning and analysis:
+
 Code scanning and analysis
 ==========================
 

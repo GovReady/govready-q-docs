@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _How Tos and FAQs:
+
 How Tos and FAQs
 ================
 

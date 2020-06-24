@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Setting Up a Database for Production Workloads:
+
 Setting Up a Database for Production Workloads
 ==============================================
 

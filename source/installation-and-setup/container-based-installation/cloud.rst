@@ -1,6 +1,6 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _govready-q_server_docker_cloud:
+.. _Docker Cloud:
 
 Docker Cloud
 =============

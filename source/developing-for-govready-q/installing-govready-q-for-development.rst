@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Installing GovReady-Q for Development:
+
 Installing GovReady-Q for Development
 =====================================
 

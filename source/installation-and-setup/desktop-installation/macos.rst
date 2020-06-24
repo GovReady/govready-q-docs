@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _macOS from sources:
+
 macOS from sources
 ==================
 

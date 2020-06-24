@@ -11,6 +11,8 @@
 
    </style>
 
+.. _Version 0.9.x:
+
 Version 0.9.x
 =============
 

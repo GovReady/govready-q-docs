@@ -1,6 +1,6 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _system_settings:
+.. _System Settings:
 
 System Settings
 ---------------

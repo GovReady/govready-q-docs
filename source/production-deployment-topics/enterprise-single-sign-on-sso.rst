@@ -1,7 +1,11 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Enterprise Single Sign-On (SSO):
+
 Enterprise Single Sign-On (SSO)
 -------------------------------
+
+.. _Proxy Authentication Server:
 
 Proxy Authentication Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

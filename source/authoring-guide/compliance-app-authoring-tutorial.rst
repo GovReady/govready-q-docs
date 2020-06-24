@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Compliance App Authoring Tutorial:
+
 Compliance App Authoring Tutorial
 =================================
 

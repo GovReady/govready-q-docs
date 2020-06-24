@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Generating Detailed Data Models:
+
 Generating Detailed Data Models
 ===============================
 

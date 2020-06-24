@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Supply chain and dependency management:
+
 Supply chain and dependency management
 ======================================
 

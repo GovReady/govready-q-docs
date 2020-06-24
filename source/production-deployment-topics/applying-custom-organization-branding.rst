@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Applying Custom Organization Branding:
+
 Applying Custom Organization Branding
 =====================================
 

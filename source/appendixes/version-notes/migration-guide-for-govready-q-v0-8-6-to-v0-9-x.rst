@@ -3,6 +3,8 @@
 .. role:: raw-html-m2r(raw)
    :format: html
 
+.. _Migration Guide for GovReady-Q v0.8.6 to v0.9.x:
+
 Migration Guide for GovReady-Q v0.8.6 to v0.9.x
 ===============================================
 
