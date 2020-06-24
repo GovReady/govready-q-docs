@@ -12,6 +12,7 @@ Developing for Govready-Q
 
 .. topic:: Contents
 
-    .. toctree::
-        :maxdepth: 1
+   .. toctree::
+      :maxdepth: 1
 
+      installing-govready-q-for-development
