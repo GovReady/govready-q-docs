@@ -1,3 +1,5 @@
+.. Copyright (C) 2020 GovReady PBC
+
 Compliance App Authoring Tutorial
 =================================
 

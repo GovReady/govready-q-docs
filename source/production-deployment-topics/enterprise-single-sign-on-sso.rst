@@ -1,3 +1,5 @@
+.. Copyright (C) 2020 GovReady PBC
+
 Enterprise Single Sign-On (SSO)
 -------------------------------
 

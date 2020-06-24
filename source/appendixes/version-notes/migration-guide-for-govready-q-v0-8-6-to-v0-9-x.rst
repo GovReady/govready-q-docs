@@ -1,3 +1,5 @@
+.. Copyright (C) 2020 GovReady PBC
+
 .. role:: raw-html-m2r(raw)
    :format: html
 

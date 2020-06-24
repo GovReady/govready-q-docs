@@ -1,3 +1,5 @@
+.. Copyright (C) 2020 GovReady PBC
+
 Modules, Questions, and Documents YAML Reference
 ================================================
 

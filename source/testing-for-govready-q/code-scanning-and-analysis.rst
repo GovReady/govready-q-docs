@@ -1,3 +1,5 @@
+.. Copyright (C) 2020 GovReady PBC
+
 Code scanning and analysis
 ==========================
 

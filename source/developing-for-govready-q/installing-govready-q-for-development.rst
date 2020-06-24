@@ -1,3 +1,5 @@
+.. Copyright (C) 2020 GovReady PBC
+
 Installing GovReady-Q for Development
 =====================================
 

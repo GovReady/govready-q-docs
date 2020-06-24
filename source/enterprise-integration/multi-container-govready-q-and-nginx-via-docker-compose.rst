@@ -1,3 +1,5 @@
+.. Copyright (C) 2020 GovReady PBC
+
 Multi-Container GovReady-Q and NGINX via Docker Compose
 =======================================================
 

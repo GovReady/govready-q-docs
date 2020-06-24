@@ -1,3 +1,5 @@
+.. Copyright (C) 2020 GovReady PBC
+
 Populating sample data for testing and verification
 ===================================================
 
