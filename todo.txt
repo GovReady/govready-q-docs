@@ -1,2 +1,3 @@
 * in 'user-guide', rename images with subject-based names instead of numeric-based names
 * fix markup warnings in appendixes/version-notes/version-0-9-x.rst
+* consider adding index entries for genindex - see https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-index
