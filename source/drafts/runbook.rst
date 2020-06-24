@@ -187,7 +187,7 @@ Shippable - BuildKite - Semaphore - SnapCI
    `blog/tutorial <https://blog.pivotal.io/pivotal-cloud-foundry/products/continuous-deployment-from-github-to-pws-via-concourse>`__
 -  [ ] Write a test harness
 
- Logging/Monitoring/Metrics
+Logging/Monitoring/Metrics
 --------------------------
 
 PWS has some primitives to help.
