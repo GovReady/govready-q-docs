@@ -17,7 +17,7 @@ The code is open source, and `available on GitHub
    GovReady-Q is in Beta. Suggested for DevSecOps early adopters needing Compliance-as-Code.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    introduction
@@ -32,11 +32,3 @@ The code is open source, and `available on GitHub
    developing-for-govready-q/index
    testing-for-govready-q/index
    appendixes/index
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
