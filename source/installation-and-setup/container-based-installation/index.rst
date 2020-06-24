@@ -28,16 +28,6 @@ GovReady publishes an official GovReady-Q server Docker image based on Ubuntu Li
 
 Choose the Docker install guide that best fits your needs.
 
-+-------------------------------+---------------------------------------------------------------+
-| Install                       | Guide                                                         |
-+===============================+===============================================================+
-| Docker (Unix) Local           | :ref:`Docker Local <govready-q_server_docker_local>`          |
-+-------------------------------+---------------------------------------------------------------+
-| Docker (Unix) Cloud           | :ref:`Docker Cloud <govready-q_server_docker_cloud>`          |
-+-------------------------------+---------------------------------------------------------------+
-| Docker (Unix) Advanced Config | :ref:`Advanced config <advanced_container_configuration>`     |
-+-------------------------------+---------------------------------------------------------------+
-
 .. topic:: Contents
 
     .. toctree::

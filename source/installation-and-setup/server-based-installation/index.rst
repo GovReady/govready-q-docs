@@ -14,17 +14,7 @@ The primary differences between OS installations are package names and the OS's 
 
 Once the required OS packages have been installed, installing GovReady-Q server is identical.
 
-Consult the table below and choose how to proceed:
-
-+-----------------+------------------------------------------------------+
-| Install         | Guide                                                |
-+=================+======================================================+
-| CentOS / RHEL 7 | :ref:`CentOS/RHEL 7 <CentOS / RHEL 7 from sources>`  |
-+-----------------+------------------------------------------------------+
-| CentOS / RHEL 8 | :ref:`CentOS/RHEL 8 <CentOS / RHEL 8 from sources>`  |
-+-----------------+------------------------------------------------------+
-| Ubuntu          | :ref:`Ubuntu 18.04 or greater <Ubuntu from sources>` |
-+-----------------+------------------------------------------------------+
+Choose the install guide that best fits your needs.
 
 .. topic:: Contents
 
