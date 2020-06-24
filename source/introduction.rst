@@ -104,8 +104,8 @@ Alerts <http://eepurl.com/dsi9YL>`__.
 Reporting Bugs & Issues
 -----------------------
 
-Please file bug reports on our `GitHub
-issue <https://github.com/GovReady/govready-q/issues>`__. When reporting
+Please file bug reports on the `GovReady-Q
+issue tracker <https://github.com/GovReady/govready-q/issues>`__. When reporting
 a bug, please include as much information as possible. This includes:
 
 -  Install type: Hosted, Local, Docker, etc
