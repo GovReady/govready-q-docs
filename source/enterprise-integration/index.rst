@@ -15,6 +15,7 @@ Enterprise Integration
    .. toctree::
       :maxdepth: 1
 
+      logs-and-log-management
       automation-api
       govready-q-and-wazuh-via-docker-compose
-      logs-and-log-management
+      multi-container-govready-q-and-nginx-via-docker-compose
