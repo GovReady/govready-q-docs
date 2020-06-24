@@ -17,7 +17,8 @@ to production deployments.
       :maxdepth: 1
 
       configuration-with-environment-variables
-      applying-custom-organization-branding.rst
-      setting-up-a-database-for-production-workloads.rst
-      configuring-a-reverse-proxy-webserver-for-production-use.rst
-      enterprise-single-sign-on-sso.rst
+      applying-custom-organization-branding
+      setting-up-a-database-for-production-workloads
+      configuring-a-reverse-proxy-webserver-for-production-use
+      enterprise-single-sign-on-sso
+      notes-on-production-deployment
