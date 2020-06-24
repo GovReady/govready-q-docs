@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Server-based Installation:
+
 Server-based Installation
 =========================
 
@@ -14,15 +16,15 @@ Once the required OS packages have been installed, installing GovReady-Q server 
 
 Consult the table below and choose how to proceed:
 
-+-------------------------------+-------------------------------------------------------------------+
-| Install                       | Guide                                                             |
-+===============================+===================================================================+
-| CentOS / RHEL 7               | :ref:`CentOS/RHEL 7 <govready-q_server_sources_centos_rhel_7>`    |
-+-------------------------------+-------------------------------------------------------------------+
-| CentOS / RHEL 8               | :ref:`CentOS/RHEL 8 <govready-q_server_sources_centos_rhel_8>`    |
-+-------------------------------+-------------------------------------------------------------------+
-| Ubuntu                        | :ref:`Ubuntu 18.04 or greater <govready-q_server_sources_ubuntu>` |
-+-------------------------------+-------------------------------------------------------------------+
++-----------------+------------------------------------------------------+
+| Install         | Guide                                                |
++=================+======================================================+
+| CentOS / RHEL 7 | :ref:`CentOS/RHEL 7 <CentOS / RHEL 7 from sources>`  |
++-----------------+------------------------------------------------------+
+| CentOS / RHEL 8 | :ref:`CentOS/RHEL 8 <CentOS / RHEL 8 from sources>`  |
++-----------------+------------------------------------------------------+
+| Ubuntu          | :ref:`Ubuntu 18.04 or greater <Ubuntu from sources>` |
++-----------------+------------------------------------------------------+
 
 .. topic:: Contents
 

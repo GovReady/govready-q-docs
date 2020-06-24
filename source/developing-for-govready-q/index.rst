@@ -1,6 +1,6 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _developing-for-govready-q:
+.. _Developing for Govready-Q:
 
 Developing for Govready-Q
 =========================

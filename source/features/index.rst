@@ -1,6 +1,6 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _features:
+.. _Features:
 
 Features
 ========

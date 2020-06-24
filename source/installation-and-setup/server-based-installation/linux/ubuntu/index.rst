@@ -1,6 +1,6 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _govready-q_server_sources_ubuntu:
+.. _Ubuntu from sources:
 
 Ubuntu from sources
 ===================

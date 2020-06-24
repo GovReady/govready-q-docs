@@ -1,6 +1,6 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _administrator-guide:
+.. _Administrator Guide:
 
 Administrator Guide
 ===================

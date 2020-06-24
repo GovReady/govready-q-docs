@@ -1,6 +1,6 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _authoring-guide:
+.. _Authoring Guide:
 
 Authoring Guide
 ===============

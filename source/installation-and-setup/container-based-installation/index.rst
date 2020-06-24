@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Container-based Installation:
+
 Container-based Installation
 ============================
 

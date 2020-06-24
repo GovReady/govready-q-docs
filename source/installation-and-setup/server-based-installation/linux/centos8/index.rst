@@ -1,6 +1,6 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _govready-q_server_sources_centos_rhel_8:
+.. _CentOS / RHEL 8 from sources:
 
 CentOS / RHEL 8 from sources
 ============================

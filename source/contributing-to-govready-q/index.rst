@@ -1,6 +1,6 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _contributing-to-govready-q:
+.. _Contributing to Govready-Q:
 
 Contributing to GovReady-Q
 ==========================

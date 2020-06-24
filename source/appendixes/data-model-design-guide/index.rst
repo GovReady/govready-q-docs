@@ -1,5 +1,7 @@
 .. Copyright (C) 2020 GovReady PBC
 
+.. _Data Model Design Guide:
+
 Data Model Design Guide
 =======================
 
