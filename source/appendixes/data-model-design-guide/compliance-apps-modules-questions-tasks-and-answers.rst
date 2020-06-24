@@ -48,8 +48,8 @@ Compliance Apps (Questions, Business Logic, and Templates)
 ----------------------------------------------------------
 
 The smallest unit of a compliance app is a ``Question``. Questions come
-in different types, such as text, number, and date (`full
-list <Schema.html>`__). Questions are grouped into questionnaires called
+in different types, such as text, number, and date (:ref:`full
+list <Questions>`). Questions are grouped into questionnaires called
 ``Modules``. And Modules are grouped into ``AppVersion``, which are the
 versions of a compliance app that are loaded into the GovReady-Q
 database. AppVersions are loaded from AppSources, which define how to
@@ -86,7 +86,7 @@ published by GovReady PBC and a second AppSource for providing
 compliance apps defined by the organization. Each AppSource defines the
 remote location as well as local permissions such as which compliance
 apps in the store to make available to GovReady-Q users and
-Organizations. See `App Sources <AppSources.html>`__ for more
+Organizations. See :ref:`App Sources` for more
 information.
 
 Each time a compliance app is started by a user, an ``AppSource`` is

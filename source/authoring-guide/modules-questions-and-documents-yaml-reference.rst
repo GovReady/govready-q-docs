@@ -376,6 +376,8 @@ for internal use during module development.
 Place private assets in a ``private-assets`` subdirectory next to the
 module YAML file.
 
+.. _Questions:
+
 Questions
 ---------
 

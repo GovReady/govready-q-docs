@@ -319,7 +319,7 @@ Create the ``local/environment.json`` file with appropriate parameters. (Order o
          "secret-key": "long_random_string_here"
       }
 
-   See `Environment Settings <Environment.html>`__ for a complete list of configuration options.
+   See :ref:`Configuration with Environment Variables` for a complete list of configuration options.
 
 5. Installing GovReady-Q
 ------------------------

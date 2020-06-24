@@ -63,7 +63,7 @@ Starting the Docker container
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Next download GovReady’s
-`docker_container_run.sh <docker_container_run.sh>`__ script. This
+:ref:`docker_container_run.sh <The docker_container_run.sh script>` script. This
 script simplifies passing various settings to create and configure the
 ``govready-q`` docker container that we will use for local development.
 
@@ -72,8 +72,8 @@ script simplifies passing various settings to create and configure the
    wget https://raw.githubusercontent.com/GovReady/govready-q/master/deployment/docker/docker_container_run.sh
    chmod +x docker_container_run.sh
 
-``docker_container_run.sh`` supports a variety of `advanced
-configuration settings <README.md#advanced-configuration>`__ via command
+``docker_container_run.sh`` supports a variety of :ref:`advanced
+configuration settings <Advanced Container Configuration Options>` via command
 line parameters. The ones we care about for developing compliance apps
 are:
 
@@ -236,7 +236,7 @@ The development directory on the workstation now holds:
    └── docker_container_run.sh
 
 (More information about the structure of the app directory can be found
-in `Understanding Compliance Apps <Apps.html>`__.)
+in :ref:`Understanding Compliance Apps`.)
 
 Editing app catalog metadata
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -399,7 +399,7 @@ Your changes are now seen in your browser.
    The revised question
 
 More information about the file format of modules can be found in
-`Modules, Questions, and Documents <Schema.html>`__.
+:ref:`Modules, Questions, and Documents YAML Reference`.
 
 Step 5: Edit a compliance app using GovReady-Q’s authoring tools
 ----------------------------------------------------------------
@@ -548,7 +548,7 @@ As with local development, the production system’s compliance app
 catalog may be cached. To see new apps, restart the production instance
 of GovReady-Q.
 
-See `App Sources <AppSources.html>`__ for more information about how to
+See :ref:`App Sources` for more information about how to
 configure your production instance of GovReady-Q to load apps from local
 filesystem directories, git repositories (including on-prem git
 repositories), or GitHub.

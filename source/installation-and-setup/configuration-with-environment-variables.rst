@@ -104,9 +104,9 @@ the proxy to your ``local/environment.json``, e.g.:
    }
 
 GovReady-Q must be run at a private address that cannot be accessed
-except through the proxy server. The proxy server must be configured to
-proxy to GovReady-Q’s private address. See `Enterprise Single-Sign On /
-Login`_ for additional details.
+except through the proxy server. The proxy server must be configured
+to proxy to GovReady-Q’s private address. See :ref:`Enterprise Single
+Sign-On (SSO)` for additional details.
 
 PDF and Image Generation Environment Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -147,7 +147,4 @@ You may override the templates and stylesheets that are used for
 GovReady-Q’s branding by adding a new key named ``branding`` that is the
 name of an installed Django app Python module (i.e. created using
 ``manage.py startapp``) that holds templates and static files. See
-`Applying Custom Organization Branding`_.
-
-.. _Enterprise Single-Sign On / Login: enterprise_sso.html
-.. _Applying Custom Organization Branding: CustomBranding.html
+:ref:`Applying Custom Organization Branding`.

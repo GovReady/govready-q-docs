@@ -26,3 +26,4 @@ To install on a Linux-based server, refer to :ref:`Server-based Installation`.
       desktop-installation/index
       server-based-installation/index
       container-based-installation/index
+      configuration-with-environment-variables

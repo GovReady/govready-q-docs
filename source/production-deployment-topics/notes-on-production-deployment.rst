@@ -23,8 +23,8 @@ default).
    cd /home/govready-q/govready-q/ && python3 manage.py runserver
 
 If GovReady-Q is installed successfully, proceed with the rest of these
-configuration instructions. If it doesn’t, see `OS-specific install
-instructions <deploy_all.html>`__.
+configuration instructions. If it doesn’t, see OS-specific install
+instructions in :ref:`Installation and Setup`.
 
 Set basic configuration variables
 ---------------------------------
@@ -72,16 +72,14 @@ Setting up the Database Server
 For production deployment, it is recommended to use dedicated database
 software, rather than SQLite.
 
-The recommended database is PostgreSQL - see `instructions on setting up
-Q with PostgreSQL <configure_db.html>`__
+The recommended database is PostgreSQL - see :ref:`Setting Up a Database for Production Workloads`.
 
 Setting up a Webserver
 ----------------------
 
 It’s recommended to run a dedicated webserver software, such as Apache
-or Nginx, as a reverse proxy in front of the Q application (running
-through uWSGI). To read how to do this, see `instructions on setting up
-Q with a reverse proxy webserver <configure_webserver.html>`__.
+or NGINX, as a reverse proxy in front of the Q application (running
+through uWSGI). To read how to do this, see :ref:`Configuring a Reverse Proxy Webserver for Production Use`.
 
 Creating the First User
 -----------------------

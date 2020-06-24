@@ -17,8 +17,8 @@ the main GovReady-Q directory, and an application setting is used to
 activate it.
 
 Before setting out to create custom branding, make sure you have
-GovReady-Q `set up for development on your
-workstation <deploy_local_dev.html>`__. You’ll need a working setup of
+GovReady-Q :ref:`set up for development on your
+workstation <Developing for Govready-Q>`. You’ll need a working setup of
 GovReady-Q to create the branding directory and to test your changes.
 
 Creating the branding directory
@@ -56,7 +56,7 @@ custom branding package directory.
 
      "branding": "sample_branding",
 
-See `Environment Settings <Environment.html>`__ for more information
+See :ref:`Configuration with Environment Variables` for more information
 about the ``local/environment.json`` file. Note that for the file to be
 valid JSON the last setting cannot have a trailing comma.
 
@@ -85,8 +85,8 @@ At the bottom of the file, add some custom HTML, such as:
      <b>Welcome to my organization&rsquo;s custom site!</b>
    </div>
 
-Start GovReady-Q on your workstation (see the `development
-docs <deploy_local_dev.html>`__) and visit a page. You should see your
+Start GovReady-Q on your workstation (see the :ref:`development
+docs <Developing for Govready-Q>`) and visit a page. You should see your
 new content below the navbar at the top of every page.
 
 Adding custom CSS
@@ -250,5 +250,4 @@ Once GovReady-Q is running in the container, visit it at
 ``http://localhost:8000``. Use CTRL+C in the console to terminate and
 destroy the test container running your image.
 
-For more about running GovReady-Q with Docker, see `Deploying with
-Docker <deploy_docker.html>`__.
+For more about running GovReady-Q with Docker, see ref:`Container-based Installation`.

@@ -149,8 +149,7 @@ Upgrading to 0.9.x from 0.8.x
 **Backup your database before upgrading to 0.9.x. Release 0.9.x performs
 database changes that makes rolling back difficult.**
 
-See `Migration Guide for GovReady-Q (0.8.6 to
-0.9.x) <migration_guide_086_09x.md>`__.
+See :ref:`Migration Guide for GovReady-Q v0.8.6 to v0.9.x`.
 
 .. _upgrading-to-0.9.x-from-0.8.x-1:
 
@@ -160,8 +159,7 @@ Upgrading to 0.9.x from 0.8.x
 **Backup your database before upgrading to 0.9.x. Release 0.9.x performs
 database changes that makes rolling back difficult.**
 
-See `Migration Guide for GovReady-Q (0.8.6 to
-0.9.x) <migration_guide_086_09x.html>`__.
+See :ref:`Migration Guide for GovReady-Q v0.8.6 to v0.9.x`.
 
 Adding and Managing “Compliance Apps” in 0.9.x
 ----------------------------------------------

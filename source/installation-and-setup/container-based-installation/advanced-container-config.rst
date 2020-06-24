@@ -8,6 +8,8 @@ Advanced Container Configuration Options
 Deploying GovReady-Q's advanced configuration options supports a variety of architectures
 for enterprise deployments.
 
+.. _The docker_container_run.sh script:
+
 The docker_container_run.sh script
 ----------------------------------
 
@@ -454,15 +456,13 @@ environment variable to the name of an installed Django app Python
 module (i.e. created using ``manage.py startapp``) that holds templates
 and static files. No such app is provided in the GovReady-Q published
 Docker image, so this variable can only be used by downstream image
-maintainers. See `Applying Custom Organization
-Branding <CustomBranding.html>`__.
+maintainers. See :ref:`Applying Custom Organization Branding`.
 
 ``PROXY_AUTHENTICATION_USER_HEADER`` and
 ``PROXY_AUTHENTICATION_EMAIL_HEADER``: GovReady-Q can be deployed behind
 a reverse proxy that authenticates users and passes the authenticated
 user’s username and email address in HTTP headers. These environment
-variables correspond to the settings documented in `Enterprise
-Login <Environment.html#proxy-authentication-server>`__.
+variables correspond to the settings documented in :ref:`Proxy Authentication Server`.
 
 Running tests
 -------------
@@ -508,8 +508,8 @@ image, run the following command (after ``first_run`` has completed):
    docker container exec -it govready-q add_data --non-interactive
 
 This will run a quickstart command to generate data in your GovReady-Q
-instance, as described in more detail in the
-`Testing <Test.html#populating-sample-data-for-manual-testing-and-verification>`__
+instance, as described in more detail in the :ref:`Quickstart`
+section and :ref:`Populating sample data for testing and verification`
 section of this documentation.
 
 

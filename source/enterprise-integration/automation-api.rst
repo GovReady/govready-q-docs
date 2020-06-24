@@ -22,8 +22,8 @@ and JSON for request and response data.
 Each GovReady Compliance App provides a separate API, and each app’s API
 is composed of fields for the same information the app would ask an
 end-user using the Q website in a web browser. The app’s definition of
-questions to ask the end user (see `Modules, Questions, and
-Documents <Schema.html>`__) also define the data model of the API.
+questions to ask the end user (see :ref:`Questions`) also define the
+data model of the API.
 
 As an example, the screenshot below shows a demonstration of a macOS
 File Server compliance app. The app asks questions about the hostname of
@@ -269,5 +269,5 @@ name. These fields cannot be used in the POST API.
 
 Datagrid fields appear in human-readable form as tabular data.
 
-More information about Q’s data types can be found in `Modules,
-Questions, and Documents <Schema.html>`__.
+More information about Q’s data types can be found in :ref:`Modules,
+Questions, and Documents YAML Reference`.

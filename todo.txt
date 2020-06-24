@@ -1,3 +1,2 @@
-* fix internal links
-* look for TKTK markers
 * create initial style guide for new docs (conventions for file naming, links, toctree depths, etc.)
+* fix markup warnings in appendixes/version-notes/version-0-9-x.rst

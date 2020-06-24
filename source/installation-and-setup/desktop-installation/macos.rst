@@ -128,8 +128,8 @@ Creating “environment.json” configuration file
 
 GovReady uses a configuration file stored at ``local/environment.json``.
 
-See `Environment Settings <Environment.html>`__ for a complete list of variables you can
-configure.
+See ref:`Configuration with Environment Variables` for a complete list
+of variables you can configure.
 
 Create a file there and include values like these:
 

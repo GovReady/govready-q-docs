@@ -194,7 +194,7 @@ Advanced configuration options
 The GovReady-Q server container supports many advanced configuration options
 for production deployments.
 
-See the next section `Advanced container configuration <advanced-container-config.html>`__  for further details.
+See the next section :ref:`Advanced Container Configuration Examples`  for further details.
 
 .. topic:: Next
 
