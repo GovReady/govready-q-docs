@@ -15,5 +15,6 @@ These pages describe topics for system administrators who need to manage GovRead
    .. toctree::
       :maxdepth: 1
 
+      system-settings
       permissions-model
       system-requirements
