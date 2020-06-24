@@ -18,7 +18,7 @@ The code is open source, and `available on GitHub
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :caption: Contents
 
    introduction
    features/index
