@@ -6,7 +6,7 @@ Desktop Installation
 ====================
 
 .. meta::
-  :description: TKTK - section description goes here.
+  :description: Installing GovReady-Q on your desktop or laptop is a good way to give it a try.
 
 Installing GovReady-Q on your desktop or laptop is a good way to give it a try.  The installation runs a local, Python-based web server.  You make local connections to GovReady-Q through your web browser.
 

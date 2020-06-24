@@ -6,9 +6,12 @@ User Guide
 ==========
 
 .. meta::
-  :description: TKTK - section description goes here.
+  :description: These pages describe how to use GovReady-Q.
 
-(Section preamble goes here, subsection refs go in toctree below.)
+These pages describe how to use GovReady-Q.
+
+.. note:
+   This section is still under development.
 
 .. topic:: Contents
 

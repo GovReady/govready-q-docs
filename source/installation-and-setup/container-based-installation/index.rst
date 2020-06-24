@@ -3,6 +3,9 @@
 Container-based Installation
 ============================
 
+.. meta::
+  :description: GovReady publishes an official GovReady-Q server Docker image based on Ubuntu Linux.
+
 GovReady publishes an official GovReady-Q server Docker image based on Ubuntu Linux.
 
 +------------+---------------------------------------------------------+

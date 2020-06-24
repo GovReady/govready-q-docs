@@ -6,9 +6,9 @@ Administrator Guide
 ===================
 
 .. meta::
-  :description: TKTK - section description goes here.
+  :description: These pages describe topics for system administrators who need to manage GovReady-Q.
 
-(Section preamble goes here, subsection refs go in toctree below.)
+These pages describe topics for system administrators who need to manage GovReady-Q.
 
 .. topic:: Contents
 

@@ -5,6 +5,9 @@
 CentOS / RHEL 7 from sources
 ============================
 
+.. meta::
+  :description: This guide describes how to install the GovReady-Q server for CentOS 7 or greater from source code.
+
 This guide describes how to install the GovReady-Q server for CentOS 7 or greater from source code.
 This guide will take you through the following steps:
 

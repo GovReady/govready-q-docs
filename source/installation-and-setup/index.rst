@@ -4,7 +4,7 @@ Installation and Setup
 ======================
 
 .. meta::
-  :description: Read this guide to know how to install GovReady.
+  :description: This document will guide you through the GovReady-Q installation process.
 
 This document will guide you through the GovReady-Q installation process.
 

@@ -6,9 +6,12 @@ Contributing to GovReady-Q
 ==========================
 
 .. meta::
-  :description: TKTK - section description goes here.
+  :description: These pages describe how to contribute to GovReady-Q.
 
-(Section preamble goes here, subsection refs go in toctree below.)
+These pages describe how to contribute to GovReady-Q.
+
+.. note:
+   This section is still under development.
 
 .. topic:: Contents
 

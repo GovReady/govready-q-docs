@@ -6,7 +6,7 @@ Features
 ========
 
 .. meta::
-  :description: TKTK - section description goes here.
+  :description: Features of GovReady-Q
 
 Feature Overview
 ----------------
@@ -21,9 +21,4 @@ Feature Overview
    agents
 -  Innovative, reusable “Compliance Apps” model
 -  Friendly Open Source license so you can start now
-
-.. topic:: Contents
-
-    .. toctree::
-        :maxdepth: 1
 

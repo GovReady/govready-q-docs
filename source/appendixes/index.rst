@@ -6,9 +6,9 @@ Appendixes
 ==========
 
 .. meta::
-  :description: TKTK - section description goes here.
+  :description: This section contains useful reference materials.
 
-(Section preamble goes here, subsection refs go in toctree below.)
+This section contains useful reference materials.
 
 .. topic:: Contents
 

@@ -3,6 +3,9 @@
 Server-based Installation
 =========================
 
+.. meta::
+  :description: The GovReady-Q server can be installed on any Unix-like operating system. It is most commonly installed on Linux.
+
 The GovReady-Q server can be installed on any Unix-like operating system. It is most commonly installed on Linux.
 
 The primary differences between OS installations are package names and the OS's install package command.

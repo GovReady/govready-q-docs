@@ -1,5 +1,10 @@
+.. Copyright (C) 2020 GovReady PBC
+
 GovReady-Q Documentation
 ========================
+
+.. meta::
+  :description: Documentation for the GovReady-Q Compliance Server.
 
 The GovReady-Q Compliance Server is an open source GRC platform for highly automated, user-friendly, self-service compliance assessments and documentation. It's perfect for DevSecOps.
 

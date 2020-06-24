@@ -6,9 +6,9 @@ Enterprise Integration
 ======================
 
 .. meta::
-  :description: TKTK - section description goes here.
+  :description: These pages cover topics related to integration within an enterprise environment and DevSecOps.
 
-(Section preamble goes here, subsection refs go in toctree below.)
+These pages cover topics related to integration within an enterprise environment and DevSecOps.
 
 .. topic:: Contents
 

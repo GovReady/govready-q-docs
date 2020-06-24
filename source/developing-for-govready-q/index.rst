@@ -6,9 +6,11 @@ Developing for Govready-Q
 =========================
 
 .. meta::
-  :description: TKTK - section description goes here.
+  :description: These pages cover topics related to working with the source of GovReady-Q.
 
-(Section preamble goes here, subsection refs go in toctree below.)
+These pages cover topics related to working with the source of GovReady-Q.
+
+You may also want to refer to the "Installation and Setup" section of the guide, and either "Desktop Installation" or "Server-based Installation," depending on your development environment.
 
 .. topic:: Contents
 

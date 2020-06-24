@@ -6,7 +6,7 @@ Production Deployment Topics
 ============================
 
 .. meta::
-  :description: TKTK - section description goes here.
+  :description: In these pages, we cover advanced topics, particularly those related to production deployments.
 
 In these pages, we cover advanced topics, particularly those related
 to production deployments.

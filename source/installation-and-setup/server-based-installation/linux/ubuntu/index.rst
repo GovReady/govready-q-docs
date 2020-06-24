@@ -5,6 +5,9 @@
 Ubuntu from sources
 ===================
 
+.. meta::
+  :description: This guide describes how to install the GovReady-Q server for Ubuntu 16.04 or greater from source code.
+
 This guide describes how to install the GovReady-Q server for Ubuntu 16.04 or greater from source code.
 This guide will take you through the following steps:
 

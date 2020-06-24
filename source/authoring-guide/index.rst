@@ -6,9 +6,9 @@ Authoring Guide
 ===============
 
 .. meta::
-  :description: TKTK - section description goes here.
+  :description: These pages describe how to author compliance apps within GovReady-Q.
 
-(Section preamble goes here, subsection refs go in toctree below.)
+These pages describe how to author compliance apps within GovReady-Q.
 
 .. topic:: Contents
 
