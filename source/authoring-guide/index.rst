@@ -19,3 +19,4 @@ Authoring Guide
       compliance-app-authoring-tutorial
       app-sources
       modules-questions-and-documents-yaml-reference
+      control-reference
