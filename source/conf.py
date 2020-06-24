@@ -29,9 +29,9 @@ author = 'Josh Tauberer, Greg Elin, Peter Kaminski, Ethan Kaminski'
 github_doc_root = 'https://github.com/GovReady/govready-q/tree/master/docs'
 
 # The short X.Y version
-version = 'v0.9.1.22.13'
+version = 'v0.9'
 # The full version, including alpha/beta/rc tags
-release = 'v0.9.1.22.13'
+release = 'v0.9.1.25'
 
 
 # -- General configuration ---------------------------------------------------
