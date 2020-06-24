@@ -18,4 +18,4 @@ These pages describe how to use GovReady-Q.
    .. toctree::
       :maxdepth: 1
 
-
+      user-guide
