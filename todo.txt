@@ -1,8 +1,3 @@
-* sync any docs changes made to main repo after commit 3fa9a6dbd3fb640fe1ccea7e619676898bba057a
-* regularize toctree (and other) indentation, see https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html#whitespaces
-* decide on toctree maxdepth style and implement
 * fix internal links
-* make stubs for new RST files that are needed, make tickets to flesh out
 * look for TKTK markers
-* fix structure of installation-guide tree as needed to fit style guide
 * create initial style guide for new docs (conventions for file naming, links, toctree depths, etc.)
