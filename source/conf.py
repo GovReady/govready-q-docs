@@ -23,7 +23,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'GovReady-Q Compliance Server'
-copyright = '2019, 2020, GovReady PBC'
+copyright = '2016-2020, GovReady PBC'
 author = 'Josh Tauberer, Greg Elin, Peter Kaminski, Ethan Kaminski'
 
 github_doc_root = 'https://github.com/GovReady/govready-q/tree/master/docs'
