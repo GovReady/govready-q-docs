@@ -79,7 +79,7 @@ Clone the GovReady-Q repository from GitHub into the desired directory on your U
    cd /opt
 
    # Clone GovReady-Q
-   git clone https://github.com/govready/govready-q /path/to/govready-q
+   git clone https://github.com/govready/govready-q
    cd govready-q
 
    # GovReady-Q files are now installed in /opt/govready-q and owned by root
