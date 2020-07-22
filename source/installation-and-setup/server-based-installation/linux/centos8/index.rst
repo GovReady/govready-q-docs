@@ -51,7 +51,7 @@ provide full functionality. Execute the following commands as root:
    pip install supervisor
    dnf install nginx
 
-   # To generate thumbnails and PDFs for export, you must install wkhtmltopdf
+   # To optionally generate thumbnails and PDFs for export, you must install wkhtmltopdf
    # WARNING: wkhtmltopdf can expose you to security risks. For more information,
    # search the web for "wkhtmltopdf Server-Side Request Forgery"
    read -p "Are you sure (yes/no)? " ; if [ "$REPLY" = "yes" ]; then dnf install xorg-x11-server-Xvfb https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos8.x86_64.rpm ; fi
@@ -131,7 +131,7 @@ There is no setup necessary to use SQLite3. GovReady-Q will automatically instal
 3 (option b). Installing MySQL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On the database server, install MySQL OS packages:
+Install MySQL OS packages either on the same server as GovReady-Q or on a different database server.
 
 .. code:: bash
 
@@ -148,11 +148,10 @@ Make a note of the MySQL's host, port, database name, user and password to add t
       ...
    }
 
-
 3 (option c). Installing PostgreSQL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On the database server, install PostgreSQL OS packages:
+Install PostgreSQL OS packages either on the same server as GovReady-Q or on a different database server.
 
 .. code:: bash
 
@@ -213,7 +212,7 @@ hostname with the hostname of the Q webapp server):
 Generate a self-signed certificate (replace ``db.govready-q.internal``
 with the database server’s hostname if possible):
 
-::
+.. code:: bash
 
    openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout /var/lib/pgsql/data/server.key -out /var/lib/pgsql/data/server.crt -subj '/CN=db.govready-q.internal'
    chmod 600 /var/lib/pgsql/data/server.{key,crt}
@@ -227,7 +226,7 @@ make trusted connections to the database server:
    cat /var/lib/pgsql/data/server.crt
    # Place on webapp server at /home/govready-q/pgsql.crt
 
-Restart the PostgreSQL:
+Restart PostgreSQL:
 
 .. code:: bash
 
@@ -243,7 +242,7 @@ And if necessary, open the PostgreSQL port:
 4. Creating the local/environment.json file
 -------------------------------------------
 
-Create the ``local/environment.json`` file with appropriate parameters. (Order of the key value pairs is not significant.)
+Create the ``local/environment.json`` file with appropriate parameters. (Order of the key-value pairs is not significant.)
 
 **SQLite (default)**
 
@@ -280,8 +279,8 @@ Create the ``local/environment.json`` file with appropriate parameters. (Order o
 
 .. note::
    As of 0.9.1.20, the "govready-url" environment parameter is preferred way to set Django internal security, url,
-   ALLOWED_HOST, and other settings instead of deprecated environment parameters "host" and "https".
-   The "host" and "https" deprecated parameters will continue to be supported for a reasonable period for legacy installs.
+   ALLOWED_HOST, and other settings, instead of the deprecated environment parameters "host" and "https".
+   The deprecated "host" and "https" parameters will continue to be supported for a reasonable period for legacy installs.
 
    Deprecated (but supported for a reasonable period):
 
@@ -325,7 +324,7 @@ Run the install script to install required Python libraries, initialize GovReady
 
    # Run the install script to install Python libraries,
    # initialize database, and create Superuser
-   ./install-govready-q
+   ./install-govready-q.sh
 
 .. note::
    The command ``install-govready-q.sh`` creates the Superuser interactively allowing you to specify username and password.
@@ -352,7 +351,7 @@ Visit your GovReady-Q site in your web browser at: http://localhost:8000/
    # Run the server to listen at a different specific host and port
    # python manage.py runserver host:port
    python3 manage.py runserver 0.0.0.0:8000
-   python3 manage.py runserver 67.205.167.168:8000
+   python3 manage.py runserver 10.0.167.168:8000
    python3 manage.py runserver example.com:8000
 
 **Stopping GovReady-Q**
@@ -362,28 +361,355 @@ Press ``Ctrl-C`` in the terminal window running GovReady-Q to stop the server.
 7. Running GovReady-Q with Gunicorn HTTP WSGI
 ---------------------------------------------
 
-In this step, you will configure your deployment to use a higher performing, multi-threaded gunicorn (Green Unicorn) HTTP WSGI server
-instead of GovReady-Q using Django's built-in server. This will serve you pages faster, with greater scalability.
-You will start gunicorn server using a config file which has settings to start GovReady-Q.
+In this step, you will configure your deployment of GovReady-Q to use a higher-performing, multi-threaded gunicorn (Green Unicorn) HTTP WSGI server
+to handle web requests instead of Django's built-in server.
+This will serve your pages faster, with greater scalability.
+You will start gunicorn server using a configuration file.
+
+First, create the ``local/gunicorn.conf.py`` file that tells gunicorn how to start.
+
+.. note::
+   In the ``local/gunicorn.conf.py`` file, change ``user`` and
+   ``pythonpath`` to the appropriate values, as needed.
+
+.. code:: python
+
+   import multiprocessing
+   command = 'gunicorn'
+   pythonpath = '/home/govready-q/govready-q'
+   # serve GovReady-Q locally on server to use nginx as a reverse proxy
+   bind = 'localhost:8000'
+   workers = multiprocessing.cpu_count() * 2 + 1 # recommended for high-traffic sites
+   # workers = 1
+   worker_class = 'gevent'
+   user = 'govready-q'
+   keepalive = 10
+
+.. note::
+
+   Alternatively, set ``workers = 1`` if the secret key is being auto-generated and is not defined
+   in local/environment.json. When there is more than one worker, each worker will auto-generate a different secret key, which will cause the login session for users to drop as soon as they hit a different worker.
+
+.. note::
+   A sample ``gunicorn.conf.py`` is provided in ``local-examples/local-ubuntu-postgres-nginx-gunicorn-supervisor-http/gunicorn``.
+   You can copy the contents of this file to ``local/gunicorn.conf.py``.
+
+   .. code:: bash
+
+      cp local-examples/local-ubuntu-postgres-nginx-gunicorn-supervisor-http/gunicorn.conf.py local/gunicorn.conf.py
+
+**Starting GovReady-Q with Gunicorn**
+
+You can now start Gunicorn web server from the GovReady-Q install directory. You can run the command to start
+gunicorn as ``root`` or as the ``govready-q`` user.
+
+.. code:: bash
+
+   su - govready-q
+
+   cd /home/govready-q/govready-q/
+   gunicorn -c /home/govready-q/govready-q/local/gunicorn.conf.py siteapp.wsgi
+
+   # Gunicorn is now running at serving GovReady-Q at the `govready-url` address.
+
+**Stopping GovReady-Q with Gunicorn**
+
+Press ``Ctrl-C`` in the terminal window running gunicorn to stop the server.
 
 8. Monitoring GovReady-Q with Supervisor
 ----------------------------------------
 
-In this step, you will configure your deployment to use Supervisor to monitor and restart Gunicorn automatically if GovReady-Q
-should unexpectedly crash.
+In this step, you will configure your deployment to use Supervisor to start, monitor, and automatically restart Gunicorn (and GovReady-Q) as a long-running process. In this configuration, Supervisord is the effective server daemon running in the background
+and managing the gunicorn web server process handling requests to GovReady-Q. If Gunicorn or GovReady-Q unexpectedly crash, the Supervisord daemon will automatically restart Gunicorn and GovReady-Q.
+
+Create the Supervisor ``/etc/supervisor/conf.d/supervisor-govready-q.conf`` conf file for gunicorn to run GovReady-Q.
+Supervisor on Ubuntu automatically reads the configuration files in ``/etc/supervisor/conf.d/`` when started.
+
+.. note::
+   In the ``supervisor-govready-q.conf`` file, change ``user`` and
+   ``directory`` to the appropriate values, as needed.
+
+.. code:: ini
+
+   [program:govready-q]
+   user = govready-q
+   command = gunicorn --config /home/govready-q/govready-q/local/gunicorn.conf.py siteapp.wsgi
+   directory = /home/govready-q/govready-q
+   stderr_logfile = /var/log/govready-q-stderr.log
+   stdout_logfile = /var/log/govready-q-stdout.log
+
+   [program:notificationemails]
+   command = python3 manage.py send_notification_emails forever
+   directory = /home/govready-q/govready-q
+   stderr_logfile = /var/log/notificationemails-stderr.log
+   stdout_logfile = /var/log/notificationemails-stdout.log
+
+.. note::
+   A sample ``supervisor-govready-q.conf`` is provided in ``local-examples/local-ubuntu-postgres-nginx-gunicorn-supervisor-http``. You can copy the contents of this file to ``/etc/supervisor/conf.d/supervisor-govready-q.conf``.
+
+   .. code:: bash
+
+      # run as root
+      cp local-examples/local-ubuntu-postgres-nginx-gunicorn-supervisor-http/supervisor-govready-q.conf \
+      /etc/supervisor/conf.d/supervisor-govready-q.conf
+
+Supervisor will write its socket file to ``/run/supervisor`` and its log files to ``/var/log/supervisor/``.
+
+.. note::
+   Adjust delivery of Supervisor logs on Ubuntu in the Supervisor configuration file ``/etc/supervisor/supervisord.conf``.
+
+**Starting GovReady-Q with Supervisor**
+
+Use supervisor to start gunicorn and GovReady-Q.
+
+.. code:: bash
+
+   # Start supervisor as root
+   service supervisor start
+
+**Stopping GovReady-Q with Supervisor**
+
+Use Supervisor to stop GovReady-Q.
+
+.. code:: bash
+
+   # Stop supervisor as root
+   service supervisor stop
 
 9. Using NGINX as a reverse proxy
 ---------------------------------
 
-In this step, you will configure your deployment to use NGINX as a reverse proxy in front of Gunicorn as an extra layer of performance and security.
+In this step, you will configure your deployment to use NGINX as a reverse proxy in front of Gunicorn to provide an extra layer of performance and security.
 
-10. Additional options
+.. code:: text
+
+   web client <-> NGINX reverse proxy <-> gunicorn web server <-> GovReady-Q (Django)
+
+First, adjust the ``local/environment.json`` file to serve GovReady at the domain that will end-users will see in the browser.
+We will use ``example.com`` in the documentation. Replace ``example.com`` with your domain (or IP address).
+
+.. code:: text
+
+      {
+         ...
+         "govready-url": "http://example.com:8000",
+         ...
+      }
+
+Next, create the NGINX conf ``/etc/nginx/sites-available/nginx-govready-q.conf`` file for GovReady-Q.
+
+.. code:: nginx
+
+   server {
+      listen 8888;
+      server_name example.com;
+      access_log  /var/log/nginx/govready-q.log;
+
+      location / {
+         proxy_pass http://localhost:8000;
+         proxy_set_header Host $host;
+         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      }
+   }
+
+.. note::
+   A sample ``nginx-govready-q.conf`` is provided in ``local-examples/local-ubuntu-postgres-nginx-gunicorn-supervisor-http``. You can copy the contents of this file to ``/etc/nginx/sites-available/nginx-govready-q.conf``.
+
+   .. code:: bash
+
+      cp local-examples/local-ubuntu-postgres-nginx-gunicorn-supervisor-http/nginx-govready-q.conf \
+      /etc/nginx/sites-available/nginx-govready-q.conf
+
+
+Create a soft link in ``/etc/nginx/sites-enabled/nginx-govready-q.conf`` to the config file in ``/etc/nginx/sites-available/nginx-govready-q.conf``.
+
+.. code:: bash
+
+   ln -s /etc/nginx/sites-available/nginx-govready-q.conf /etc/nginx/sites-enabled/nginx-govready-q.conf
+
+Start NGINX.
+
+.. code:: bash
+
+   # Restart NGINX
+   sudo /etc/init.d/nginx start
+
+   # Also
+   # service nginx start
+
+.. note::
+   NGINX will answer requests on ``http://example.com:8888`` and forward to gunicorn that is running on ``http://localhost:8000`` and gunicorn will pass to GovReady-Q via a unix socket. The ``govready-url`` domain name in ``local/environment.json`` must match the NGINX ``server_name`` in ``/etc/nginx/sites-available/nginx-govready-q.conf``.
+
+Stop NGINX.
+
+.. code:: bash
+
+   # Stop NGINX
+   sudo /etc/init.d/nginx stop
+
+   # Also
+   # service nginx stop
+
+Stopping NGINX only stops the reverse proxy. Use previously described Supervisor commands to stop and start gunicorn (and GovReady-Q).
+
+10. NGINX with HTTPS
+--------------------
+
+In this step, you will configure your deployment to use reverse proxy NGINX server with SSL to
+provide an encrypted connection (HTTPS) between the browser and your site. You will modify your
+``nginx-govready-q.conf`` to have a server listening on port 80, redirecting to a server listening
+on port 443 with SSL implemented.
+
+It is your responsibility to get the SSL/TLS certificates. Remember that ``example.com`` should
+be replaced with your domain.
+
+Example - HTTPS on 443 and HTTP on 80 redirecting to HTTPS on 443
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The example below shows a basic version of ``/nginx/sites-available/nginx-govready-q.conf`` redirecting port 80 to 443
+while passing the path to the requested files along with the redirect.
+
+.. code:: text
+
+   server {
+      listen 80;
+      server_name example.com;
+      return 302 https://$server_name:443$request_uri;
+
+   }
+
+   server {
+      listen 443 ssl;
+      server_name example.com;
+
+      ssl_certificate /etc/ssl/ssl-bundle.crt;
+      ssl_certificate_key /path/to/your_private.key;
+
+      access_log  /var/log/nginx/example.com.log;
+
+      location / {
+         proxy_pass http://localhost:8000;
+         proxy_set_header Host $host;
+         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      }
+   }
+
+.. note::
+   Be sure to remove NGINX's default configuration file listening on
+   port 80 from ``/etc/nginx/sites-enabled/``. Failure to remove the default configuration
+   file will create two conflicting NGINX servers listening on port 80.
+
+.. warning::
+   It is important to include the ``$request_uri`` in any redirect of the URL for the redirected
+   user to be routed to the request page.
+
+Example - Listening both HTTP on 80 and HTTPS on 443
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This example ``/nginx/sites-available/nginx-govready-q.conf`` is simpler to understand and shows NGINIX listening on both port 80 and 443. This is good for testing, but we should not listen
+on both ports because we want logins to GovReady-Q to be encrypted.
+
+.. code:: text
+
+   server {
+      listen 80;
+      listen 443 ssl;
+      server_name example.com;
+
+      ssl_certificate /etc/ssl/ssl-bundle.crt;
+      ssl_certificate_key /path/to/your_private.key;
+
+      access_log  /var/log/nginx/example.com.log;
+
+      location / {
+         proxy_pass http://localhost:8000;
+         proxy_set_header Host $host;
+         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      }
+   }
+
+.. note::
+   Getting a certificate can be hard. Let's Encrypt made it easy.
+
+   Visit https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx for using Let's Encrypt's
+   certbot to make installing your certs easy.
+
+   The example below shows a basic version of ``/nginx/sites-available/nginx-govready-q.conf`` redirecting port 80 to 443, the path to Let's Encrypt's auto-installed certificates, and
+   a variety of SSL options to optimize and improve security of your HTTPS connection.
+
+   .. code:: text
+
+     # Redirect HTTP port 80 requests to HTTPS port 443
+     server {
+       # listen [::]:80;
+       listen 80;
+       server_name example.com;
+       return 302 https://$server_name:443$request_uri;
+     }
+
+     server {
+
+       # listen [::]:443 ssl;
+       listen 443 ssl;
+       server_name example.com;
+
+       ssl on;
+
+       # Default SSL cert paths when using letsencrypt certbot
+       ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+       ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+       # Common SSL cert path for NGINX
+       # ssl_certificate /etc/ssl/ssl-bundle.crt;
+       # ssl_certificate_key /path/to/your_private.key;
+
+       # Uncomment and edit for optional HTTPS SSL settings
+       # ssl_session_timeout 1d;
+       # ssl_session_cache shared:SSL:20m;
+       # ssl_session_tickets off;
+       # ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+       # ssl_prefer_server_ciphers on;
+       # ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384# :ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECD# HE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-R# SA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES# 128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-R# SA-AES256-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK';
+       # ssl_stapling on;
+       # ssl_stapling_verify on;
+       # ssl_trusted_certificate /root/certs/APPNAME/APPNAME_nl.chained.crt;
+
+       access_log  /var/log/nginx/govready-q.log;
+
+       # Tell NINGX where to route the incoming coming request
+       # GovReady-Q's WSGI server must be serving on the "proxy pass" location
+       location / {
+           proxy_pass http://localhost:8000;
+           proxy_set_header Host $host;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       }
+     }
+
+.. note::
+   Some code for creating and using a self-generated certificated
+
+   .. code:: bash
+
+      mkdir -p /etc/pki/tls/private/
+      mkdir -p /etc/pki/tls/certs
+
+      HOST=172.16.1.1
+      export HOST
+      openssl req -newkey rsa:4096 \
+         -x509 \
+         -sha256 \
+         -days 3650 \
+         -nodes \
+         -out /etc/pki/tls/certs/cert.pem \
+         -keyout /etc/pki/tls/private/key.pem \
+         -subj "/C=US/ST=State/L=Locality/O=Organization/OU=Organizational Unit/CN=$HOST"
+
+11. Additional options
 ----------------------
 
 Installing GovReady-Q Server command-by-command
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For situations in which more granular control over the install process is required, use the commands below for installing GovReady-Q.
+For situations in which more granular control over the install process is required, use the commands below to install GovReady-Q.
 
 .. code:: bash
 
@@ -417,7 +743,6 @@ For situations in which more granular control over the install process is requir
    The command ``python3 manage.py first_run --non-interactive`` creates the Superuser automatically for installs where you do
    not have access to interactive access to the command line. The auto-generated username and password will be output (only once) to
    to the stdout log.
-
 
 Enabling PDF export
 ~~~~~~~~~~~~~~~~~~~

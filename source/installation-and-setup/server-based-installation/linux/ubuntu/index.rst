@@ -112,7 +112,7 @@ created user's home directory and switch users to ``govready-q``. Clone the GovR
    git clone https://github.com/govready/govready-q
    cd govready-q
 
-   # GovReady-Q files are now installed in /home/govready-q/govready-q and owned govready-q
+   # GovReady-Q files are now installed in /home/govready-q/govready-q and owned by govready-q
 
 3. Installing desired database
 ------------------------------
@@ -123,7 +123,7 @@ GovReady-Q requires a relational database. You can choose:
 * MySQL
 * PostgreSQL
 
-GovReady-Q will automatically default to and use a SQLite3 database
+GovReady-Q will automatically default to and use a SQLite3 database installed at ``local/db.sqlite3``
 if you do not specify a database connection string in ``local/environment.json``.
 
 3 (option a). Installing SQLite3 (default)
@@ -200,13 +200,13 @@ to configure a secure connection between GovReady-Q and PostgreSQL.
 In ``/var/lib/pgsql/data/postgresql.conf``, enable TLS connections by
 changing the ``ssl`` option to
 
-.. code:: bash
+::
 
    ssl = on
 
 and enable remote connections by binding to all interfaces:
 
-.. code:: bash
+::
 
    listen_addresses = '*'
 
@@ -215,7 +215,7 @@ and *only* encrypted with TLS by editing
 ``/var/lib/pgsql/data/pg_hba.conf`` and adding the line (replacing the
 hostname with the hostname of the Q webapp server):
 
-.. code:: bash
+::
 
    hostssl all all webserver.example.com md5
 
