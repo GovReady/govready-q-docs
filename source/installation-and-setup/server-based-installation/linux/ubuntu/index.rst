@@ -375,9 +375,9 @@ Press ``Ctrl-C`` in the terminal window running GovReady-Q to stop the server.
 7. Running GovReady-Q with Gunicorn HTTP WSGI
 ---------------------------------------------
 
-In this step, you will configure your deployment to use a higher performing, multi-threaded gunicorn (Green Unicorn) HTTP WSGI server
-to handle web requests instead of GovReady-Q using Django's built-in server.
-This will serve you pages faster, with greater scalability.
+In this step, you will configure your deployment of GovReady-Q to use a higher-performing, multi-threaded gunicorn (Green Unicorn) HTTP WSGI server
+to handle web requests instead of Django's built-in server.
+This will serve your pages faster, with greater scalability.
 You will start gunicorn server using a configuration file.
 
 First, create the ``local/gunicorn.conf.py`` file that tells gunicorn how to start.
@@ -390,17 +390,14 @@ First, create the ``local/gunicorn.conf.py`` file that tells gunicorn how to sta
    # serve GovReady-Q locally on server to use nginx as a reverse proxy
    bind = 'localhost:8000'
    workers = multiprocessing.cpu_count() * 2 + 1 # recommended for high-traffic sites
-   # set workers to 1 for now, because the secret key won't be shared if it was auto-generated,
-   # which causes the login session for users to drop as soon as they hit a different worker
    # workers = 1
    worker_class = 'gevent'
    user = 'govready-q'
    keepalive = 10
 
 .. note::
-   Alternatively set ``workers = 1`` if secret key is being auto-generated and not defined
-   in local/environment.json. Auto-generated keys cause user login sessions to
-   drop when their request is handled by a different worker.
+   Alternatively, set ``workers = 1`` if the secret key is being auto-generated and is not defined
+   in local/environment.json. When there is more than one worker, each worker generates a different secret key, which causes the login session for users to drop as soon as they hit a different worker.
 
 .. note::
    A sample ``gunicorn.conf.py`` is provided in ``local-examples/local-ubuntu-postgres-nginx-gunicorn-supervisor-http/gunicorn``.
@@ -431,7 +428,7 @@ Press ``Ctrl-C`` in the terminal window running gunicorn to stop the server.
 8. Monitoring GovReady-Q with Supervisor
 ----------------------------------------
 
-In this step, you will configure your deployment to use Supervisor to start, monitor, and automatically restart Gunicorn (and GovReady-Q) as long running process. In this configuration Supervisord is the effective server daemon running in the background
+In this step, you will configure your deployment to use Supervisor to start, monitor, and automatically restart Gunicorn (and GovReady-Q) as a long-running process. In this configuration, Supervisord is the effective server daemon running in the background
 and managing the gunicorn web server process handling requests to GovReady-Q. If Gunicorn or GovReady-Q unexpectedly crash, the Supervisord daemon will automatically restart Gunicorn and GovReady-Q.
 
 Create the Supervisor ``/etc/supervisor/conf.d/supervisor-govready-q.conf`` conf file for gunicorn to run GovReady-Q.
@@ -491,7 +488,7 @@ Use Supervisor to stop GovReady-Q.
 9. Using NGINX as a reverse proxy
 ---------------------------------
 
-In this step, you will configure your deployment to use NGINX as a reverse proxy in front of Gunicorn as an extra layer of performance and security.
+In this step, you will configure your deployment to use NGINX as a reverse proxy in front of Gunicorn to provide an extra layer of performance and security.
 
 .. code:: text
 
@@ -544,10 +541,10 @@ Start NGINX.
 .. code:: bash
 
    # Restart NGINX
-   sudo /etc/init.d/nginx stop
+   sudo /etc/init.d/nginx start
 
    # Also
-   # service nginx stop
+   # service nginx start
 
 .. note::
    NGINX will answer requests on ``http://example.com:8888`` and forward to gunicorn that is running on ``http://localhost:8000`` and gunicorn will pass to GovReady-Q via a unix socket. The ``govready-url`` domain name in ``local/environment.json`` must match the NGINX ``server_name`` in ``/etc/nginx/sites-available/nginx-govready-q.conf``.
@@ -556,11 +553,11 @@ Stop NGINX.
 
 .. code:: bash
 
-   # Restart NGINX
-   sudo /etc/init.d/nginx start
+   # Stop NGINX
+   sudo /etc/init.d/nginx stop
 
    # Also
-   # service nginx restart
+   # service nginx stop
 
 Stopping NGINX only stops the reverse proxy. Use previously described Supervisor commands to stop and start gunicorn (and GovReady-Q).
 
@@ -569,16 +566,16 @@ Stopping NGINX only stops the reverse proxy. Use previously described Supervisor
 
 In this step, you will configure your deployment to use reverse proxy NGINX server with SSL to
 provide an encrypted connection (HTTPS) between the browser and your site. You will modify your
-``nginx-govready-q.conf`` to have a server listening on port 80 redirecting to a server listening
+``nginx-govready-q.conf`` to have a server listening on port 80, redirecting to a server listening
 on port 443 with SSL implemented.
 
-It is your responsibility to get the SSL/TLS certificates. And remember that ``example.com`` should
+It is your responsibility to get the SSL/TLS certificates. Remember that ``example.com`` should
 be replaced with your domain.
 
 Example - HTTPS on 443 and HTTP on 80 redirecting to HTTPS on 443
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The below example shows a basic version of ``/nginx/sites-available/nginx-govready-q.conf`` redirecting port 80 to 443
+The example below shows a basic version of ``/nginx/sites-available/nginx-govready-q.conf`` redirecting port 80 to 443
 while passing the path to the requested files along with the redirect.
 
 .. code:: text
@@ -646,7 +643,7 @@ on both ports because we want logins to GovReady-Q to be encrypted.
    Visit https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx for using Let's Encrypt's
    certbot to make installing your certs easy.
 
-   The below example shows a basic version of ``/nginx/sites-available/nginx-govready-q.conf`` redirecting port 80 to 443, the path to Let's Encrypt's auto-installed certificates, and
+   The example below shows a basic version of ``/nginx/sites-available/nginx-govready-q.conf`` redirecting port 80 to 443, the path to Let's Encrypt's auto-installed certificates, and
    a variety of SSL options to optimize and improve security of your HTTPS connection.
 
    .. code:: text
@@ -667,7 +664,7 @@ on both ports because we want logins to GovReady-Q to be encrypted.
 
        ssl on;
 
-       # Default SSL cert paths when using letsencript certbot
+       # Default SSL cert paths when using letsencrypt certbot
        ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
        ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
        # Common SSL cert path for NGINX
@@ -704,7 +701,7 @@ on both ports because we want logins to GovReady-Q to be encrypted.
       mkdir -p /etc/pki/tls/private/
       mkdir -p /etc/pki/tls/certs
 
-      HOST=67.205.167.168
+      HOST=172.16.1.1
       export HOST
       openssl req -newkey rsa:4096 \
          -x509 \
