@@ -45,7 +45,7 @@ provide full functionality. Execute the following commands as root:
    dnf install pandoc
 
    # Upgrade pip to version 20.1+
-   pip install --upgrade pip
+   pip3 install --upgrade pip
 
    # Optionally install supervisord for monitoring and restarting GovReady-q; and NGINX as a reverse proxy
    pip install supervisor
