@@ -479,7 +479,7 @@ Use supervisor to start gunicorn and GovReady-Q.
 .. code:: bash
 
    # Start supervisor as root
-   service supervisor restart
+   service supervisor start
 
 **Stopping GovReady-Q with Supervisor**
 
