@@ -382,6 +382,10 @@ You will start gunicorn server using a configuration file.
 
 First, create the ``local/gunicorn.conf.py`` file that tells gunicorn how to start.
 
+.. note::
+   In the ``local/gunicorn.conf.py`` file, change ``user`` and
+   ``pythonpath`` to the appropriate values, as needed.
+
 .. code:: python
 
    import multiprocessing
@@ -396,8 +400,9 @@ First, create the ``local/gunicorn.conf.py`` file that tells gunicorn how to sta
    keepalive = 10
 
 .. note::
+
    Alternatively, set ``workers = 1`` if the secret key is being auto-generated and is not defined
-   in local/environment.json. When there is more than one worker, each worker generates a different secret key, which causes the login session for users to drop as soon as they hit a different worker.
+   in local/environment.json. When there is more than one worker, each worker will auto-generate a different secret key, which will cause the login session for users to drop as soon as they hit a different worker.
 
 .. note::
    A sample ``gunicorn.conf.py`` is provided in ``local-examples/local-ubuntu-postgres-nginx-gunicorn-supervisor-http/gunicorn``.
@@ -435,8 +440,8 @@ Create the Supervisor ``/etc/supervisor/conf.d/supervisor-govready-q.conf`` conf
 Supervisor on Ubuntu automatically reads the configuration files in ``/etc/supervisor/conf.d/`` when started.
 
 .. note::
-   If running GovReady-Q as user ``govready-q`` be sure to uncomment the ``user = govready-q`` in the
-   ``supervisor-govready-q.conf`` file.
+   In the ``supervisor-govready-q.conf`` file, change ``user`` and
+   ``directory`` to the appropriate values, as needed.
 
 .. code:: ini
 
