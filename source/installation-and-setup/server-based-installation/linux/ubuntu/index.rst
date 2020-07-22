@@ -417,7 +417,7 @@ gunicorn as ``root`` or as the ``govready-q`` user.
    su - govready-q
 
    cd /home/govready-q/govready-q/
-   gunicorn3 -c /home/govready-q/govready-q/local/gunicorn.conf.py siteapp.wsgi
+   gunicorn -c /home/govready-q/govready-q/local/gunicorn.conf.py siteapp.wsgi
 
    # Gunicorn is now running at serving GovReady-Q at the `govready-url` address.
 
@@ -442,7 +442,7 @@ Supervisor on Ubuntu automatically reads the configuration files in ``/etc/super
 
    [program:govready-q]
    user = govready-q
-   command = gunicorn3 --config /home/govready-q/govready-q/local/gunicorn.conf.py siteapp.wsgi
+   command = gunicorn --config /home/govready-q/govready-q/local/gunicorn.conf.py siteapp.wsgi
    directory = /home/govready-q/govready-q
    stderr_logfile = /var/log/govready-q-stderr.log
    stdout_logfile = /var/log/govready-q-stdout.log
