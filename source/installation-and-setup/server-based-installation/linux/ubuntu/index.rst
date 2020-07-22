@@ -474,7 +474,7 @@ Supervisor will write its socket file to ``/run/supervisor`` and its log files t
 
 **Starting GovReady-Q with Supervisor**
 
-Use supervisor to start gunicorn and GovReady-Q.
+Use Supervisor to start gunicorn and GovReady-Q.
 
 .. code:: bash
 

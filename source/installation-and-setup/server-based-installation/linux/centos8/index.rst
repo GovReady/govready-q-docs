@@ -422,14 +422,28 @@ Press ``Ctrl-C`` in the terminal window running gunicorn to stop the server.
 In this step, you will configure your deployment to use Supervisor to start, monitor, and automatically restart Gunicorn (and GovReady-Q) as a long-running process. In this configuration, Supervisord is the effective server daemon running in the background
 and managing the gunicorn web server process handling requests to GovReady-Q. If Gunicorn or GovReady-Q unexpectedly crash, the Supervisord daemon will automatically restart Gunicorn and GovReady-Q.
 
-Create the Supervisor ``/etc/supervisor/conf.d/supervisor-govready-q.conf`` conf file for gunicorn to run GovReady-Q.
-Supervisor on Ubuntu automatically reads the configuration files in ``/etc/supervisor/conf.d/`` when started.
+Create the Supervisor ``local/supervisor-govready-q.conf`` conf file for gunicorn to run GovReady-Q.
 
 .. note::
    In the ``supervisor-govready-q.conf`` file, change ``user`` and
    ``directory`` to the appropriate values, as needed.
 
 .. code:: ini
+
+   [supervisord]
+   logfile=/var/log/supervisord.log
+   logfile_maxbytes=50MB
+   logfile_backups=10
+   loglevel=info
+
+   [supervisorctl]
+   serverurl=unix:///var/tmp/supervisor.sock
+
+   [unix_http_server]
+   file = /var/tmp/supervisor.sock ;
+
+   [rpcinterface:supervisor]
+   supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 
    [program:govready-q]
    user = govready-q
@@ -444,28 +458,14 @@ Supervisor on Ubuntu automatically reads the configuration files in ``/etc/super
    stderr_logfile = /var/log/notificationemails-stderr.log
    stdout_logfile = /var/log/notificationemails-stdout.log
 
-.. note::
-   A sample ``supervisor-govready-q.conf`` is provided in ``local-examples/local-ubuntu-postgres-nginx-gunicorn-supervisor-http``. You can copy the contents of this file to ``/etc/supervisor/conf.d/supervisor-govready-q.conf``.
-
-   .. code:: bash
-
-      # run as root
-      cp local-examples/local-ubuntu-postgres-nginx-gunicorn-supervisor-http/supervisor-govready-q.conf \
-      /etc/supervisor/conf.d/supervisor-govready-q.conf
-
-Supervisor will write its socket file to ``/run/supervisor`` and its log files to ``/var/log/supervisor/``.
-
-.. note::
-   Adjust delivery of Supervisor logs on Ubuntu in the Supervisor configuration file ``/etc/supervisor/supervisord.conf``.
-
 **Starting GovReady-Q with Supervisor**
 
-Use supervisor to start gunicorn and GovReady-Q.
+Use Supervisor to start gunicorn and GovReady-Q.
 
 .. code:: bash
 
    # Start supervisor as root
-   service supervisor start
+   supervisord -c /home/govready-q/govready-q/local/supervisor-govready-q.conf
 
 **Stopping GovReady-Q with Supervisor**
 
@@ -474,7 +474,7 @@ Use Supervisor to stop GovReady-Q.
 .. code:: bash
 
    # Stop supervisor as root
-   service supervisor stop
+   supervisorctl -c /home/govready-q/govready-q/local/supervisor-govready-q.conf stop all
 
 9. Using NGINX as a reverse proxy
 ---------------------------------
@@ -511,15 +511,6 @@ Next, create the NGINX conf ``/etc/nginx/sites-available/nginx-govready-q.conf``
          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
       }
    }
-
-.. note::
-   A sample ``nginx-govready-q.conf`` is provided in ``local-examples/local-ubuntu-postgres-nginx-gunicorn-supervisor-http``. You can copy the contents of this file to ``/etc/nginx/sites-available/nginx-govready-q.conf``.
-
-   .. code:: bash
-
-      cp local-examples/local-ubuntu-postgres-nginx-gunicorn-supervisor-http/nginx-govready-q.conf \
-      /etc/nginx/sites-available/nginx-govready-q.conf
-
 
 Create a soft link in ``/etc/nginx/sites-enabled/nginx-govready-q.conf`` to the config file in ``/etc/nginx/sites-available/nginx-govready-q.conf``.
 
