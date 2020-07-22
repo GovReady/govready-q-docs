@@ -41,7 +41,7 @@ provide full functionality. Execute the following commands as root:
    python3 python3-pip \
    python3-yaml \
    graphviz pandoc \
-   gunicorn3 \
+   gunicorn \
    language-pack-en-base language-pack-en
 
    # Upgrade pip to version 20.1+
