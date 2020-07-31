@@ -148,6 +148,13 @@ Make a note of the MySQL's host, port, database name, user and password to add t
       ...
    }
 
+For proper operation, ensure that MySQL databases created for GovReady use UTF-8 encoding.
+
+   .. code-block:: sql
+
+      CREATE DATABASE govready_q
+      CHARACTER SET utf8mb4
+      COLLATE utf8mb4_0900_ai_ci;
 
 3 (option c). Installing PostgreSQL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -166,7 +173,7 @@ Then set up the user and database (both named ``govready_q``):
    sudo -iu postgres createuser -P govready_q
    # Paste a long random password when prompted
 
-   sudo -iu postgres createdb govready_q
+   sudo -iu postgres createdb --encoding UTF8 --lc-collate 'en_US.UTF-8' --lc-ctype 'en_US.UTF-8' govready_q
 
 Postgres’s default permissions automatically grant users access to a
 database of the same name.

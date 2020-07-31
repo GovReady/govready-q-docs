@@ -11,6 +11,29 @@ is also supported.
 SQLite is supported in development environments, but it is not recommended for
 production use.
 
+Character Encoding
+------------------
+
+For proper operation, ensure that databases created for GovReady use UTF-8 encoding.
+
+For convenience, we summarize database settings here.  Consult your database documentation to ensure you properly set up your database with UTF-8 encoding.
+
+**PostgreSQL**
+
+   .. code-block:: sql
+
+      CREATE DATABASE "govready_q"
+      ENCODING 'UTF8'
+      LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8';
+
+**MySQL/MariaDB**
+
+   .. code-block:: sql
+
+      CREATE DATABASE govready_q
+      CHARACTER SET utf8mb4
+      COLLATE utf8mb4_0900_ai_ci;
+
 Setting Up Postgres
 -------------------
 
@@ -79,7 +102,7 @@ Then set up the user and database (both named ``govready_q``):
    sudo -iu postgres createuser -P govready_q
    # paste a long random password
 
-   sudo -iu postgres createdb govready_q
+   sudo -iu postgres createdb --encoding UTF8 --lc-collate 'en_US.UTF-8' --lc-ctype 'en_US.UTF-8' govready_q
 
 Postgres’s default permissions automatically grant users access to a
 database of the same name.
