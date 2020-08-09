@@ -18,6 +18,7 @@ For configuration settings, refer to :ref:`Configuration with Environment Variab
    .. toctree::
       :maxdepth: 1
 
+      support-page
       applying-custom-organization-branding
       setting-up-a-database-for-production-workloads
       configuring-a-reverse-proxy-webserver-for-production-use
