@@ -130,6 +130,24 @@ Accept invitation to a project.
 
     2020-06-17 23:20:29,772 siteapp.views level INFO {"object": {"object": "element", "id": 183, "name": "Awesome System"}, "sending_user": {"id": 14, "username": "User1"}, "user": {"id": 15, "username": "User2"}, "event": "accept_invitation element assign_edit_permissions"}
 
+**"save_answer permission_denied"**
+
+.. code:: text
+
+    2020-08-13 11:01:24,709 guidedmodules.views level INFO {"object": {"object": "task", "id": 46, "title": "system-profile-information"}, "user": {"id": 3, "username": "greg2"}, "event": "save_answer_permission_denied"}
+
+**"save_smt permission_denied"**
+
+.. code:: text
+
+    2020-08-13 15:18:57,755 controls.views level INFO {"object": {"object": "statement", "id": 382}, "user": {"id": 3, "username": "greg2"}, "event": "save_smt permission_denied"}
+
+**"delete_smt permission_denied"**
+
+.. code:: text
+
+    2020-08-13 15:19:24,376 controls.views level INFO {"object": {"object": "statement", "id": 382}, "user": {"id": 3, "username": "greg2"}, "event": "delete_smt permission_denied"}
+
 **"sso_logout"**
 
 Single Sign On logout.
