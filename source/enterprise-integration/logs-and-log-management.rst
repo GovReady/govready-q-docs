@@ -214,3 +214,16 @@ Assign a baseline set of controls to a project system (technically, assign the b
 
     2020-06-03 23:53:49,721 controls.views level INFO {"object": {"object": "system", "id": 16, "title": "My Project Name"}, baseline={"catalog_key": "NIST_SP-800-53_rev4", "baseline_name": "low"}, "user": {"id": 28, "username": "me"}, "event": "assign_baseline"}
 
+**"upgrade_project"**
+
+Successful upgrade of project's root task to a different version
+
+.. code:: text
+
+    2020-09-13 16:06:32,619 siteapp.views level INFO {"object": {"id": 42, "title": "IT System 42"}, "from_app": {"appsource_slug": "local-lightweight-apps", "id": 20, "version_number": "0.1.8.5.5"}, "to_app": {"appsource_slug": "local-lightweight-apps", "id": 20, "version_number": "0.2.2"}, "user": {"id": 2, "username": "Greg"}, "event": "upgrade_project root_task successful"}
+
+Failed upgrade of project's root task to a different version
+
+.. code:: text
+
+    2020-09-13 16:05:57,683 siteapp.views level INFO {"object": {"id": 42, "title": "IT System 42"}, "from_app": {"appsource_slug": "local-lightweight-apps", "id": 19, "version_number": "0.2.1"}, "to_app": {"appsource_slug": "local-lightweight-apps", "id": 19, "version_number": "0.2.1"}, "detail": {"reason": "In question system_info: The answer type module changed from 265 to 197."}, "user": {"id": 2, "username": "Greg"}, "event": "upgrade_project root_task failure"}
