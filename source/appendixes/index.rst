@@ -16,5 +16,4 @@ This section contains useful reference materials.
       :maxdepth: 1
 
       how-tos-and-faqs
-      data-model-design-guide/index
       version-notes/index
