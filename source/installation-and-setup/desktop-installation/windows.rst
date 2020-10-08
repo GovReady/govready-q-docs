@@ -45,7 +45,17 @@ In this Unix-like environment on your Windows computer we can essentially follow
    virtualenv venv
    source venv/bin/activate
 
+.. note::
+    To make sure PyCharm opens your terminals with the virtual environment activated I typically set this in ``.bashrc``. This includes a change of directory to your project directory and then the activation command described in :ref:`Developing for Govready-Q`. To view your ``.bashrc`` file enter the following commands.
+
+.. code:: bash
+
+   cd ~
+   cat .bashrc
+
 The :ref:`Server-based Installation` already includes a section on installing required libraries. However, you need to install these dependencies as well as is done in the CircleCI configuration file ``config.yml``
+
+
 
 Additional dependencies:
 ------------------------------
