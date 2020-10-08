@@ -108,10 +108,14 @@ _______________________________________________
    WSL Terminal panel
 
 
-Management Commands
+Management Commands:
 ################################################
 
 GovReadyQ's ``manage.py`` uses ``django.core.management`` to orchestrate management commands.
+
+
+Implementation
+---------------
 
 .. code:: bash
 
@@ -164,3 +168,31 @@ For additional arguments **compliance_app** also overrides ``add_arguments``. He
         parser.add_argument('appname', nargs="?", type=str)
 
    ...
+
+Currently Implemented
+----------------------------
+
+**guidedmodules**:
+
++----------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| Command                                                  |    Usage Notes                                                                                      |
++==========================================================+=====================================================================================================+
+| ``./manage.py apps_catalog``                             |  Lists all apps in the configured app stores                                                        |
++----------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| ``./manage.py assemble --init path/to/app assemble.yaml``|   creating an 'empty' YAML file for a given app                                                     |
++----------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| ``./manage.py assemble assemble.yaml outdir``            |  Make a directory ``mkdir outdir``. Then assemble the app's output documents to an output           |
++----------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| ``./manage.py assemble --startapps assemble.yaml``       |  Start component apps automatically                                                                 |
++----------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| ``./manage.py compliance_app``                           |  lists available app sources                                                                        |
++----------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| ``./manage.py compliance_app mysource``                  |  creates a new local AppSource named mysource                                                       |
++----------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| ``./manage.py compliance_app mysource myapp``            |  creates a new app at path/to/apps/myapp                                                            |
++----------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| ``./manage.py load_modules``                             |  Updates the system modules from the YAML specifications in AppSources                              |
++----------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| ``./manage.py upgrade_project``                          |  Upgrades a project to a new version of an app or associates it with a different compliance app     |
++----------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+
