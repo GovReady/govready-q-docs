@@ -2,6 +2,7 @@
 
 .. _Developing for Govready-Q:
 .. _terminal: https://www.jetbrains.com/help/pycharm/settings-tools-terminal.html
+.. _BaseCommand: https://docs.djangoproject.com/en/dev/howto/custom-management-commands/
 
 Developing for Govready-Q
 =========================
@@ -105,3 +106,61 @@ _______________________________________________
    :alt: WSL Terminal panel
 
    WSL Terminal panel
+
+
+Management Commands
+################################################
+
+GovReadyQ's ``manage.py`` uses ``django.core.management`` to orchestrate management commands.
+
+.. code:: bash
+
+   from django.core.management import execute_from_command_line
+
+   execute_from_command_line(sys.argv)
+
+I will summarize the fantastic documentation the Django development team has for BaseCommand_ in order for you to create your own commands. Bottom-line we create a new class that inherits from the Django object ``BaseCommand``.
+
+For this walk-through I will outline how the management command ``./manage.py compliance_app`` allows us to list all available app sources.
+
+First and foremost we need to ensure we have a **management/commands** directory under the Django app of choice, in this example **guidedmodules**(which registers the command when guidedmodules is included in **INSTALLED_APPS**). Then a new file **compliance_app.py** for our ``compliance_app`` command argument. In this file we import and inherit ``BaseCommand`` into our new class. Adding some help text to remind us of this commands purpose.
+
+.. note::
+   We are now in **~/govready-q/guidedmodules/management/commands/compliance_app.py**
+
+.. code-block:: bash
+
+   from django.core.management.base import BaseCommand
+
+   class Command(BaseCommand):
+       help = 'Creates a new compliance app. Lists available appsource names if no command-line arguments are given.'
+
+We can now add override the ``handle`` method which is the only required implementation. An overview provided here.
+
+.. code-block:: bash
+
+   class Command(BaseCommand):
+
+   ...
+
+   def handle(self, *args, **options):
+        # if no appsource specified
+            # Show valid appsources by iterating through all AppSource objects and prints the slug name and path
+
+        # other argument logic that includes appsource specified
+
+
+For additional arguments **compliance_app** also overrides ``add_arguments``. Here we specify the argument to enter(``'appsource'``), the number of arguments(``"?"``), and its type(``str``). These arguments are then implemented in the handle override.
+
+.. code-block:: bash
+
+   class Command(BaseCommand):
+
+   ...
+
+   def add_arguments(self, parser):
+        parser.add_argument('appsource', nargs="?", type=str)
+        parser.add_argument('--path', nargs="?", type=str)
+        parser.add_argument('appname', nargs="?", type=str)
+
+   ...
