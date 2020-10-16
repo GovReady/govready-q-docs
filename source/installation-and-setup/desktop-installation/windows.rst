@@ -36,7 +36,7 @@ This should display a table in standard output close to:
 Integrated Development Environment
 ______________________________________
 
-Govready is IDE-agnostic but for the purposes of this tutorial we will assume you are using Pycharm(2020.xx). One exceedingly excellent feature of PyCharm is the ease at configuring and managing virtual environments and terminals used in each project. In order to seamlessly use WSL in PyCharm you can configure your terminal to run WSL by going to settings by settings an absolute or relative path to the WSL executable file C:\Windows\System32\wsl.exe or `wsl.exe`
+Govready is IDE-agnostic but for the purposes of this tutorial we will assume you are using Pycharm(2020.xx). One exceedingly excellent feature of PyCharm is the ease at configuring and managing virtual environments and terminals used in each project. In order to seamlessly use WSL in PyCharm you can configure your terminal to run WSL by setting an absolute or relative path to the WSL executable file ``C:\Windows\System32\wsl.exe`` or ``wsl.exe``
 
 In this Unix-like environment on your Windows computer we can essentially follow the :ref:`Server-based Installation`. However, to maintain a clean interpreter make sure to create and activate a virtual environment with virtualenv(as WSL **cannot** create virtual environments):
 
