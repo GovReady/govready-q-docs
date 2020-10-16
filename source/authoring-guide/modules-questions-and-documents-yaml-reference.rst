@@ -340,7 +340,7 @@ Static Assets
 
 Static assets such as images can be referenced in module content
 (introductions, question prompts, and output documents). These assets
-are exposed by the Q web server(the server GovReady is deployed on) in its static path. Place static assets
+are exposed by the Q web server (the server GovReady is deployed on) in its static path. Place static assets
 in an ``assets`` subdirectory where the module is. When the asset is
 referenced in a Markdown document template, its path will be rewritten
 to be its public (virtual) path on the web server.
