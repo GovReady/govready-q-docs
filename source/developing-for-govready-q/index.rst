@@ -1,9 +1,10 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _Developing for Govready-Q:
 .. _terminal: https://www.jetbrains.com/help/pycharm/settings-tools-terminal.html
 .. _BaseCommand: https://docs.djangoproject.com/en/dev/howto/custom-management-commands/
 .. _chromedriver.exe: https://chromedriver.chromium.org/downloads
+
+.. _Developing for Govready-Q:
 
 Developing for Govready-Q
 =========================
