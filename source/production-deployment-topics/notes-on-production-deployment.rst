@@ -54,10 +54,10 @@ Remember to Define Your ``host``
 The **DisallowedHost…Invalid HTTP_HOST header…You may need to add ‘’ to
 ALLOWED_HOSTS** is a common error received when first trying to get
 GovReady-Q running on a server at a specific domain. The error indicates
-the domain you are trying to visit is not whitelisted in Django’s
+the domain you are trying to visit is not white listed in Django’s
 special ``ALLOWED_HOST`` variable.
 
-For security, Django requires whitelisting your server’s domain(s) in
+For security, Django requires white listing your server’s domain(s) in
 the ``ALLOWED_HOST`` variable. Ordinarily this is hardcoded into the
 ``settings.py`` file. GovReady-Q allows the ``ALLOWED_HOST`` to be set
 by the ``host`` environment settings so the values can be passed at

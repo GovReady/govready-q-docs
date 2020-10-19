@@ -19,7 +19,7 @@ There are three ways to run GovReady-Q on Windows.
 To try GovReady-Q, or to run it without modifications, we recommend using a container solution.  See :ref:`Container-based Installation` and :ref:`Docker Local`.
 
 .. note::
-   For some libraries like `magic` there is no equivalent in Windows so to work around this we can use Windows Subsystem for Linux (WSL_). WSL allows you to install your Linux distribution of choice and is only in 64-bit versions of Windows 10 from version 1607. This guide will be using the Ubuntu (20.04) distribution. For a detailed list of instructions on how to enable and install it visit the official documentation at WSL_. To check if your efforts were successful, run in any windows terminal the following command:
+   For some libraries like `magic` there is no equivalent in Windows so to work around this we can use the Windows Subsystem for Linux (WSL_). WSL allows you to install your Linux distribution of choice and is only in 64-bit versions of Windows 10 from version 1607. This guide will be using the Ubuntu (20.04) distribution. For a detailed list of instructions on how to enable and install it visit the official documentation at WSL_. To check if your efforts were successful, run in any windows terminal the following command:
 
 .. code:: bash
 
@@ -36,9 +36,9 @@ This should display a table in standard output close to:
 Integrated Development Environment
 ______________________________________
 
-Govready is IDE-agnostic but for the purposes of this tutorial we will assume you are using Pycharm (2020.xx). One exceedingly excellent feature of PyCharm is the ease of configuring and managing virtual environments and terminals used in each project. In order to seamlessly use WSL in PyCharm you can configure your terminal to run WSL by setting an absolute or relative path to the WSL executable file ``C:\Windows\System32\wsl.exe`` or ``wsl.exe``
+Govready is IDE-agnostic but for the purposes of this tutorial we will assume you are using Pycharm(2020.xx). One exceedingly excellent feature of PyCharm is the ease at configuring and managing virtual environments and terminals used in each project. In order to seamlessly use WSL in PyCharm you can configure your terminal to run WSL by setting an absolute or relative path to the WSL executable file ``C:\Windows\System32\wsl.exe`` or ``wsl.exe``
 
-In this Unix-like environment on your Windows computer we can essentially follow the :ref:`Server-based Installation`. However, to maintain a clean interpreter make sure to create and activate a virtual environment with virtualenv (as WSL **cannot** create virtual environments):
+In this Unix-like environment on your Windows computer we can essentially follow the :ref:`Server-based Installation`. However, to maintain a clean interpreter make sure to create and activate a virtual environment with virtualenv(as WSL **cannot** create virtual environments):
 
 .. code:: bash
 
