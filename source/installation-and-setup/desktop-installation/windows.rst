@@ -5,7 +5,7 @@
 .. _virtualenv: https://pypi.org/project/virtualenv/
 .. _pip-tools: https://pypi.org/project/pip-tools/
 .. _wkhtmltopdf: https://wkhtmltopdf.org/downloads.html
-.. _Ubuntu: https://askubuntu.com/questions/1034313/ubuntu-18-4-libqt5core-so-5-cannot-open-shared-object-file-no-such-file-or-dir
+.. _Ubuntu 18.4 libQt5Core.so.5: https://askubuntu.com/questions/1034313/ubuntu-18-4-libqt5core-so-5-cannot-open-shared-object-file-no-such-file-or-dir
 .. _strip: https://sourceware.org/binutils/docs/binutils/strip.html
 
 
@@ -19,7 +19,7 @@ There are three ways to run GovReady-Q on Windows.
 To try GovReady-Q, or to run it without modifications, we recommend using a container solution.  See :ref:`Container-based Installation` and :ref:`Docker Local`.
 
 .. note::
-   For some libraries like `magic` there is no equivalent in Windows so to work around this we can use Windows' Subsystem for Linux(WSL_). WSL allows you to install your Linux distribution of choice and is only in 64-bit versions of Windows 10 from version 1607. This guide will be using the Ubuntu(20.04) distribution. For a detailed list of instructions on how to enable and install it visit the official documentation at WSL_. To check if your efforts were successful, run in any windows terminal the following command:
+   For some libraries like `magic` there is no equivalent in Windows so to work around this we can use the Windows Subsystem for Linux (WSL_). WSL allows you to install your Linux distribution of choice and is only in 64-bit versions of Windows 10 from version 1607. This guide will be using the Ubuntu (20.04) distribution. For a detailed list of instructions on how to enable and install it visit the official documentation at WSL_. To check if your efforts were successful, run in any windows terminal the following command:
 
 .. code:: bash
 
@@ -46,39 +46,41 @@ In this Unix-like environment on your Windows computer we can essentially follow
    source venv/bin/activate
 
 .. note::
-    To make sure PyCharm opens your terminals with the virtual environment activated I typically set this in ``.bashrc``. This includes a change of directory to your project directory and then the activation command described in :ref:`Developing for Govready-Q`. To view your ``.bashrc`` file enter the following commands.
+    To make sure PyCharm opens your terminals with the virtual environment activated, you can run these commands in your ``.bashrc``. This includes a change of directory to your project directory and then the activation command described in :ref:`Developing for Govready-Q`. To view your ``.bashrc`` file enter the following commands.
 
 .. code:: bash
 
    cd ~
    cat .bashrc
 
-The :ref:`Server-based Installation` already includes a section on installing required libraries. However, you need to install these dependencies as well as is done in the CircleCI configuration file ``config.yml``
+The :ref:`Server-based Installation` already includes a section on installing required libraries. However, you need to install these dependencies as well, as is done in the CircleCI configuration file ``config.yml``
 
 
 
 Additional dependencies:
-------------------------------
+------------------------
 
 .. code:: bash
 
    pip3 install -r requirements.txt
-   sudo apt update && sudo apt install -y git curl unzip locales libmagic1 graphviz pandoc xvfb wkhtmltopdf #! xvfb and wkthmltopdf are used in conjunction to headless convert html to pdf.
+   sudo apt update && sudo apt install -y git curl unzip locales libmagic1 graphviz pandoc xvfb wkhtmltopdf #! xvfb and wkthmltopdf are used in conjunction to convert html to pdf headlessly.
    sudo sed -i "s/^[# ]*en_US.UTF-8/en_US.UTF-8/" /etc/locale.gen && sudo /usr/sbin/locale-gen #! Installs the U.S. locale (see `apt install locales` above), which we reference explicitly in Q for formatting and parsing numbers. Usually only needed on slim builds of Debian images.
 
 
 Finally, to ensure pdf generation with ``wkhtmltopdf`` can occur:
-_____________________________________________________________________________
 
 .. code:: bash
 
     sudo strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
 
-.. note::
-    Here is a discuss for why this is necessary in Ubuntu_. Additionally, if you are intersted in understanding what strip_ is doing with this argument combination ``--remove-section=<sectionname> <objfile>``. Here ``sectionname`` in ``--remove-section=sectionname`` is ``.note.ABI-tag`` and ``objfile`` is ``/usr/lib/x86_64-linux-gnu/libQt5Core.so.5`` the part of libQt5Core that needs symbols discarded from it. Essentially, removing information from this object file that is not essential allowing for proper usage by ``wkhtmltopdf``.
+The rationale for this fix in Ubuntu is discussed in this post about `Ubuntu 18.4 libQt5Core.so.5`_.
+
+strip_ removes information from the object file that is not essential, allowing ``wkhtmltopdf`` to run properly.
+
+In the ``strip`` command shown, ``.note.ABI-tag`` is the section to operate on, and ``/usr/lib/x86_64-linux-gnu/libQt5Core.so.5`` is the object file to operate on.
 
 Run server
 ----------
 
    Run the test server with ``python manage.py runserver`` or ``./ manage.py runserver`` and visit your GovReady-Q site in your web browser at
-   http://localhost:8000/ or your set govready-url in ``environment.json``.
+   http://localhost:8000/ or as specified by ``govready-url`` in ``environment.json``.

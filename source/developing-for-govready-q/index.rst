@@ -1,9 +1,10 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _Developing for Govready-Q:
 .. _terminal: https://www.jetbrains.com/help/pycharm/settings-tools-terminal.html
 .. _BaseCommand: https://docs.djangoproject.com/en/dev/howto/custom-management-commands/
 .. _chromedriver.exe: https://chromedriver.chromium.org/downloads
+
+.. _Developing for Govready-Q:
 
 Developing for Govready-Q
 =========================
@@ -23,13 +24,13 @@ You may also want to refer to the :ref:`Installation and Setup` section of the g
       installing-govready-q-for-development
 
 
-General Development Tips:
-###########################
+Examples for Setting Up Your Development Environment
+####################################################
 
 .bashrc
----------------
+-------
 
-The .bashrc file is THE file that will make your life a lot easier going once you have a couple settings set.
+The .bashrc file is THE file that will make your life a lot easier once you have a couple settings set.
 
 To view your ``.bashrc`` file enter the following commands.
 
@@ -40,44 +41,42 @@ To view your ``.bashrc`` file enter the following commands.
 
 We will be entering three lines at the end of this file.
 
-1. A Change of directory directly to your govready-q root:
-______________________________________________________________________________
+1. Change directory directly to your govready-q root
+____________________________________________________
 
 .. code:: bash
 
     cd "/mnt/../path/to/govready-q"
 
-2. The virtual environment activation command:
-______________________________________________________________________________
-
-virtualenv example: venv
+2. The virtual environment activation command
+_____________________________________________
 
 .. code:: bash
 
     source <virtualenv>/bin/activate
 
-3. The alias to open any directory in the given filesystem with PyCharm ``charm . &``:
-__________________________________________________________________________________________________
+Common values for ``<virtualenv>`` are ``venv`` or ``env``. GovReady-Q's ``.gitignore`` is set up for ``env``.
 
-version number example : PyCharm 2020.1.1
+3. The alias to open any directory in the given filesystem with PyCharm ``charm . &``
+_____________________________________________________________________________________
 
 .. code:: bash
 
     alias charm="/mnt/path/to/JetBrains/'<version number>'/bin/pycharm64.exe"
 
-.. note::
+For example, ``<version number>`` could be ``PyCharm 2020.1.1``.
 
-    Locate the absolute path to pycharm64.exe with ``which pycharm64.exe``. Single quotes must be placed around parts of the path that aren't contiguous. For example the version number should be entered as 'PyCharm 2020.1.1'.
+Locate the absolute path to pycharm64.exe with ``which pycharm64.exe``. Single quotes must be placed around parts of the path that aren't contiguous. For example the version number should be entered as 'PyCharm 2020.1.1'.
 
 PyCharm
 ########
 
-PyCharm Professional has a lot of tools and features that you will find enhance development experience and we will explore a few here.
+PyCharm Professional is one of the IDEs we prefer, and it has many tools and features that you will find enhance development experience and we will explore a few here.
 
 This first tip is primarily for Windows users using WSL to develop.
 
-1. The terminal_ shell used can be configured
-_______________________________________________
+The terminal_ shell used can be configured
+------------------------------------------
 
 **File | Settings | Tools | Terminal for Windows and Linux**
 
@@ -109,8 +108,8 @@ _______________________________________________
    WSL Terminal panel
 
 
-Management Commands:
-################################################
+Management Commands
+###################
 
 GovReadyQ's ``manage.py`` uses ``django.core.management`` to orchestrate management commands.
 
@@ -124,11 +123,11 @@ Implementation
 
    execute_from_command_line(sys.argv)
 
-I will summarize the fantastic documentation the Django development team has for BaseCommand_ in order for you to create your own commands. Bottom-line we create a new class that inherits from the Django object ``BaseCommand``.
+I will summarize the fantastic documentation the Django development team has for BaseCommand_ in order for you to create your own commands. Bottom line, we create a new class that inherits from the Django object ``BaseCommand``.
 
 For this walk-through I will outline how the management command ``./manage.py compliance_app`` allows us to list all available app sources.
 
-First and foremost we need to ensure we have a **management/commands** directory under the Django app of choice, in this example **guidedmodules**(which registers the command when guidedmodules is included in **INSTALLED_APPS**). Then a new file **compliance_app.py** for our ``compliance_app`` command argument. In this file we import and inherit ``BaseCommand`` into our new class. Adding some help text to remind us of this commands purpose.
+First and foremost we need to ensure we have a **management/commands** directory under the Django app of choice, in this example **guidedmodules** (which registers the command when guidedmodules is included in **INSTALLED_APPS**). Then a new file **compliance_app.py** for our ``compliance_app`` command argument. In this file we import and inherit ``BaseCommand`` into our new class. Adding some help text to remind us of this commands purpose.
 
 .. note::
    We are now in **~/govready-q/guidedmodules/management/commands/compliance_app.py**
@@ -155,7 +154,7 @@ We can now add override the ``handle`` method which is the only required impleme
         # other argument logic that includes appsource specified
 
 
-For additional arguments **compliance_app** also overrides ``add_arguments``. Here we specify the argument to enter(``'appsource'``), the number of arguments(``"?"``), and its type(``str``). These arguments are then implemented in the handle override.
+For additional arguments **compliance_app** also overrides ``add_arguments``. Here we specify the argument to enter (``'appsource'``), the number of arguments (``"?"``), and its type (``str``). These arguments are then implemented in the handle override.
 
 .. code-block:: bash
 
@@ -171,9 +170,9 @@ For additional arguments **compliance_app** also overrides ``add_arguments``. He
    ...
 
 Currently Implemented
-----------------------------
+---------------------
 
-1. **guidedmodules**:
+**guidedmodules**
 
     +----------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
     | Command                                                  |    Usage Notes                                                                                      |
@@ -197,7 +196,7 @@ Currently Implemented
     | ``./manage.py upgrade_project``                          |  Upgrades a project to a new version of an app or associates it with a different compliance app     |
     +----------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
 
-2. **siteapp**:
+**siteapp**
 
     +----------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
     | Command                                                  |    Usage Notes                                                                                                                            |
@@ -220,8 +219,8 @@ Currently Implemented
     .. note::
        Need chromedriver.exe_ available in PATH for Selenium
 
-    A throw-away test database is used so that this command cannot see any existing
-    user data and database changes are not persistent. However, it would not be
+    A throwaway test database is used so that this command cannot see any existing
+    user data, and database changes are not persistent. However, it would not be
     advisable to run this command on a production system.
 
     Examples:
