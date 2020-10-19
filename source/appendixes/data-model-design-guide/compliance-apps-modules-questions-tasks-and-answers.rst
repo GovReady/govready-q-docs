@@ -29,7 +29,7 @@ model. The complete data model spans three categories:
 The tables are described in additional detail below and their
 relationships are summarized in the following diagram:
 
-.. figure:: /assets/govready-q-guidedmodules-erd.png
+.. figure:: /assets/Guided_modules_Data_Model.png
    :alt: Guidedmodules data model (not all tables represented)
 
    Guidedmodules data model (not all tables represented)
