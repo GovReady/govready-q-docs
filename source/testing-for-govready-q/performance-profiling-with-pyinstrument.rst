@@ -36,6 +36,6 @@ If you wish to profile every request, make sure to set your profiles directory i
 
     PYINSTRUMENT_PROFILE_DIR = 'profiles'
 
-The html documents generated will be in the designated profiles folder which will be instantiated if there is not already one in your working directory.
+The HTML documents generated will be in the designated profiles folder which will be instantiated if there is not already one in your working directory.
 
 See `Pyinstrument Profile a web request in Django <https://github.com/joerick/pyinstrument#profile-a-web-request-in-django>`_ for more details.
