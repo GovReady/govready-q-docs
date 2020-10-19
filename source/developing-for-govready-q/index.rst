@@ -21,6 +21,7 @@ You may also want to refer to the :ref:`Installation and Setup` section of the g
       :maxdepth: 1
 
       installing-govready-q-for-development
+      data-model-design-guide/index
 
 
 General Development Tips:
