@@ -7,7 +7,8 @@
 .. _wkhtmltopdf: https://wkhtmltopdf.org/downloads.html
 .. _Ubuntu: https://askubuntu.com/questions/1034313/ubuntu-18-4-libqt5core-so-5-cannot-open-shared-object-file-no-such-file-or-dir
 .. _strip: https://sourceware.org/binutils/docs/binutils/strip.html
-.. _Developing for Govready-Q:
+.. _Pycharm: https://www.jetbrains.com/help/pycharm/configuring-line-endings-and-line-separators.html
+.. _Notepad++: https://support.nesi.org.nz/hc/en-gb/articles/218032857-Converting-from-Windows-style-to-UNIX-style-line-endings#:~:text=Converting%20using%20Notepad%2B%2B&text=To%20write%20your%20file%20in,with%20UNIX%2Dstyle%20line%20endings.
 
 Windows
 =======
@@ -55,6 +56,22 @@ In this Unix-like environment on your Windows computer we can essentially follow
 
 The :ref:`Server-based Installation` already includes a section on installing required libraries. However, you need to install these dependencies as well as is done in the CircleCI configuration file ``config.yml``
 
+Run the install script to install required Python libraries, initialize GovReady-Q's database and create a superuser. This is the same command for all database backends.
+
+.. code:: bash
+
+   # Run the install script to install Python libraries,
+   # initialize database, and create Superuser
+   ./install-govready-q
+
+.. note::
+   When using any shell scripts on Windows make sure the file's format is in Unix Format to avoid a read error. You can change with an EOL conversion(CRLF to LF) with PyCharm_ or Notepad++_ using install-govready-q.sh. If you forget to change the EOL for the files you will have to manually add in an organization and related data(Help squad).
+
+.. note::
+   The command ``install-govready-q.sh`` creates the Superuser interactively allowing you to specify username and password.
+
+   The command ``install-govready-q.sh --non-interactive`` creates the Superuser automatically for installs where you do
+   not have access to interactive access to the command line. The auto-generated username and password will be output (only once) to the stdout log.
 
 
 Additional dependencies:
