@@ -7,7 +7,7 @@
 .. _wkhtmltopdf: https://wkhtmltopdf.org/downloads.html
 .. _Ubuntu: https://askubuntu.com/questions/1034313/ubuntu-18-4-libqt5core-so-5-cannot-open-shared-object-file-no-such-file-or-dir
 .. _strip: https://sourceware.org/binutils/docs/binutils/strip.html
-
+.. _Developing for Govready-Q:
 
 Windows
 =======
@@ -46,7 +46,7 @@ In this Unix-like environment on your Windows computer we can essentially follow
    source venv/bin/activate
 
 .. note::
-    To make sure PyCharm opens your terminals with the virtual environment activated I typically set this in ``.bashrc``. This includes a change of directory to your project directory and then the activation command described in :ref:`Developing for Govready-Q`. To view your ``.bashrc`` file enter the following commands.
+    To make sure PyCharm opens your terminals with the virtual environment activated I typically set this in ``.bashrc``. This includes a change of directory to your project directory and then the activation command described in `Developing for Govready-Q`. To view your ``.bashrc`` file enter the following commands.
 
 .. code:: bash
 
