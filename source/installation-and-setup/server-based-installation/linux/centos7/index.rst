@@ -346,11 +346,10 @@ Run the install script to install required Python libraries, initialize GovReady
    # Run the install script to install Python libraries,
    # initialize database, and create Superuser
    ./install-govready-q.sh
-    # create Superuser and associated organization
-    python3 manage.py first_run
+
 
 .. note::
-   The command ``install-govready-q.sh`` creates the Superuser interactively allowing you to specify username and password.
+   The command ``install-govready-q.sh`` creates the Superuser interactively allowing you to specify username and password. However, if there already is a superuser it will not prompt you to create one.
 
    The command ``install-govready-q.sh --non-interactive`` creates the Superuser automatically for installs where you do
    not have access to interactive access to the command line. The auto-generated username and password will be output (only once) to the stdout log.
