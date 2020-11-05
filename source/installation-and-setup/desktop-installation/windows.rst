@@ -8,7 +8,7 @@
 .. _Ubuntu: https://askubuntu.com/questions/1034313/ubuntu-18-4-libqt5core-so-5-cannot-open-shared-object-file-no-such-file-or-dir
 .. _strip: https://sourceware.org/binutils/docs/binutils/strip.html
 .. _Pycharm: https://www.jetbrains.com/help/pycharm/configuring-line-endings-and-line-separators.html
-.. _Notepad++: https://support.nesi.org.nz/hc/en-gb/articles/218032857-Converting-from-Windows-style-to-UNIX-style-line-endings#:~:text=Converting%20using%20Notepad%2B%2B&text=To%20write%20your%20file%20in,with%20UNIX%2Dstyle%20line%20endings.
+.. _Notepad++: https://support.nesi.org.nz/hc/en-gb/articles/218032857-Converting-from-Windows-style-to-UNIX-style-line-endings
 
 Windows
 =======
@@ -65,7 +65,7 @@ Run the install script to install required Python libraries, initialize GovReady
    ./install-govready-q
 
 .. note::
-   When using any shell scripts on Windows make sure the file's format is in Unix Format to avoid a read error. You can change with an EOL conversion(CRLF to LF) with PyCharm_ or Notepad++_ using install-govready-q.sh. If you forget to change the EOL for the files you will have to manually add in an organization and related data(Help squad).
+   When using any shell scripts on Windows make sure the file's format is in Unix Format to avoid a read error. You can change with an EOL conversion (CRLF to LF) with PyCharm_ or Notepad++_ using install-govready-q.sh. If you forget to change the EOL for the files you will have to manually add in an organization and related data (Help squad).
 
 .. note::
    The command ``install-govready-q.sh`` creates the Superuser interactively allowing you to specify username and password.

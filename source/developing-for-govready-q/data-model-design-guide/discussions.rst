@@ -22,4 +22,4 @@ have multiple attachments. Users can be associated with any discussion as a gues
 Attachments and Validation
 ------------------------------------
 
-All uploads are limited by file extension, size and type using filetype_. The valid extensions(**content types**) are: pdf(**application/pdf**), png(**image/png**), jpg(**image/jpg**) with an upload limit of 2.5MB.
+All uploads are limited by file extension, size and type using filetype_. The valid extensions (**content types**) are: pdf (**application/pdf**), png (**image/png**), jpg (**image/jpeg**) with an upload limit of 2.5MB.

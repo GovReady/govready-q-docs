@@ -82,12 +82,12 @@ Software Requirements
 +-----------------------------------------------------------------------+
 
 For a more detailed list of software dependencies and requirements see:
-\* https://github.com/GovReady/govready-q/blob/master/requirements.in \*
-https://github.com/GovReady/govready-q/blob/master/requirements.txt \*
-https://github.com/GovReady/govready-q/blob/master/requirements_mysql.in
-\*
-https://github.com/GovReady/govready-q/blob/master/requirements_mysql.txt
-\* https://github.com/GovReady/govready-q/blob/master/Vagrantfile
+
+* https://github.com/GovReady/govready-q/blob/master/requirements.in
+* https://github.com/GovReady/govready-q/blob/master/requirements.txt
+* https://github.com/GovReady/govready-q/blob/master/requirements_mysql.in
+* https://github.com/GovReady/govready-q/blob/master/requirements_mysql.txt
+* https://github.com/GovReady/govready-q/blob/master/Vagrantfile
 
 Hardware Requirements
 ---------------------
