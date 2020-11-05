@@ -16,7 +16,19 @@ For documentation, you can file issues on the `GovReady-Q Documentation issue tr
 
 We suggest that you read this Contributing guide, the project’s
 `README <https://github.com/GovReady/govready-q/blob/master/README.md>`__
- and its `LICENCE <https://github.com/GovReady/govready-q/blob/master/LICENSE.md>`__.
+and its `LICENCE <https://github.com/GovReady/govready-q/blob/master/LICENSE.md>`__.
+
+Notes about this draft
+----------------------
+It's not done!
+
+Items labeled *P1* are high priority and should be addressed sooner rather than later.
+
+Items labeled *P2* should go next.
+
+Remainder of the skeleton can filled in over time.
+
+Once we are done with the *P1* and *P2* items, delete this section!
 
 Policies
 --------
