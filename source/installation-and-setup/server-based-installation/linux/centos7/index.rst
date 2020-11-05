@@ -85,7 +85,7 @@ Clone the GovReady-Q repository from GitHub into the desired directory on your U
    cd /opt
 
    # Clone GovReady-Q
-   git clone https://github.com/govready/govready-q /path/to/govready-q
+   git clone https://github.com/govready/govready-q
    cd govready-q
 
    # GovReady-Q files are now installed in /opt/govready-q and owned by root
@@ -94,7 +94,7 @@ Clone the GovReady-Q repository from GitHub into the desired directory on your U
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
-   These steps assume your are installing into the ``/home/govready-q`` directory as user ``govready-q``.
+   These steps assume you are installing into the ``/home/govready-q`` directory as user ``govready-q``.
 
 While you are still root, create a dedicated Linux user ``govready-q`` and home directory. Change directory into the
 created user's home directory and switch users to ``govready-q``. Clone the GovReady-Q repository from GitHub.
@@ -345,7 +345,9 @@ Run the install script to install required Python libraries, initialize GovReady
 
    # Run the install script to install Python libraries,
    # initialize database, and create Superuser
-   ./install-govready-q
+   ./install-govready-q.sh
+    # create Superuser and associated organization
+    python3 manage.py first_run
 
 .. note::
    The command ``install-govready-q.sh`` creates the Superuser interactively allowing you to specify username and password.

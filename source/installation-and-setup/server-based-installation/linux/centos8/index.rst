@@ -48,7 +48,7 @@ provide full functionality. Execute the following commands as root:
    pip install --upgrade pip
 
    # Optionally install supervisord for monitoring and restarting GovReady-q; and NGINX as a reverse proxy
-   pip install supervisor
+   pip3 install supervisor
    dnf install nginx
 
    # To generate thumbnails and PDFs for export, you must install wkhtmltopdf
@@ -135,7 +135,7 @@ On the database server, install MySQL OS packages:
 
 .. code:: bash
 
-   # Install of MySQL OS packages
+   # Install MySQL OS packages
     sudo yum install -y mysql-devel
 
 Make a note of the MySQL's host, port, database name, user and password to add to GovReady-Q's configuration file at ``local/environment.json``.
@@ -332,7 +332,9 @@ Run the install script to install required Python libraries, initialize GovReady
 
    # Run the install script to install Python libraries,
    # initialize database, and create Superuser
-   ./install-govready-q
+   ./install-govready-q.sh
+   # create Superuser and associated organization
+   python3 manage.py first_run
 
 .. note::
    The command ``install-govready-q.sh`` creates the Superuser interactively allowing you to specify username and password.
