@@ -84,3 +84,15 @@ then may need to re-run some of the setup commands:
    ./fetch-vendor-resources.sh
    python3 manage.py migrate
    python3 manage.py load_modules
+
+
+Certain files like the shell script file **./fetch-vendor-resources.sh** will display an error related to Windows' end of line characters used('r\n\') vs. Unix('n\').
+If you have encounter this problem then you should use the dos2unix command.
+
+.. code-block:: bash
+    sudo apt install dos2unix
+    dos2unix /PATH/TO/YOUR/WINDOWS_FILE
+
+.. note::
+
+    If you need to go from unix to dos their is an equivalent command ``unix2dos /PATH/TO/YOUR/LINUX_FILE``
