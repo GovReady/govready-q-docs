@@ -44,7 +44,7 @@ provide full functionality. Execute the following commands as root:
    gunicorn3 \
    language-pack-en-base language-pack-en
 
-   # Upgrade pip to version 20.1+
+   # Upgrade pip to version 20.1+ - IMPORTANT
    python3 -m pip install --upgrade pip
 
    # Optionally install supervisord for monitoring and restarting GovReady-q; and NGINX as a reverse proxy
