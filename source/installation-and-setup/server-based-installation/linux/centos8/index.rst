@@ -44,7 +44,7 @@ provide full functionality. Execute the following commands as root:
    dnf config-manager --set-enabled PowerTools
    dnf install pandoc
 
-   # Upgrade pip to version 20.1+
+   # Upgrade pip to version 20.1+ - IMPORTANT
    pip install --upgrade pip
 
    # Optionally install supervisord for monitoring and restarting GovReady-q; and NGINX as a reverse proxy
