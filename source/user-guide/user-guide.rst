@@ -25,6 +25,9 @@ and click the “Sign in” button to login to the application.
 .. figure:: assets/image7.png
    :alt: Sign In Page
 
+See Video Demonstration, `Here
+<https://vimeo.com/418918695>`_.
+
 What do I see when I login?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -102,6 +105,9 @@ invitation message is complete, the User can send the invitation by
 clicking on the green “Invite” button. Once submitted, the invitation
 window will close.
 
+See Video Demonstration, `Here
+<https://vimeo.com/418918750>`_.
+
 How to Start a Discussion?
 --------------------------
 
@@ -117,6 +123,9 @@ and tag other users in their comments by typing “@username”.
 .. figure:: assets/image4.png
    :alt: Comment Example
 
+See Video Demonstration, `Here
+<https://vimeo.com/418918489>`_.
+
 How to Sign out?
 ----------------
 
@@ -129,6 +138,9 @@ option to sign out.
 
 .. figure:: assets/image8.png
    :alt: Sign Out Drop Down Menu
+
+See Video Demonstration, `Here
+<https://vimeo.com/418918695>`_.
 
 Questionnaire
 =============
@@ -153,6 +165,10 @@ box in the module will show “Finished”.
 
 .. figure:: assets/image2.png
    :alt: Modules
+
+See Video Demonstration, `Here
+<https://vimeo.com/418918489>`_.
+
 
 How to View an Artifact?
 ------------------------
@@ -298,6 +314,31 @@ standards that the User’s organization utilizes. Include as much
 relevant information as possible. Incomplete or sparse answers may cause
 an organization to fail a compliance process.
 
+How to answer a GovReady Data Grid question type?
+----------------------
+
+The GovReady Data Grid question type is used to collect complex information from users on a single questionnaire page. To answer a GovReady Data Grid question type, click the green plus "+" at the top right of the grid, enter relevant information, and then click on the lower green plus "+" to add that information to the grid. Users can add multiple rows by clicking the lower green plus "+" again. Click on the "next question" button to save answers.
+
+See Video Demonstration, `Here
+<https://vimeo.com/418917502>`_.
+
+How to answer a GovReady boilerplate template?
+----------------------
+
+User content authors can create questions that generate pre-filled out to make navigating through a module's questions easier. This content will vary from organization to organization. A boilerplate template allows a user to accept the template as is, edit the template, or write original content.
+
+See Video Demonstration, `Here
+<https://vimeo.com/418916949>`_.
+
+How to use the GovReady Authoring Tool?
+------------------------
+
+GovReady offers an in-app authoring functionality that enables users with certain permissions to change content within GovReady questionnaires. To access the Authoring Tool, click on the pencil icon at the top right of the questionnaire page. The authoring tool window will open on the right side of the screen. From the interface, users can change content, question type, and other facets of the questionnaire. Click "save" to save the changes on the questionnaire.
+
+See Video Demonstration, `Here
+<https://vimeo.com/418916771>`_.
+
+
 Portfolios
 ==========
 
@@ -329,6 +370,9 @@ Creating a new Portfolio will bring to the Portfolio’s project page.
 .. figure:: assets/image23.png
    :alt: Portfolio Project Page
 
+See Video Demonstration, `Here
+<https://vimeo.com/418918431>`_.
+
 How to Find my Portfolios?
 --------------------------
 
@@ -354,20 +398,20 @@ and green buttons to remove or make owner of a user.
 .. figure:: assets/image27.png
    :alt: Users with Access
 
-How can I Edit my Portfolio Name?
----------------------------------
+.. How can I Edit my Portfolio Name?
+.. ---------------------------------
 
-[NOT YET IMPLEMENTED]
+.. [NOT YET IMPLEMENTED]
 
-How can I Delete my Portfolio?
-------------------------------
+.. How can I Delete my Portfolio?
+.. ------------------------------
 
-[NOT YET IMPLEMENTED]
+.. [NOT YET IMPLEMENTED]
 
-How do I Grant/Remove access for another User to a Portfolio?
--------------------------------------------------------------
+.. How do I Grant/Remove access for another User to a Portfolio?
+.. -------------------------------------------------------------
 
-[NOT YET IMPLEMENTED]
+.. [NOT YET IMPLEMENTED]
 
 Project
 =======
@@ -412,6 +456,9 @@ the selected Project.
 
 .. figure:: assets/image19.png
    :alt: Delete a Project
+
+See Video Demonstration, `Here
+<https://vimeo.com/418917707>`_.
 
 Can I Rename Projects’ Names?
 -----------------------------
@@ -470,3 +517,39 @@ clicking on “Your API Keys”.
 
 .. figure:: assets/image12.png
    :alt: Your API Keys
+
+See Video Demonstration, `Here
+<https://vimeo.com/418916528>`_.
+
+App Sources
+=============
+
+Creating an App - ADVANCED
+-----------------------------
+
+GovReady allows organizations to create original apps for their own projects. Examples of premade apps can be found on GovReady's GitHub `here
+<https://github.com/GovReady/Lightweight_ATO_template/tree/master/apps/light-ato-apps>`_.
+
+Disclaimer: GovReady app creation is a more advanced procedure that is not recommended for inexperienced users.
+
+For app creation, the app.yaml file is the "table of contents" for the app. Create an app.yaml file by creating a YAML file mirroring the example in the video below or by copying and editing an existing YAML file from the above GitHub link. 
+
+Once an app.yaml is created, the user can create module files to replicate processes and create questionnaires for the system.
+
+See Video Demonstration, `Here
+<https://vimeo.com/418917112>`_.
+
+For more emergent app design, it is possible to hide and reveal apps and questionnaires based on conditional statements. 
+
+See Video Demonstration, `Here
+<https://vimeo.com/418917770>`_.
+
+
+
+Adding an App Source
+-----------------------------
+
+To add an app source to a running version of GovReady, navigate to the application's admin page. This will vary depending on your organization's deployed instance of GovReady. On the admin page, navigate to "App Sources". If you are adding a new app source, name the new app source in the "slug" section and select the path of the app source. GovReady supports local paths as well as paths from GitHub. Save the app source by clicking "Save" at the bottom of the page. Next, click on your newly added app source. In the "Compliance App" section at the bottom of the screen, select the version number of your desired app and click "Save". The new app source should be available at the "Projects" page.
+
+See Video Demonstration, `Here
+<https://vimeo.com/418916589>`_.
