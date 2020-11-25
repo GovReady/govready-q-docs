@@ -103,7 +103,7 @@ Below is an example of adding chromedriver as a parameter of the selenium chrome
     driver = selenium.webdriver.Chrome(executable_path='chromedriver.exe')
 
 .. note::
-   The above applies for WSL 1 and for WSL2 there are a few more steps to properly use chromedriver. If you ever want to set your Ubuntu install to use a different WSL version then in a windows terminal run ``wsl --set-version Ubuntu <new_version_number>``
+   The above applies for WSL 1 and for WSL 2 there are a few more steps to properly use chromedriver. If you ever want to set your Ubuntu install to use a different WSL version then in a windows terminal run ``wsl --set-version Ubuntu <new_version_number>``
 
 
 WSL version 2
@@ -150,7 +150,7 @@ chromedriver should now point to the newly installed chromedriver
     which chromedriver # /usr/local/bin/chromedriver
 
 Last but not least we need to download and install VcXsrv_. Then run **xlaunch.exe** from the programs files folder (for VcXsrv). Leave most settings as default but check the "Disable access control".
-In Linux the DISPLAY environment variable tells GUI applications at which IP address the X Server is that we want to use. Since in WSL2 the IP address of Windows land is not localhost anymore, we need to set DISPLAY to the correct IP address:
+In Linux the DISPLAY environment variable tells GUI applications at which IP address the X Server is that we want to use. Since in WSL 2 the IP address of Windows land is not localhost anymore, we need to set DISPLAY to the correct IP address:
 
 .. code-block:: bash
 
