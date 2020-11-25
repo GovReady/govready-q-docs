@@ -124,7 +124,7 @@ Continuous integration is set up with CircleCI at https://circleci.com/gh/GovRea
 2. CI checks that there are no known vulnerabilities in the dependencies using [pyup.io](https://pyup.io/).
 3. CI checks that all packages are up to date with upstream sources (unless the package and its latest upstream version are listed in ``requirements_txt_checker_ignoreupdates.txt``).
 
-To update a package, change its reference in ``requirements.in`` file. For example in upgrading gevent, change gevent==1.4.0 to gevent==20.9.0 ``requirements.in``. Then run ``requirements_txt_updater.sh`` which updates the version and hashes for gevent in ``requirements.in`` plus the version and hashes for any transitive dependencies.
+To update a package, change its reference in ``requirements.in`` file. For example in upgrading gevent, change ``gevent==1.4.0`` to ``gevent==20.9.0`` in ``requirements.in``. Then run ``requirements_txt_updater.sh`` which updates the version and hashes for gevent in ``requirements.in`` plus the version and hashes for any transitive dependencies.
 
 .. note::
    This logic applies to any requirements_* files (e.g. requirements_util.txt/requirements_util.in)
