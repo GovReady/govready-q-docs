@@ -46,8 +46,7 @@ you’ll be prompted to copy some JSON data into a file at
 
    {
      "debug": true,
-     "host": "localhost:8000",
-     "https": false,
+     "govready-url": "http://localhost:8000",
      "secret-key": "...something here..."
    }
 

@@ -36,6 +36,22 @@ Now install Python3 and the required Unix packages.
     # search the web for "wkhtmltopdf Server-Side Request Forgery"
     read -p "Are you sure (yes/no)? " ; if [ "$REPLY" = "yes" ]; then brew cask install wkhtmltopdf ; fi
 
+   # Upgrade pip to version 20.1+ - IMPORTANT
+   python3 -m pip install --upgrade pip
+
+   # Optionally install supervisord for monitoring and restarting GovReady-q; and NGINX as a reverse proxy
+   apt-get install -y supervisor nginx
+
+   # To optionally generate thumbnails and PDFs for export, you must install wkhtmltopdf
+   # WARNING: wkhtmltopdf can expose you to security risks. For more information,
+   # search the web for "wkhtmltopdf Server-Side Request Forgery"
+   read -p "Are you sure you need to generate PDF files (yes/no)? " ; if [ "$REPLY" = "yes" ]; then apt-get install wkhtmltopdf ; fi
+
+.. warning::
+   The default version 9.0.x of pip installed on Ubuntu (May 2020) correctly installs Python packages when run as root, but fails when run as non-root user and does not report the error clearly. (Pip 9.0.x fails to create the user's ``.local`` directory for installing the packages.)
+   Upgrading pip to version 20.x solves this problem. Pip must be upgraded to 20.x for the ``./install-govready-q`` script to properly install the
+   Python packages.
+
 Installing GovReady-Q
 ~~~~~~~~~~~~~~~~~~~~~
 
