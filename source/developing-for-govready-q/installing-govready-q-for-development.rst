@@ -98,6 +98,12 @@ Finally, you can use the ``dos2unix`` command to change files in a single file.
     sudo apt install dos2unix
     dos2unix /PATH/TO/YOUR/WINDOWS_FILE
 
+Or use ``dos2unix`` command to change files in multiple files recursively in a directory.
+
+.. code-block:: bash
+
+    find ./my_directory -type f -print0 | xargs -0 -n 1 -P 4 dos2unix
+
 .. note::
 
     If you need to go from unix to dos their is an equivalent command ``unix2dos /PATH/TO/YOUR/LINUX_FILE``
