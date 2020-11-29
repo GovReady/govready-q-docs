@@ -95,8 +95,7 @@ with serving the page.
 Windows(WSL) users
 ~~~~~~~~~~~~~~~~~~~~~
 
-Aside downloading (i.e. chromium-chromedriver) the executable to the system Windows needs a PATH that points to where the executable chromedriver file is located. This is also true for Windows Subsystem for Linux. A standard location to move the chromedriver executable to is `/usr/local/bin`. With that the program can just be named in your section of code without any other path parts needed.
-Below is an example of adding chromedriver as a parameter of the selenium chrome webdriver:
+Aside from downloading (i.e. chromium-chromedriver) the executable to the system Windows needs a PATH that points to where the executable chromedriver file is located. This is also true for Windows Subsystem for Linux. A standard location to move the chromedriver executable to is `/usr/local/bin`. With that the program can just be named in your section of code without any other path parts needed. Below is an example of adding chromedriver as a parameter of the selenium chrome webdriver:
 
 .. code-block:: bash
 
@@ -109,7 +108,7 @@ Below is an example of adding chromedriver as a parameter of the selenium chrome
 WSL version 2
 ---------------
 
-For WSL 2 on ubuntu you need to do these steps even if you have Chrome installed in Windows.
+For WSL 2 on Ubuntu you need to do these steps even if you have Chrome installed in Windows.
 
 Dependencies:
 
@@ -149,14 +148,14 @@ chromedriver should now point to the newly installed chromedriver
 
     which chromedriver # /usr/local/bin/chromedriver
 
-Last but not least we need to download and install VcXsrv_. Then run **xlaunch.exe** from the programs files folder (for VcXsrv). Leave most settings as default but check the "Disable access control".
-In Linux the DISPLAY environment variable tells GUI applications at which IP address the X Server is that we want to use. Since in WSL 2 the IP address of Windows land is not localhost anymore, we need to set DISPLAY to the correct IP address:
+Last but not least we need to download and install VcXsrv_. Then run **xlaunch.exe** from the programs files folder (for VcXsrv). Leave most settings as default but check the "Disable access control". In Linux the DISPLAY environment variable tells GUI applications at which IP address the X Server is that we want to use. Since in WSL 2 the IP address of Windows land is not ``localhost`` anymore, we need to set DISPLAY to the correct IP address:
 
 .. code-block:: bash
 
     export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 
 .. note::
+
     You can put it anywhere but I recommend **.bashrc**.
 
 Now if you run ``echo $DISPLAY`` you should get something like ``172.17.35.177:0.0``.
