@@ -83,3 +83,26 @@ then may need to re-run some of the setup commands:
    ./fetch-vendor-resources.sh
    python3 manage.py migrate
    python3 manage.py load_modules
+
+Certain files like the shell script file **./fetch-vendor-resources.sh** may display an error related to Windows' end of line characters used (``\r\n``) vs. Unix (``\n``).
+
+Multiple methods are available to manage end of line characters between Unix and Windows. One method, easily set up when installing Git or Git-bash on Windows is to accept the default configuration setting "Checkout Windows-style, commit Unix-style."
+
+Another method for handling different line endings between Windows and Unix is to use the ``git config core.autocrlf`` command. See `Github docs configuring-git-to-handle-line-endings <https://docs.github.com/en/free-pro-team@latest/github/using-git/configuring-git-to-handle-line-endings>`_.
+
+Finally, you can use the ``dos2unix`` command to change files in a single file.
+
+.. code-block:: bash
+
+    sudo apt install dos2unix
+    dos2unix /PATH/TO/YOUR/WINDOWS_FILE
+
+Or use ``dos2unix`` command to change files in multiple files recursively in a directory.
+
+.. code-block:: bash
+
+    find ./my_directory -type f -print0 | xargs -0 -n 1 -P 4 dos2unix
+
+.. note::
+
+    If you need to go from unix to dos their is an equivalent command ``unix2dos /PATH/TO/YOUR/LINUX_FILE``
