@@ -11,28 +11,42 @@ relational database back-end.
 Software Requirements
 ---------------------
 
++--------------------------------------------------+
+| Required Python Software Packages (partial list) |
++==================================================+
+| (GovReady-Q application)                         |
++--------------------------------------------------+
+| Python 3.6                                       |
++--------------------------------------------------+
+| Django 3.07                                      |
++--------------------------------------------------+
+| Jinja 2.x                                        |
++--------------------------------------------------+
+| uwsgi 2.x                                        |
++--------------------------------------------------+
+| unzip                                            |
++--------------------------------------------------+
+| graphviz                                         |
++--------------------------------------------------+
+| libmagic                                         |
++--------------------------------------------------+
+| filetype                                         |
++--------------------------------------------------+
+| pandoc                                           |
++--------------------------------------------------+
+| supervisor                                       |
++--------------------------------------------------+
+
+
 +-------------------------------------------+
-| Required Software Packages (partial list) |
+|Required Frontend Frameworks               |
 +===========================================+
-| (GovReady-Q application)                  |
 +-------------------------------------------+
-| Python 3.6                                |
+| jquery/Ajax 3.5.1                         |
 +-------------------------------------------+
-| Django 2.2                                |
+| quill  1.3.7                              |
 +-------------------------------------------+
-| Jinja 2.x                                 |
-+-------------------------------------------+
-| uwsgi 2.x                                 |
-+-------------------------------------------+
-| unzip                                     |
-+-------------------------------------------+
-| graphviz                                  |
-+-------------------------------------------+
-| libmagic                                  |
-+-------------------------------------------+
-| pandoc                                    |
-+-------------------------------------------+
-| supervisor                                |
+| bootstrap 3.4.1                           |
 +-------------------------------------------+
 
 +-------------------------------------------+
@@ -68,12 +82,12 @@ Software Requirements
 +-----------------------------------------------------------------------+
 
 For a more detailed list of software dependencies and requirements see:
-\* https://github.com/GovReady/govready-q/blob/master/requirements.in \*
-https://github.com/GovReady/govready-q/blob/master/requirements.txt \*
-https://github.com/GovReady/govready-q/blob/master/requirements_mysql.in
-\*
-https://github.com/GovReady/govready-q/blob/master/requirements_mysql.txt
-\* https://github.com/GovReady/govready-q/blob/master/Vagrantfile
+
+* https://github.com/GovReady/govready-q/blob/master/requirements.in
+* https://github.com/GovReady/govready-q/blob/master/requirements.txt
+* https://github.com/GovReady/govready-q/blob/master/requirements_mysql.in
+* https://github.com/GovReady/govready-q/blob/master/requirements_mysql.txt
+* https://github.com/GovReady/govready-q/blob/master/Vagrantfile
 
 Hardware Requirements
 ---------------------
