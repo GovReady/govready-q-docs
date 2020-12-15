@@ -92,6 +92,14 @@ with serving the page.
 
     python manage.py test -v 3
 
+
+**IDE Test Configuration - Settings File Not Found**
+
+When executing tests through an IDE, the test configuration may error due to a lack of specifying a settings file.
+In the default test interpreter, set the settings file to siteapp/settings.py.
+This file contains the Django settings for the GovReady-Q project.
+
+
 Windows(WSL) users
 ~~~~~~~~~~~~~~~~~~~~~
 
