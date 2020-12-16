@@ -85,7 +85,7 @@ Clone the GovReady-Q repository from GitHub into the desired directory on your U
    cd /opt
 
    # Clone GovReady-Q
-   git clone https://github.com/govready/govready-q /path/to/govready-q
+   git clone https://github.com/govready/govready-q
    cd govready-q
 
    # GovReady-Q files are now installed in /opt/govready-q and owned by root
@@ -94,7 +94,7 @@ Clone the GovReady-Q repository from GitHub into the desired directory on your U
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
-   These steps assume your are installing into the ``/home/govready-q`` directory as user ``govready-q``.
+   These steps assume you are installing into the ``/home/govready-q`` directory as user ``govready-q``.
 
 While you are still root, create a dedicated Linux user ``govready-q`` and home directory. Change directory into the
 created user's home directory and switch users to ``govready-q``. Clone the GovReady-Q repository from GitHub.
@@ -127,10 +127,14 @@ GovReady-Q requires a relational database. You can choose:
 
 * SQLite3
 * MySQL
+* MariaDB
 * PostgreSQL
 
 GovReady-Q will automatically default to and use a SQLite3 database installed at ``local/db.sqlite3``
 if you do not specify a database connection string in ``local/environment.json``.
+
+.. note::
+   All files in ``govready-q/local-examples/<local*>`` can be used as a template to create the local directory.
 
 3 (option a). Installing SQLite3 (default)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -169,10 +173,107 @@ For proper operation, ensure that MySQL databases created for GovReady use UTF-8
       CHARACTER SET utf8mb4
       COLLATE utf8mb4_0900_ai_ci;
 
-3 (option c). Installing PostgreSQL
+3 (option c). Installing MariaDB
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+On the database server, install MariDB related-packages:
+
+.. code:: bash
+
+   # Install MariaDB OS packages
+    sudo yum install mariadb-server
+
+   # Install MariaDB packages
+    sudo yum install -y mysql-devel
+    sudo mysql_install_db
+
+Change ownership of a few key mariadb files and directories
+
+.. code:: bash
+
+    sudo chown mysql /var/log/mariadb
+    sudo chown mysql /var/log/mariadb/mariadb.log
+    sudo chown -R mysql /var/lib/mysql
+
+
+The following should fail as the user will not have the right privileges.
+
+.. code:: bash
+
+    sudo systemctl start mariadb.service
+    service mariadb status
+   # Checking the current user (i.e. user)
+    whoami
+   # Start mysql with user
+    mysql -user
+
+
+Need to grant all privileges to the system user of your choice and set password for the user.
+
+.. code-block:: sql
+
+  USE mysql;
+  SELECT User, Host, plugin FROM mysql.user;
+  CREATE USER 'YOUR_SYSTEM_USER'@'localhost' IDENTIFIED BY '';
+  GRANT ALL PRIVILEGES ON *.* TO 'YOUR_SYSTEM_USER'@'localhost';
+  UPDATE user SET plugin='auth_socket' WHERE User='YOUR_SYSTEM_USER';
+  UPDATE user set authentication_string=PASSWORD("") where User='YOUR_SYSTEM_USER';
+  FLUSH PRIVILEGES;
+  exit;
+
+The following enables you to improve the security of your MariaDB installation in the following ways:
+
+* You can set a password for root accounts.
+* You can remove root accounts that are accessible from outside the local host.
+* You can remove anonymous-user accounts.
+* You can remove the test database, which by default can be accessed by anonymous users.
+
+.. code:: bash
+
+    sudo mysql_secure_installation
+
+On the database server, install MariaDB OS packages:
+
+.. code:: bash
+
+   # Install MariaDB OS packages
+    sudo yum install -y mysql-devel
+
+The following should fail as the user will not have the right privileges.
+
+.. code:: bash
+
+    # start MariaDB and check its status
+    sudo systemctl start mariadb.service
+    service mariadb status
+
+Make a note of the MariDB's host, port, database name, user and password to add to GovReady-Q's configuration file at ``local/environment.json``.
+
+.. code:: text
+
+   {
+      ...
+      "db": "mysql://USER:PASSWORD@HOST:PORT/NAME",
+      ...
+   }
+
+.. note::
+   For mariaDB the default port is 3306.
+
+
+For proper operation, ensure that MariaDB databases created for GovReady use UTF-8 encoding.
+
+   .. code-block:: sql
+
+      CREATE DATABASE govready_q
+      CHARACTER SET utf8mb4
+
+
+
+3 (option d). Installing PostgreSQL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On the database server, install PostgreSQL OS packages:
+Install PostgreSQL OS packages either on the same server as GovReady-Q or on a different database server.
 
 .. code:: bash
 
@@ -211,13 +312,13 @@ to configure a secure connection between GovReady-Q and PostgreSQL.
 In ``/var/lib/pgsql/data/postgresql.conf``, enable TLS connections by
 changing the ``ssl`` option to
 
-::
+.. code:: bash
 
    ssl = on
 
 and enable remote connections by binding to all interfaces:
 
-::
+.. code:: bash
 
    listen_addresses = '*'
 
@@ -226,14 +327,14 @@ and *only* encrypted with TLS by editing
 ``/var/lib/pgsql/data/pg_hba.conf`` and adding the line (replacing the
 hostname with the hostname of the Q webapp server):
 
-::
+.. code:: bash
 
    hostssl all all webserver.example.com md5
 
 Generate a self-signed certificate (replace ``db.govready-q.internal``
 with the database server’s hostname if possible):
 
-::
+.. code:: bash
 
    openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout /var/lib/pgsql/data/server.key -out /var/lib/pgsql/data/server.crt -subj '/CN=db.govready-q.internal'
    chmod 600 /var/lib/pgsql/data/server.{key,crt}
@@ -247,7 +348,7 @@ make trusted connections to the database server:
    cat /var/lib/pgsql/data/server.crt
    # Place on webapp server at /home/govready-q/pgsql.crt
 
-Restart the PostgreSQL:
+Restart PostgreSQL:
 
 .. code:: bash
 
@@ -281,6 +382,17 @@ Create the ``local/environment.json`` file with appropriate parameters. (Order o
 
       {
          "db": "mysql://USER:PASSWORD@localhost:PORT/NAME",
+         "govready-url": "http://localhost:8000",
+         "debug": false,
+         "secret-key": "long_random_string_here"
+      }
+
+**MariaDB**
+
+.. code:: json
+
+      {
+         "db": "mysql://USER:PASSWORD@localhost:3306/govready_q",
          "govready-url": "http://localhost:8000",
          "debug": false,
          "secret-key": "long_random_string_here"
@@ -345,10 +457,11 @@ Run the install script to install required Python libraries, initialize GovReady
 
    # Run the install script to install Python libraries,
    # initialize database, and create Superuser
-   ./install-govready-q
+   ./install-govready-q.sh
+
 
 .. note::
-   The command ``install-govready-q.sh`` creates the Superuser interactively allowing you to specify username and password.
+   The command ``install-govready-q.sh`` creates the Superuser interactively allowing you to specify username and password. However, if there already is a superuser it will not prompt you to create one.
 
    The command ``install-govready-q.sh --non-interactive`` creates the Superuser automatically for installs where you do
    not have access to interactive access to the command line. The auto-generated username and password will be output (only once) to the stdout log.
@@ -403,7 +516,7 @@ In this step, you will configure your deployment to use NGINX as a reverse proxy
 Installing GovReady-Q Server command-by-command
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For situations in which more granular control over the install process is required, use the commands below for installing GovReady-Q.
+For situations in which more granular control over the install process is required, use the commands below to install GovReady-Q.
 
 .. code:: bash
 

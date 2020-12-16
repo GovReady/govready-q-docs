@@ -112,7 +112,7 @@ created user's home directory and switch users to ``govready-q``. Clone the GovR
    git clone https://github.com/govready/govready-q
    cd govready-q
 
-   # GovReady-Q files are now installed in /home/govready-q/govready-q and owned govready-q
+   # GovReady-Q files are now installed in /home/govready-q/govready-q and owned by govready-q
 
 3. Installing desired database
 ------------------------------
@@ -121,10 +121,14 @@ GovReady-Q requires a relational database. You can choose:
 
 * SQLite3
 * MySQL
+* MariaDB
 * PostgreSQL
 
-GovReady-Q will automatically default to and use a SQLite3 database
+GovReady-Q will automatically default to and use a SQLite3 database installed at ``local/db.sqlite3``
 if you do not specify a database connection string in ``local/environment.json``.
+
+.. note::
+   All files in ``govready-q/local-examples/<local*>`` can be used as a template to create the local directory.
 
 3 (option a). Installing SQLite3 (default)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -169,7 +173,117 @@ For proper operation, ensure that MySQL databases created for GovReady use UTF-8
       CHARACTER SET utf8mb4
       COLLATE utf8mb4_0900_ai_ci;
 
-3 (option c). Installing PostgreSQL
+3 (option c). Installing MariaDB
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+On the database server, install MariDB related-packages:
+
+.. code:: bash
+
+   # Install MariaDB OS packages
+    sudo yum install mariadb-server
+
+   # Install MariaDB develop packages
+    sudo yum install -y libmariadb-dev
+    sudo mysql_install_db
+
+.. note::
+   For Windows Subsystem for Linux (Ubuntu 20.04) the command will be ``sudo apt-get install libmariadb-dev`` and  ``sudo apt-get install mariadb-server``
+
+
+Change ownership of a few key mariadb files and directories
+
+.. code:: bash
+
+    sudo chown mysql /var/log/mariadb
+    sudo chown mysql /var/log/mariadb/mariadb.log
+    sudo chown -R mysql /var/lib/mysql
+
+.. note::
+   For Windows Subsystem for Linux (Ubuntu 20.04) the path should be ``/usr/bin`` instead of ``var/log`` (i.e. ``/usr/bin/mariadb``)
+
+The following should fail as the user will not have the right privileges.
+
+.. code:: bash
+
+    sudo systemctl start mariadb.service
+    service mariadb status
+   # Checking the current user (i.e. user)
+    whoami
+   # Start mysql with user
+    mysql -user
+
+.. note::
+   For Windows Subsystem for Linux (Ubuntu 20.04) you might get the error below. the default initsystem is not **systemd** which **systemctl** depends on (probably **Sysvinit**). To still achieve the same usage you have to change the syntax for this command from **systemctl start service_name** to	**service service_name start** (i.e. ``sudo service mysql status``)
+
+.. code:: bash
+
+    system has not been booted with systemd as init system (PID 1). Can't operate.
+    Failed to connect to bus: Host is down
+
+Need to grant all privileges to the system user of your choice and set password for the user.
+
+.. code-block:: sql
+
+  USE mysql;
+  SELECT User, Host, plugin FROM mysql.user;
+  CREATE USER 'YOUR_SYSTEM_USER'@'localhost' IDENTIFIED BY '';
+  GRANT ALL PRIVILEGES ON *.* TO 'YOUR_SYSTEM_USER'@'localhost';
+  UPDATE user SET plugin='auth_socket' WHERE User='YOUR_SYSTEM_USER';
+  UPDATE user set authentication_string=PASSWORD("") where User='YOUR_SYSTEM_USER';
+  FLUSH PRIVILEGES;
+  exit;
+
+The following enables you to improve the security of your MariaDB installation in the following ways:
+
+* You can set a password for root accounts.
+* You can remove root accounts that are accessible from outside the local host.
+* You can remove anonymous-user accounts.
+* You can remove the test database, which by default can be accessed by anonymous users.
+
+.. code:: bash
+
+    sudo mysql_secure_installation
+
+On the database server, install MariaDB OS packages:
+
+.. code:: bash
+
+   # Install MariaDB OS packages
+    sudo yum install -y mysql-devel
+
+The following should fail as the user will not have the right privileges.
+
+.. code:: bash
+
+    # start MariaDB and check its status
+    sudo systemctl start mariadb.service
+    service mariadb status
+
+Make a note of the MariDB's host, port, database name, user and password to add to GovReady-Q's configuration file at ``local/environment.json``.
+
+.. code:: text
+
+   {
+      ...
+      "db": "mysql://USER:PASSWORD@HOST:PORT/NAME",
+      ...
+   }
+
+.. note::
+   For mariaDB the default port is 3306.
+
+
+For proper operation, ensure that MariaDB databases created for GovReady use UTF-8 encoding.
+
+   .. code-block:: sql
+
+      CREATE DATABASE govready_q
+      CHARACTER SET utf8mb4
+
+
+
+3 (option d). Installing PostgreSQL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Install PostgreSQL OS packages either on the same server as GovReady-Q or on a different database server.
@@ -278,6 +392,17 @@ Create the ``local/environment.json`` file with appropriate parameters. (Order o
 
       {
          "db": "mysql://USER:PASSWORD@localhost:PORT/NAME",
+         "govready-url": "http://localhost:8000",
+         "debug": false,
+         "secret-key": "long_random_string_here"
+      }
+
+**MariaDB**
+
+.. code:: json
+
+      {
+         "db": "mysql://USER:PASSWORD@localhost:3306/govready_q",
          "govready-url": "http://localhost:8000",
          "debug": false,
          "secret-key": "long_random_string_here"
