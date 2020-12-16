@@ -315,7 +315,7 @@ relevant information as possible. Incomplete or sparse answers may cause
 an organization to fail a compliance process.
 
 How to answer a GovReady Data Grid question type?
-----------------------
+----------------------------------------------------
 
 The GovReady Data Grid question type is used to collect complex information from users on a single questionnaire page. To answer a GovReady Data Grid question type, click the green plus "+" at the top right of the grid, enter relevant information, and then click on the lower green plus "+" to add that information to the grid. Users can add multiple rows by clicking the lower green plus "+" again. Click on the "next question" button to save answers.
 
@@ -323,7 +323,7 @@ See Video Demonstration, `Here
 <https://vimeo.com/418917502>`_.
 
 How to answer a GovReady boilerplate template?
-----------------------
+-----------------------------------------------
 
 User content authors can create questions that generate pre-filled out to make navigating through a module's questions easier. This content will vary from organization to organization. A boilerplate template allows a user to accept the template as is, edit the template, or write original content.
 
@@ -331,7 +331,7 @@ See Video Demonstration, `Here
 <https://vimeo.com/418916949>`_.
 
 How to use the GovReady Authoring Tool?
-------------------------
+----------------------------------------------
 
 GovReady offers an in-app authoring functionality that enables users with certain permissions to change content within GovReady questionnaires. To access the Authoring Tool, click on the pencil icon at the top right of the questionnaire page. The authoring tool window will open on the right side of the screen. From the interface, users can change content, question type, and other facets of the questionnaire. Click "save" to save the changes on the questionnaire.
 

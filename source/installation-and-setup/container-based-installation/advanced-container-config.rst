@@ -79,7 +79,7 @@ container, which will be destroyed when the container is destroyed.
 There are two methods for connecting to a persistent database.
 
 Sqlite file
-^^^^^^^^^^^
+'''''''''''''
 
 You can use a Sqlite file stored on the host machine:
 
@@ -106,7 +106,7 @@ Of course, do not do this if the host machine has a user 1000 that you
 do not trust.
 
 Remote database
-^^^^^^^^^^^^^^^
+''''''''''''''''''''
 
 You can also connect to a database running on a remote system accessible
 to the Docker container.

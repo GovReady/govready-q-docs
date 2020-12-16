@@ -54,25 +54,25 @@ Migration Process
 -----------------
 
 General Guidelines
-^^^^^^^^^^^^^^^^^^
+''''''''''''''''''''''''''''''
 
 * Make sure your live data is backed up, and can be found and restored properly, before, during, and after the migration.
 * Do test migrations on test servers first, to ensure you understand the process and have worked out any kinks, before working on production servers.
 * Check for customizations, and preserve or modify them as needed.
 
 Back Up Your Production Data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+''''''''''''''''''''''''''''''
 
 * Ensure that you have a backup of your production data, and that it is safe, and will be available for a successful restore.
 
 Read the Documentation
-^^^^^^^^^^^^^^^^^^^^^^
+''''''''''''''''''''''''''
 
 * Familiarize yourself with the migration process before conducting the first test migration.
 * Make sure GovReady-Q official documentation is working for you.
 
 Do a Test Migration
-^^^^^^^^^^^^^^^^^^^
+'''''''''''''''''''''''''
 
 * Use test data that will model and exercise the same features as your production data.
 * Use a clean install of the version you run in production, with test data installed.
@@ -83,7 +83,7 @@ Do a Test Migration
 * Optionally have selected end-users sign into the upgraded test instance to perform their own tests.
 
 Distribute a Migration Plan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+''''''''''''''''''''''''''''''
 
 * Create a migration plan. Include user impacts, timelines, contingency plans, and technical details (perhaps in a separate technical plan).
 * Confirm that your colleagues who are responsible, accountable, consulted, and informed about the migration are satisfied with the plan.
