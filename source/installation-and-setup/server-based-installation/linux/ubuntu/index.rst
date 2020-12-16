@@ -216,7 +216,7 @@ The following should fail as the user will not have the right privileges.
 .. note::
    For Windows Subsystem for Linux (Ubuntu 20.04) you might get the error below. the default initsystem is not **systemd** which **systemctl** depends on (probably **Sysvinit**). To still achieve the same usage you have to change the syntax for this command from **systemctl start service_name** to	**service service_name start** (i.e. ``sudo service mysql status``)
 
-.. code:: bash
+.. code:: text
 
     system has not been booted with systemd as init system (PID 1). Can't operate.
     Failed to connect to bus: Host is down
