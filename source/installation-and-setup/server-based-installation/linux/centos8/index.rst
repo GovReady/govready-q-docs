@@ -163,7 +163,7 @@ For proper operation, ensure that MySQL databases created for GovReady use UTF-8
 3 (option c). Installing MariaDB
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On the database server, install MariDB related-packages:
+On the database server, install MariaDB related-packages:
 
 .. code:: bash
 
@@ -234,7 +234,7 @@ The following should fail as the user will not have the right privileges.
     sudo systemctl start mariadb.service
     service mariadb status
 
-Make a note of the MariDB's host, port, database name, user and password to add to GovReady-Q's configuration file at ``local/environment.json``.
+Make a note of the MariaDB's host, port, database name, user and password to add to GovReady-Q's configuration file at ``local/environment.json``.
 
 .. code:: text
 
