@@ -16,4 +16,5 @@ This section contains useful reference materials.
       :maxdepth: 1
 
       how-tos-and-faqs
+      oscal-compliance
       version-notes/index
