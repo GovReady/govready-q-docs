@@ -67,16 +67,14 @@ To produce a code coverage report, run the tests with `coverage`:
 For Developers
 ~~~~~~~~~~~~~~~~~~~~~
 
-If you want to run automated tests in visible mode you can set the parameter test_visible to false in ``local/environment.json`` otherwise it will run in headless.
+If you want to run automated tests in visible mode you can set the parameter test_visible to ``true`` in ``local/environment.json`` otherwise tests will run in headless mode.
 ::
 
    {
       ...
-      "test_visible": false,
+      "test_visible": true,
       ...
    }
-
-This is a boolean for the HEADLESS variable in ``siteapp/settings``(the main point for automated test settings) that is a control for adding or avoiding ``--headless`` as an argument in ChromeOptions.
 
 ::
 
