@@ -18,5 +18,5 @@ These pages describe how to author compliance apps within GovReady-Q.
       understanding-compliance-apps
       compliance-app-authoring-tutorial
       app-sources
-      modules-questions-and-documents-yaml-reference
+      modules-questions-inputs-documents-yaml-reference
       control-reference

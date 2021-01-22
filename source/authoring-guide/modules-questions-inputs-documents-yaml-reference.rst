@@ -1,8 +1,8 @@
 .. Copyright (C) 2020 GovReady PBC
 
-.. _Modules, Questions, and Documents YAML Reference:
+.. _Modules, Questions, Inputs, and Documents YAML Reference:
 
-Modules, Questions, and Documents YAML Reference
+Modules, Questions, Inputs, and Documents YAML Reference
 ================================================
 
 A module and its questions are defined in YAML specification files. The
@@ -168,6 +168,34 @@ e.g.:
            answers:  # <-- answers to sub-task's questions
              q1: desktop
              q2: My Secure Tool
+
+Inputs
+---------
+
+Version 0.9.1.50.1 introduced the ability to incorporate input data into a compliance app.
+
+Inputs are optional parameters defined which allow additional project
+components and/or compliance statements to be related to the compliance app.
+Inputs are defined in the ``app.yaml`` file with the following schema:
+
+::
+
+   input:
+     - id: my_input_id
+       name: Input Name
+       type: oscal
+       path: relative_dir/filename.json
+       group: OSCAL Components
+
+A description of each field follows:
+-  ``id`` — A unique string identifier for the input
+-  ``name`` — A user-identifiable name for the input
+-  ``type`` — Currently, only OSCAL JSON inputs are supported under the value `oscal`.
+-  ``path`` — A relative path within the app directory to the input file.
+-  ``group`` - An optional string, used to group inputs.
+
+A popular use case for input data is to attach OSCAL components and
+implementation statements to a project at the time of creation.
 
 Documents
 ---------
