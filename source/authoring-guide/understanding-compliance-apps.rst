@@ -121,6 +121,13 @@ The ``app.yaml`` file looks like this:
    protocol: # for inner apps only
    - globally_unique_protocol_name
 
+   input:
+     - id: <input_id> (string)
+       name: <Input Name> (string)
+       type: oscal (Only oscal currently supported) 
+       path: <dir/filename.json> (relative file path)
+       group: (optional string)
+
    catalog:
      categories:
        - Category Name
