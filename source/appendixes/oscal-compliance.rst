@@ -41,8 +41,10 @@ include:
 
 OSCAL SSP Implementation Notes
 ------------------------------
-To export OSCAL SSP in JSON format, you must use a recent version (>=
-0.2.9) of the Lightweight_ATO_Template application source.
+To export OSCAL SSP in JSON format, you must use a Compliance App that
+includes the OSCAL SSP JSON output template. An OSCAL SSP JSON output template
+can be found in the included the General IT System ATO (v1.0.1) and the 
+Lightweight_ATO_Template > light-ato-ssp (v0.2.9).
 
 While the OSCAL SSP JSON that GovReady-Q produces is valid according
 to the OSCAL SSP JSON schema, many optional elements are currently
