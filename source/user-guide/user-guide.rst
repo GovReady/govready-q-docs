@@ -553,3 +553,25 @@ To add an app source to a running version of GovReady, navigate to the applicati
 
 See Video Demonstration, `Here
 <https://vimeo.com/418916589>`_.
+
+System Inventory
+================
+
+Users can view System Inventory by clicking on the "Deployment" button from the project page and selecting a deployment.
+
+Each deployment is a snapshot of the inventory items composing that deployment.
+
+The "Blueprint" deployment is a special deployment representing the intended design of instances of the IT system.
+
+GovReady maintains a version history a versioned history of the deployment inventory items.
+
+System Assessment Results
+=========================
+
+Users can view System Assessment Results by clicking on the "Assessments" button from the project page and selecting a deployment.
+
+Each system assessment result is a snapshot summary of multiple scans and assessments whose full reports may live outside of GovReady.
+
+A single system can have multiple system assessment reports. And each system assessment result can be update with fresh data. GovReady maintains a version history of an each uniquely identified system assessment results.
+
+
