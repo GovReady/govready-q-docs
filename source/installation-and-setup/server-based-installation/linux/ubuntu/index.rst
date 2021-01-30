@@ -471,13 +471,14 @@ Run the install script to install required Python libraries, initialize GovReady
 
    # Run the install script to install Python libraries,
    # initialize database, and create Superuser
-   ./install-govready-q.sh
+   ./install-govready-q.sh --pip-user
 
 .. note::
-   The command ``install-govready-q.sh`` creates the Superuser interactively allowing you to specify username and password.
+   The command ``install-govready-q.sh --pip-user`` is required when creating a virtual python environment associated with the user as described in these instructions as of version 0.9.1.52. The ``--pip-user`` may not be required in different install configurations.
 
-   The command ``install-govready-q.sh --non-interactive`` creates the Superuser automatically for installs where you do
-   not have access to interactive access to the command line. The auto-generated username and password will be output (only once) to the stdout log.
+   The command ``install-govready-q.sh --pip-user`` or ``install-govready-q.sh``  creates the Superuser interactively allowing you to specify username and password.
+
+   The command ``install-govready-q.sh --pip-user --non-interactive`` or ``install-govready-q.sh --non-interactive`` creates the Superuser automatically for installs where you do not have access to interactive access to the command line. The auto-generated username and password will be output (only once) to the stdout log.
 
 6. Starting and stopping GovReady-Q
 -----------------------------------
