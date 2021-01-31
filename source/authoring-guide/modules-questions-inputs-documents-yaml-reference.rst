@@ -108,13 +108,25 @@ The schema for questions is documented in a later section.
 Additional fields for projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Question Fields
-^^^^^^^^^^^^^^^
+Question Display, Position, and Layout Fields
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The questions of projects are displayed in a layout of tabs and groups
-within each tab pane. Each question that shows up on a project page
-should specify its tab and group name (which are also the display
-strings):
+The display, position, and layout of questions on the project page
+are controlled by a combination of fields:
+
+``icon`` specifies a static asset (in the ``assets`` directory) to use
+as an icon for the question. If the question’s type is ``module`` and it
+is answered and the answer is a Task that has a top-level ``icon``
+field, then the answer’s icon is used instead.
+
+``group`` and ``tab`` specifies how each question that shows up on a
+project page arranged by tab and group name. The tab and group name
+are display strings themselves. Each question that shows up on a project
+page should specify its tab and group name (which are also the display strings).
+
+``placement: action-buttons`` can be used instead of ``tab`` and ``group``
+to position the question outside of the tab and group blocks and underneath
+the action-buttons.
 
 ::
 
@@ -127,14 +139,12 @@ strings):
      group: Start Here
      icon: ssp.png
 
-``icon`` specifies a static asset (in the ``assets`` directory) to use
-as an icon for the question. If the question’s type is ``module`` and it
-is answered and the answer is a Task that has a top-level ``icon``
-field, then the answer’s icon is used instead.
+   - id: system_summary
+     title: "IT System Summary"
+     type: module
+     module-id: system_summary
+     placement: action-buttons
 
-Instead of ``tab`` and ``group``, ``placement: action-buttons`` can be
-used instead to show the question in an action bar above the tabs,
-rather than in tabs.
 
 Output Document Fields
 ^^^^^^^^^^^^^^^^^^^^^^
