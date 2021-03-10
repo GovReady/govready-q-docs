@@ -282,3 +282,30 @@ Currently Implemented
     +---------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | ``./manage.py test_screenshots --skip-checks``                      |   Skip system checks.                                                                                                                                       |
     +---------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Handling Snyk Vulnerability Scanner Results
+############################################
+
+.. _Snyk: https://snyk.io/
+
+GovReady-Q uses `Snyk`_ for vulnerability scanning of python dependencies. The scanner runs in CircleCi at each push to the remote repository.
+
+When a CircleCi build fails at the Snyk stage, this is most likely due to the fact that there is a dependency being used with a reported vulnerability as seen in this build fail example:
+
+.. image:: ../assets/snyk_circleci_fail.png
+  :width: 600
+
+Take the following actions depending on the state of the vulnerability and how it is used in GovReady-Q:
+
+
+1. Upgrade Package
+------------------------------------------
+In order to resolve the build fail, create a ticket to upgrade the vulnerable package to the latest version.
+
+2. Avoid Using Vulnerable Code
+------------------------------------------
+If upgrading is not possible (ex. latest version has a vulnerability), ensure that the vulnerable portion of the package is not being used.
+
+3. Downgrade If Necessary
+------------------------------------------
+If it is not possible to avoid using the package in a vulnerable manner, open a ticket to downgrade the package to the latest non-vulnerable version if possible.
