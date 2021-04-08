@@ -6,9 +6,9 @@ Ubuntu from sources
 ===================
 
 .. meta::
-  :description: This guide describes how to install the GovReady-Q server for Ubuntu 16.04 or greater from source code.
+  :description: This guide describes how to install the GovReady-Q server for Ubuntu 20.04 from source code.
 
-This guide describes how to install the GovReady-Q server for Ubuntu 16.04 or greater from source code.
+This guide describes how to install the GovReady-Q server for Ubuntu 20.04 from source code.
 This guide will take you through the following steps:
 
 1. Installing required OS packages
@@ -38,11 +38,18 @@ provide full functionality. Execute the following commands as root:
    DEBIAN_FRONTEND=noninteractive \
    apt-get install -y \
    unzip git curl jq \
-   python3 python3-pip \
+   python3 python3-pip python3-venv \
    python3-yaml \
    graphviz pandoc \
-   gunicorn3 \
+   gunicorn \
    language-pack-en-base language-pack-en
+
+   # Upgrade to pandoc to version 2.9 or higher
+   wget https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-linux-amd64.tar.gz
+   tar xvzf pandoc-2.13-linux-amd64.tar.gz
+   mv pandoc-2.13/bin/* /usr/local/bin
+   rm -Rf pandpandoc-2.13
+   rm pandoc-2.13-linux-amd64.tar.gz
 
    # Upgrade pip to version 20.1+ - IMPORTANT
    python3 -m pip install --upgrade pip
@@ -56,9 +63,7 @@ provide full functionality. Execute the following commands as root:
    read -p "Are you sure you need to generate PDF files (yes/no)? " ; if [ "$REPLY" = "yes" ]; then apt-get install wkhtmltopdf ; fi
 
 .. warning::
-   The default version 9.0.x of pip installed on Ubuntu (May 2020) correctly installs Python packages when run as root, but fails when run as non-root user and does not report the error clearly. (Pip 9.0.x fails to create the user's ``.local`` directory for installing the packages.)
-   Upgrading pip to version 20.x solves this problem. Pip must be upgraded to 20.x for the ``./install-govready-q`` script to properly install the
-   Python packages.
+   Pip must be upgraded to 20.x for the ``./install-govready-q`` script to properly install the Python packages.
 
 2. Cloning the GovReady-Q repository
 ------------------------------------
@@ -66,26 +71,8 @@ provide full functionality. Execute the following commands as root:
 You now need to decide where to install the GovReady-Q files and whether to run GovReady-Q as root or as a dedicated
 Linux user. Installing as root is convenient for initial testing and some circumstances. Creating a dedicated user and installing as that user is considered better practice.
 
-2 (option a). Installing as root
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. note::
-   These steps assume you are installing into the ``/opt/`` directory as root.
-
-Clone the GovReady-Q repository from GitHub into the desired directory on your Ubuntu server.
-
-.. code:: bash
-
-   cd /opt
-
-   # Clone GovReady-Q
-   git clone https://github.com/govready/govready-q /path/to/govready-q
-   cd govready-q
-
-   # GovReady-Q files are now installed in /opt/govready-q and owned by root
-
-2 (option b). Installing as Linux user "govready-q"
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 (option a). Installing as Linux user "govready-q" (recommended)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
    These steps assume you are installing into the ``/home/govready-q`` directory as user ``govready-q``.
@@ -113,6 +100,32 @@ created user's home directory and switch users to ``govready-q``. Clone the GovR
    cd govready-q
 
    # GovReady-Q files are now installed in /home/govready-q/govready-q and owned by govready-q
+
+   # Create a virtual python environment and activate it
+   python3 -m venv venv
+   source venv/bin/activate
+
+   # Upgrade virtual python environment pip to version 20.1+ - IMPORTANT
+   python -m pip install --upgrade pip
+
+2 (option b). Installing as root
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+   These steps assume you are installing into the ``/opt/`` directory as root.
+
+Clone the GovReady-Q repository from GitHub into the desired directory on your Ubuntu server.
+
+.. code:: bash
+
+   cd /opt
+
+   # Clone GovReady-Q
+   git clone https://github.com/govready/govready-q /path/to/govready-q
+   cd govready-q
+
+   # GovReady-Q files are now installed in /opt/govready-q and owned by root
+
 
 3. Installing desired database
 ------------------------------
@@ -299,7 +312,7 @@ Then set up the user and database (both named ``govready_q``):
    sudo -iu postgres createuser -P govready_q
    # Paste a long random password when prompted
 
-   sudo -iu postgres createdb --encoding UTF8 --lc-collate 'en_US.UTF-8' --lc-ctype 'en_US.UTF-8' govready_q
+   sudo -iu postgres createdb --encoding UTF8 --lc-collate 'C.UTF-8' --lc-ctype 'C.UTF-8' govready_q
 
 Postgres’s default permissions automatically grant users access to a
 database of the same name.
@@ -462,23 +475,19 @@ Run the install script to install required Python libraries, initialize GovReady
 .. code::
 
    # If you created a dedicated Linux user, be sure to switch to that user to install GovReady-Q
-   # su govready-q
-   # cd /home/govready-q/govready-q
+   su govready-q
+   cd /home/govready-q/govready-q
 
-   # If you created a dedicated Linux user, be sure to switch to that user to install GovReady-Q
-   # su govready-q
-   # cd /home/govready-q/govready-q
+   # Make sure the virtual python environment is active
+   source venv/bin/activate
 
-   # Run the install script to install Python libraries,
-   # initialize database, and create Superuser
-   ./install-govready-q.sh --pip-user
+   # Run the install script to install Python libraries, initialize database, and create Superuser
+   python install.py --timeout=600
 
 .. note::
-   The command ``install-govready-q.sh --pip-user`` is required when creating a virtual python environment associated with the user as described in these instructions as of version 0.9.1.52. The ``--pip-user`` may not be required in different install configurations.
+   The ``install.py`` script supports the flags ``-v`` (verbose), ``--non-interactive`` (non-interactive), and ``--timeout=xxx`` (set timeout).
 
-   The command ``install-govready-q.sh --pip-user`` or ``install-govready-q.sh``  creates the Superuser interactively allowing you to specify username and password.
-
-   The command ``install-govready-q.sh --pip-user --non-interactive`` or ``install-govready-q.sh --non-interactive`` creates the Superuser automatically for installs where you do not have access to interactive access to the command line. The auto-generated username and password will be output (only once) to the stdout log.
+Your login will be ``admin`` plus the generated password reported near the final lines of the install output.
 
 6. Starting and stopping GovReady-Q
 -----------------------------------
@@ -520,7 +529,9 @@ First, create the ``local/gunicorn.conf.py`` file that tells gunicorn how to sta
 
    import multiprocessing
    command = 'gunicorn'
-   pythonpath = '/home/govready-q/govready-q'
+   pythonpath = '/home/govready-q/govready-q/venv/bin'
+   # Extend time out to 10 min to import large project, OSCAL files
+   timeout = 500
    # serve GovReady-Q locally on server to use nginx as a reverse proxy
    bind = 'localhost:8000'
    workers = multiprocessing.cpu_count() * 2 + 1 # recommended for high-traffic sites
@@ -579,13 +590,14 @@ Supervisor on Ubuntu automatically reads the configuration files in ``/etc/super
 
    [program:govready-q]
    user = govready-q
-   command = gunicorn3 --config /home/govready-q/govready-q/local/gunicorn.conf.py siteapp.wsgi
+   command = /home/govready-q/govready-q/venv/bin/gunicorn --config /home/govready-q/govready-q/local/gunicorn.conf.py siteapp.wsgi
    directory = /home/govready-q/govready-q
    stderr_logfile = /var/log/govready-q-stderr.log
    stdout_logfile = /var/log/govready-q-stdout.log
 
    [program:notificationemails]
-   command = python3 manage.py send_notification_emails forever
+   user = govready-q
+   command = /home/govready-q/govready-q/venv/bin/python manage.py send_notification_emails forever
    directory = /home/govready-q/govready-q
    stderr_logfile = /var/log/notificationemails-stderr.log
    stdout_logfile = /var/log/notificationemails-stdout.log
@@ -647,7 +659,7 @@ Next, create the NGINX conf ``/etc/nginx/sites-available/nginx-govready-q.conf``
 .. code:: nginx
 
    server {
-      listen 8888;
+      listen 80;
       server_name example.com;
       access_log  /var/log/nginx/govready-q.log;
 
@@ -666,12 +678,23 @@ Next, create the NGINX conf ``/etc/nginx/sites-available/nginx-govready-q.conf``
       cp local-examples/local-ubuntu-postgres-nginx-gunicorn-supervisor-http/nginx-govready-q.conf \
       /etc/nginx/sites-available/nginx-govready-q.conf
 
-
 Create a soft link in ``/etc/nginx/sites-enabled/nginx-govready-q.conf`` to the config file in ``/etc/nginx/sites-available/nginx-govready-q.conf``.
 
 .. code:: bash
 
    ln -s /etc/nginx/sites-available/nginx-govready-q.conf /etc/nginx/sites-enabled/nginx-govready-q.conf
+
+As root, open Ubuntu's 20.04 default firewall to allow HTTP traffic to nginx with sudo ufw allow 'Nginx HTTP'
+
+.. code:: bash
+
+   ufw allow 'Nginx HTTP'
+
+As root, remove NGINX's default website:
+
+.. code:: bash
+
+   rm /etc/nginx/sites-enabled/default
 
 Start NGINX.
 
@@ -684,7 +707,7 @@ Start NGINX.
    # service nginx stop
 
 .. note::
-   NGINX will answer requests on ``http://example.com:8888`` and forward to gunicorn that is running on ``http://localhost:8000`` and gunicorn will pass to GovReady-Q via a unix socket. The ``govready-url`` domain name in ``local/environment.json`` must match the NGINX ``server_name`` in ``/etc/nginx/sites-available/nginx-govready-q.conf``.
+   NGINX will answer requests on ``http://example.com:80`` and forward to gunicorn that is running on ``http://localhost:8000`` and gunicorn will pass to GovReady-Q via a unix socket. The ``govready-url`` domain name in ``local/environment.json`` must match the NGINX ``server_name`` in ``/etc/nginx/sites-available/nginx-govready-q.conf``.
 
 Stop NGINX.
 
