@@ -389,12 +389,14 @@ And if necessary, open the PostgreSQL port:
 
 Create the ``local/environment.json`` file with appropriate parameters. (Order of the key-value pairs is not significant.)
 
+The ``govready-url`` parameter should be the full domain end-users would see in their browser to reach your instance of Govready-Q. The url ``example.com`` is used below as an example host name.
+
 **SQLite (default)**
 
 .. code:: json
 
       {
-         "govready-url": "http://localhost:8000",
+         "govready-url": "http://example.com:8000",
          "debug": false,
          "secret-key": "long_random_string_here"
       }
@@ -405,7 +407,7 @@ Create the ``local/environment.json`` file with appropriate parameters. (Order o
 
       {
          "db": "mysql://USER:PASSWORD@localhost:PORT/NAME",
-         "govready-url": "http://localhost:8000",
+         "govready-url": "http://example.com:8000",
          "debug": false,
          "secret-key": "long_random_string_here"
       }
@@ -416,7 +418,7 @@ Create the ``local/environment.json`` file with appropriate parameters. (Order o
 
       {
          "db": "mysql://USER:PASSWORD@localhost:3306/govready_q",
-         "govready-url": "http://localhost:8000",
+         "govready-url": "http://example.com:8000",
          "debug": false,
          "secret-key": "long_random_string_here"
       }
@@ -427,7 +429,7 @@ Create the ``local/environment.json`` file with appropriate parameters. (Order o
 
       {
          "db": "postgres://govready_q:PASSWORD@localhost:5432/govready_q",
-         "govready-url": "http://localhost:8000",
+         "govready-url": "http://example.com:8000",
          "debug": false,
          "secret-key": "long_random_string_here"
       }
@@ -444,7 +446,7 @@ Create the ``local/environment.json`` file with appropriate parameters. (Order o
 
       {
          "db": "mysql://USER:PASSWORD@HOST:PORT/NAME",
-         "host": "localhost:8000",
+         "host": "example.com:8000",
          "https": false,
          "debug": false,
          "secret-key": "long_random_string_here"
@@ -456,7 +458,7 @@ Create the ``local/environment.json`` file with appropriate parameters. (Order o
 
       {
          "db": "mysql://USER:PASSWORD@HOST:PORT/NAME",
-         "govready-url": "http://localhost:8000",
+         "govready-url": "http://example.com:8000",
          "debug": false,
          "secret-key": "long_random_string_here"
       }
