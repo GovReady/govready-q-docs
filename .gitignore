@@ -19,3 +19,7 @@ venv
 # notes
 _notes/
 
+
+# packages and source for now
+packages/
+source/
