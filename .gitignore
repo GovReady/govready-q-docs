@@ -20,6 +20,5 @@ venv
 _notes/
 
 
-# packages and source for now
-packages/
-source/
+# source for now
+/source/
