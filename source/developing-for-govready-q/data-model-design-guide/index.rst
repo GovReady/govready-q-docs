@@ -12,7 +12,7 @@ These pages describe GovReady-Q’s data model.
 .. topic:: Contents
 
    .. toctree::
-      :maxdepth: 1
+      :maxdepth: 2
 
       users-organizations-projects-folders-and-invitations
       compliance-apps-modules-questions-tasks-and-answers

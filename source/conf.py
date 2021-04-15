@@ -29,9 +29,9 @@ author = 'Josh Tauberer, Greg Elin, Peter Kaminski, Ethan Kaminski, David Ampofo
 github_doc_root = 'https://github.com/GovReady/govready-q/tree/master/docs'
 
 # The short X.Y version
-version = 'v0.9.1.50.2'
+version = 'v0.9.3.3'
 # The full version, including alpha/beta/rc tags
-release = 'v0.9.1.50.2'
+release = 'v0.9.3.3'
 
 
 # -- General configuration ---------------------------------------------------
@@ -44,11 +44,14 @@ release = 'v0.9.1.50.2'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.coverage',
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.ifconfig',
+    'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'sphinxcontrib.contentui',
