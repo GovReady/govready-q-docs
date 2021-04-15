@@ -14,7 +14,7 @@ This guide describes how to install the GovReady-Q server for macOS 10.10 or gre
 Installing required OS packages
 -------------------------------
 
- GovReady-Q requires Python 3.6 or higher to run and several Unix packages to provide full functionality. Install the Homebrew package manager (https://brew.sh) to easily install Unix packages on macOS. Homebrew will install all packages in your userspace and not change native macOS Python or other libraries. Execute the following commands:
+ GovReady-Q requires Python 3.6 or higher to run and several Unix packages to provide full functionality. Install Java for Mac (https://java.com/en/download/apple.jsp). Install the Homebrew package manager (https://brew.sh) to easily install Unix packages on macOS. Homebrew will install all packages in your userspace and not change native macOS Python or other libraries. Execute the following commands:
 
 .. code:: bash
 
