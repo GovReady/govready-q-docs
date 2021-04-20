@@ -14,7 +14,7 @@ To run the integration tests, you'll also need to install chromedriver:
 .. code-block:: bash
 
    sudo apt-get install chromium-chromedriver   (on Ubuntu)
-   brew cask install chromedriver               (on Mac)
+   brew install --cask chromedriver               (on Mac)
 
 Navigate within your terminal to GovReady-Q top level directory.
 
