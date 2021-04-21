@@ -20,105 +20,8 @@ In this guide you will learn how to:
 Step 1: Prepare your local environment
 --------------------------------------
 
-Create a folder on your workstation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Follow instructions listed at :ref:`Developer Environment`
 
-GovReady-Q compliance apps are generally developed in an off-line
-development environment, usually on the app developer’s macOS or Linux
-workstation — any environment that can run Docker. In this environment,
-the compliance app data files will be stored in a local directory. This
-guide assumes the use of a local workstation for development and
-discusses production deployment at the end.
-
-(Once the apps are ready to be published to the rest of the
-organization, the apps can be uploaded to a git repository, such as
-GitHub or an on-premise equivalent. The production instance of
-GovReady-Q will typically read compliance apps from the git repository
-directly and not from a local disk.)
-
-On the development workstation, create a folder to hold GovReady’s
-install script, the GovReady-Q database (in development, Sqlite is
-used), and the compliance apps that you will be authoring. The folder
-can be anywhere:
-
-::
-
-   mkdir /path/to/dev_directory
-   cd /path/to/dev_directory
-
-Install Docker
-~~~~~~~~~~~~~~
-
-If you haven’t already done so `install
-Docker <https://docs.docker.com/engine/installation/>`__ on the
-workstation and, if appropriate, `grant non-root users access to run
-Docker
-containers <https://docs.docker.com/engine/installation/linux/linux-postinstall/#manage-docker-as-a-non-root-user>`__
-(or else use ``sudo`` when invoking Docker below).
-
-Step 2: Install the GovReady-Q Compliance Server, Docker version
-----------------------------------------------------------------
-
-Starting the Docker container
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Next download GovReady’s
-:ref:`docker_container_run.sh <The docker_container_run.sh script>` script. This
-script simplifies passing various settings to create and configure the
-``govready-q`` docker container that we will use for local development.
-
-::
-
-   wget https://raw.githubusercontent.com/GovReady/govready-q/master/deployment/docker/docker_container_run.sh
-   chmod +x docker_container_run.sh
-
-``docker_container_run.sh`` supports a variety of :ref:`advanced
-configuration settings <Advanced Container Configuration Options>` via command
-line parameters. The ones we care about for developing compliance apps
-are:
-
--  ``--sqlitedb /path/to/govready-q-database.sqlite``, which sets an
-   absolute path to a Sqlite database that holds all persistent
-   information across container runs
--  ``--appsdevdir /path/to/apps``, which sets an absolute path to the
-   directory in which app YAML files will be developed
--  ``--relaunch``, which removes any existing ``govready-q`` Docker
-   container if one is running
-
-Download and start GovReady-Q:
-
-::
-
-   ./docker_container_run.sh --sqlitedb `pwd`/database.sqlite --appsdevdir `pwd`/apps --relaunch
-
-Note that ``pwd`` is used to ensure the paths are absolute.
-
-The script will download the `govready/govready-q
-image <https://hub.docker.com/r/govready/govready-q/>`__ from the Docker
-Hub, which could take a few minutes. It will then start a new Docker
-container named ``govready-q`` and will launch the Q source code within
-it.
-
-When the container is launched it will let you know the URL to visit:
-
-::
-
-   GovReady-Q has been started!
-   Container Name: govready-q
-   Container ID: d99e8ac2d6a761cfd7be7f94bd01d5f7115efd66714064f7b1f0f6c09b74c269
-   URL: http://localhost:8000
-
-(You can change the hostname and port by adding
-e.g. ``--address q.company.com:8010``.)
-
-It takes about 15 seconds for the GovReady-Q server to be ready. Open
-the URL (e.g. http://localhost:8000) and reload a few times until the
-GovReady-Q Compliance Server becomes available:
-
-.. figure:: /assets/firststart.png
-   :alt: First run of GovReady-Q
-
-   First run of GovReady-Q
 
 Setting up your organization and administrative user
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,7 +32,7 @@ and answer the prompts:
 
 ::
 
-   docker container exec -it govready-q first_run
+   docker container exec -it govready_q_dev first_run
 
 Your prompt and reply will look something like this:
 
@@ -183,7 +86,7 @@ Let’s create our first compliance app! Use the command below:
 
 ::
 
-   docker container exec -it govready-q ./manage.py compliance_app host myfirstapp
+   docker container exec -it govready_q_dev ./manage.py compliance_app host myfirstapp
 
 The output will be:
 
@@ -211,7 +114,7 @@ cache, restart the container:
 
 ::
 
-   docker container restart govready-q
+   docker container restart govready_q_dev
 
 After a few moments the container will be back up. Reload the compliance
 app catalog page. You should now see your app if you scroll to the end:
@@ -257,7 +160,7 @@ Reload the container to clear the app catalog cache:
 
 ::
 
-   docker container restart govready-q
+   docker container restart govready_q_dev
 
 And then reload the catalog page in your browser to see your description
 beneath ``myfirstapp``. You can also edit the app’s title and other
@@ -399,7 +302,7 @@ Your changes are now seen in your browser.
    The revised question
 
 More information about the file format of modules can be found in
-:ref:`Modules, Questions, and Documents YAML Reference`.
+:ref:`Modules, Questions, Inputs, and Documents YAML Reference`.
 
 Step 5: Edit a compliance app using GovReady-Q’s authoring tools
 ----------------------------------------------------------------
@@ -617,7 +520,7 @@ Then restart the container:
 
 ::
 
-   docker container restart govready-q
+   docker container restart govready_q_dev
 
 and the apps defined in all of the repositories should be visible in the
 compliance app catalog.

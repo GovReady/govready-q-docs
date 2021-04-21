@@ -3,7 +3,7 @@
 .. _Modules, Questions, Inputs, and Documents YAML Reference:
 
 Modules, Questions, Inputs, and Documents YAML Reference
-================================================
+========================================================
 
 A module and its questions are defined in YAML specification files. The
 schema for the specification files is as follows:
