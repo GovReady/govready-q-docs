@@ -35,10 +35,13 @@ HTTP headers. In this configuration:
 -  GovReady-Q must be run at a private address that cannot be accessed
    except through the proxy server.
 
-To activate reverse proxy authentication, add the header names used by
-the proxy to your ``local/environment.json``, e.g.:
+To activate reverse proxy authentication, add the header names used by the proxy e.g.:
+
+
+In Development set the ``trust-user-authentication-headers`` key following :ref:`Developer Environment`
 
 ::
+
 
    {
      "trust-user-authentication-headers": {
@@ -47,9 +50,10 @@ the proxy to your ``local/environment.json``, e.g.:
      },
    }
 
+In Production see:  :ref:`Production Deployment`
+
 The proxy server must be configured to proxy to GovReady-Q’s private
-address. But the ``host`` and ``https`` settings in GovReady-Q’s
-``local/environment.json`` file must reflect the host and protocol used
+address. But the ``address`` settings in GovReady-Q must reflect the host and protocol used
 in the URL the *end user* uses to access GovReady-Q. They do *not* need
 to match the address that the proxy server uses to reach the GovReady-Q
 server.

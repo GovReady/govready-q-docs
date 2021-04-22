@@ -14,101 +14,21 @@ Developing for Govready-Q
 
 These pages cover topics related to working with the source of GovReady-Q.
 
-You may also want to refer to the :ref:`Installation and Setup` section of the guide, and either :ref:`Desktop Installation` or :ref:`Server-based Installation`, depending on your development environment.
+You may also want to refer to the :ref:`Installation Guide`.
 
 .. topic:: Contents
 
    .. toctree::
       :maxdepth: 1
 
-      installing-govready-q-for-development
       data-model-design-guide/index
       code-style-guide/index
 
 
-Examples for Setting Up Your Development Environment
+Setting Up Your Development Environment
 ####################################################
 
-.bashrc
--------
-
-The .bashrc file is THE file that will make your life a lot easier once you have a couple settings set.
-
-To view your ``.bashrc`` file enter the following commands.
-
-.. code:: bash
-
-   cd ~
-   cat .bashrc
-
-We will be entering three lines at the end of this file.
-
-1. Change directory directly to your govready-q root
-____________________________________________________
-
-.. code:: bash
-
-    cd "/mnt/../path/to/govready-q"
-
-2. The virtual environment activation command
-_____________________________________________
-
-.. code:: bash
-
-    source <virtualenv>/bin/activate
-
-Common values for ``<virtualenv>`` are ``venv`` or ``env``. GovReady-Q's ``.gitignore`` is set up for ``env``.
-
-3. The alias to open any directory in the given filesystem with PyCharm ``charm . &``
-_____________________________________________________________________________________
-
-.. code:: bash
-
-    alias charm="/mnt/path/to/JetBrains/'<version number>'/bin/pycharm64.exe"
-
-For example, ``<version number>`` could be ``PyCharm 2020.1.1``.
-
-Locate the absolute path to pycharm64.exe with ``which pycharm64.exe``. Single quotes must be placed around parts of the path that aren't contiguous. For example the version number should be entered as 'PyCharm 2020.1.1'.
-
-PyCharm
-########
-
-PyCharm Professional is one of the IDEs we prefer, and it has many tools and features that you will find enhance development experience and we will explore a few here.
-
-This first tip is primarily for Windows users using WSL to develop.
-
-The terminal_ shell used can be configured
-------------------------------------------
-
-**File | Settings | Tools | Terminal for Windows and Linux**
-
-**PyCharm | Preferences | Tools | Terminal for macOS** ``Ctrl+Alt+S``
-
-.. figure:: /assets/settingstoolsterminal.png
-   :alt: Tools > terminal location
-
-   Tools > terminal location
-
-.. figure:: /assets/toolsterminalpanel.png
-   :alt: Tools > terminal location
-
-   Tools > terminal location
-
-.. figure:: /assets/cmdexepic.png
-   :alt: Default command-line terminal
-
-   Default command-line terminal
-
-.. figure:: /assets/wslexepic.png
-   :alt: Linux command-line terminal
-
-   Linux command-line terminal
-
-.. figure:: /assets/wslexeterminal.png
-   :alt: WSL Terminal panel
-
-   WSL Terminal panel
-
+Follow instructions listed at :ref:`Developer Environment`
 
 Management Commands
 ###################
@@ -132,7 +52,7 @@ For this walk-through I will outline how the management command ``./manage.py co
 First and foremost we need to ensure we have a **management/commands** directory under the Django app of choice, in this example **guidedmodules** (which registers the command when guidedmodules is included in **INSTALLED_APPS**). Then a new file **compliance_app.py** for our ``compliance_app`` command argument. In this file we import and inherit ``BaseCommand`` into our new class. Adding some help text to remind us of this commands purpose.
 
 .. note::
-   We are now in **~/govready-q/guidedmodules/management/commands/compliance_app.py**
+   We are now in **guidedmodules/management/commands/compliance_app.py**
 
 .. code-block:: bash
 
@@ -282,3 +202,11 @@ Currently Implemented
     +---------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
     | ``./manage.py test_screenshots --skip-checks``                      |   Skip system checks.                                                                                                                                       |
     +---------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Invitations on local systems
+----------------------------
+
+You will probably want to try the invite feature at some point. The
+debug server is configured to dump all outbound emails to the console.
+So if you “invite” others to join you within the application, you’ll
+need to go to the console to get the invitation acceptance link.

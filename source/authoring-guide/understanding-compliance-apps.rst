@@ -33,7 +33,7 @@ An “app” is a collection of “modules,” one of which must be named “app
 Modules are linear sequence of questions presented to users that
 produces zero or more output documents. Modules are stored in YAML
 files. Output documents of various types are supported such as markdown,
-HTML, and YAML. (See :ref:`Modules, Questions, and Documents YAML Reference`
+HTML, and YAML. (See :ref:`Modules, Questions, Inputs, and Documents YAML Reference`
 for documentation on writing modules.)
 
 The typical user experience will be to first pick a “top level” app from
@@ -100,8 +100,8 @@ The ``app.yaml`` file that exists in every app serves two purposes:
 1. It includes app catalog information, i.e. metadata, that will be
    shown in the app directory, such as the app’s short and long
    description, version number, vendor, etc.
-2. It also defines a module (see :ref:`Modules, Questions, and
-   Documents YAML Reference`) which defines the top-level layout of
+2. It also defines a module (see :ref:`Modules, Questions, Inputs, and Documents YAML Reference`)
+   which defines the top-level layout of
    the app. The module may only contain questions whose type are
    ``module`` or ``module-set``.
 
@@ -124,7 +124,7 @@ The ``app.yaml`` file looks like this:
    input:
      - id: <input_id> (string)
        name: <Input Name> (string)
-       type: oscal (Only oscal currently supported) 
+       type: oscal (Only oscal currently supported)
        path: <dir/filename.json> (relative file path)
        group: (optional string)
 
@@ -173,8 +173,7 @@ The questions in the app YAML file can only be of type ``module`` and
 ``module-set``. The questions can specify a ``module-id`` to refer to
 another module within the same app or a ``protocol`` to allow the user
 to choose any app that has a matching ``protocol`` value set at the top
-level of the YAML file. See :ref:`Modules, Questions, and Documents YAML
-Reference` for details on these question types.
+level of the YAML file. See :ref:`Modules, Questions, Inputs, and Documents YAML Reference` for details on these question types.
 
 A ``module`` YAML structure is identical to ``app.yaml`` structure but
 without the catalog details section.
