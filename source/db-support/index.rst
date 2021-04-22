@@ -8,15 +8,6 @@ Database Support
 .. meta::
   :description: These pages describe GovReady-Q' Database Support.
 
-Test
-
-.. Copyright (C) 2020 GovReady PBC
-
-.. _Setting Up a Database for Production Workloads:
-
-Setting Up a Database for Production Workloads
-==============================================
-
 The supported database types are:
 
  - PostgreSQL
