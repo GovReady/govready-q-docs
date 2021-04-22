@@ -1,4 +1,4 @@
-.. Copyright (C) 2020 GovReady PBC
+.. Copyright (C) 2021 GovReady PBC
 
 .. _Installation Guide:
 
