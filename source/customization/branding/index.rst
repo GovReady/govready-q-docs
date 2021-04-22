@@ -5,7 +5,7 @@
 Applying Custom Organization Branding
 =====================================
 
-The look and feel of GovReady-Q can be customized a bit by overriding
+The look and feel of GovReady-Q can be significantly customized by overriding
 the Django templates used to construct the site’s pages and by
 serving additional static assets.
 
