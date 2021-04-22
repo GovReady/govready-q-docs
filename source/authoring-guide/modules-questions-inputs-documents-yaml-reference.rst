@@ -180,7 +180,7 @@ e.g.:
              q2: My Secure Tool
 
 Inputs
----------
+------
 
 Version 0.9.1.50.1 introduced the ability to incorporate input data into a compliance app.
 
@@ -206,6 +206,37 @@ A description of each field follows:
 
 A popular use case for input data is to attach OSCAL components and
 implementation statements to a project at the time of creation.
+
+Parameters
+----------
+
+Version 0.9.2.0 introduced the ability to incorporate parameters into a compliance app.
+
+Parmaters are stored in the ``catalog`` section of the compliance apps.
+
+The first paramater is `default_catalog_key` and `default baseline`. These parameters
+will be read by and set the initial catalog and baseline.
+
+::
+
+   catalog:
+     category: IT System Template
+     ...additional info removed...
+     version: 1.1.3
+     parameters:
+       - id: catalog_key
+         value: NIST_SP-800-53_rev4
+       - id: dbaseline
+         value: low
+
+Parameters are described in terms of:
+- ``id`` - A unique string identifier, or name for the parameter
+- ``value`` - The actual value of the identifier.
+
+Currently, the parameters are used for only the following:
+
+-  ``catalog_key`` — A string identifying the catalog, e.g. "NIST_SP-800-171_rev1", "NIST_SP-800-53_rev4", "NIST_SP-800-53_rev5". See in ``controls/data/catalogs`` for acceptable values.
+-  ``baseline`` — A value to set the baseline set of selected controls. See in ``controls/data/baselines`` for acceptable values depending on catalog.
 
 Documents
 ---------
