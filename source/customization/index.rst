@@ -8,7 +8,6 @@ Customization
 .. meta::
   :description: These pages describe GovReady-Q' Customization.
 
-Test2
 
 .. topic:: Contents
 
