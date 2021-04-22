@@ -269,4 +269,4 @@ name. These fields cannot be used in the POST API.
 
 Datagrid fields appear in human-readable form as tabular data.
 
-More information about Q’s data types can be found in :ref:Modules, Questions, Inputs, and Documents YAML Reference`.
+More information about GovReady-Q’s data types can be found in :ref:Modules, Questions, Inputs, and Documents YAML Reference`.
