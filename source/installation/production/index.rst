@@ -28,7 +28,7 @@ Deployments are python modules that reside in `deployments`.  Each deployment mo
    .
    └── https://github.com/GovReady/govready-deployments
        └── deployments
-           ├── onprem
+           ├── docker_compose
            │   └── deploy.py
            │   └── init.py
            │   └── undeploy.py
@@ -60,7 +60,7 @@ Example:
     python run.py init
 
     # Builds configuration.json based on the config-validator.json and skips the prompt
-    python run.py init --type onprem
+    python run.py init --type docker_compose
 
 
 Deploy
@@ -89,8 +89,8 @@ Example:
 
 .. code-block:: bash
 
-    # Deploys using `configuration.json` using the `onprem` deployment solution
-    python run.py deploy --type onprem --config configuration.json
+    # Deploys using `configuration.json` using the `docker_compose` deployment solution
+    python run.py deploy --type docker_compose --config configuration.json
 
 
 Remove Deployment
@@ -108,5 +108,5 @@ Example:
 
 .. code-block:: bash
 
-    # Removes deployment using the `onprem` deployment solution
-    python run.py undeploy --type onprem
+    # Removes deployment using the `docker_compose` deployment solution
+    python run.py undeploy --type docker_compose
