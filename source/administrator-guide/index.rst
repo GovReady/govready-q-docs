@@ -10,7 +10,6 @@ Administrator Guide
 
 These pages describe topics for system administrators who need to manage GovReady-Q.
 
-Also see :ref:`Configuration with Environment Variables`.
 
 .. topic:: Contents
 
@@ -19,4 +18,3 @@ Also see :ref:`Configuration with Environment Variables`.
 
       system-settings
       permissions-model
-      system-requirements

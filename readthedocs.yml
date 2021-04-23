@@ -5,7 +5,6 @@ version: 2
 sphinx:
   configuration: source/conf.py
 
-# version of Python and requirements required to build the docs
 python:
   version: 3.8
   install:
