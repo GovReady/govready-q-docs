@@ -118,7 +118,10 @@ Keys and Description - environment.json
      - Object
      - {}
      - Used to activate reverse proxy authentication. See :ref:`Proxy Authentication Server`.
-
+   * - ``okta``
+     - Object
+     - {}
+     - Used to enable Okta SSO. See :ref:`Okta OpenID Connect`.
 
 
 

@@ -5,6 +5,51 @@
 Enterprise Single Sign-On (SSO)
 -------------------------------
 
+.. _Okta OpenID Connect:
+
+Okta OpenID Connect
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+GovReady-Q can be configured to use Okta OpenID for authentication and authorization.
+
+::
+
+
+   {
+        "domain": "https://XXX.okta.com",
+        "client_id": "MyClientId",
+        "client_secret": "MyClientSecret",
+        "roles_map": {
+            "admin": "GroupNameThatMapsToAdminUser",
+            "normal": "GroupNameThatMapsToRegularUser"
+        },
+        "claims_map": {
+            "email": "email",
+            "groups": "groups",
+            "first_name": "given_name",
+            "last_name": "family_name",
+            "username": "preferred_username"
+        }
+    }
+
++---------------+-------------------------------------------------------------------------------+
+| Key           | Description                                                                   |
++---------------+-------------------------------------------------------------------------------+
+| domain        | Okta domain for your application                                              |
++---------------+-------------------------------------------------------------------------------+
+| client_id     | Okta app's client id                                                          |
++---------------+-------------------------------------------------------------------------------+
+| client_secret | Okta app's client secret                                                      |
++---------------+-------------------------------------------------------------------------------+
+| roles_map     | This map is meant to map Okta User Groups to the application groups.          |
++---------------+-------------------------------------------------------------------------------+
+| claims_map    | This map is meant to map Okta Claims to the application's User model columns. |
++---------------+-------------------------------------------------------------------------------+
+
+This object should be set under the `okta` section of the environments.json.
+
+Note: Deployment will slightly differ by setting this under `OKTA`.
+
 .. _Proxy Authentication Server:
 
 Proxy Authentication Server
