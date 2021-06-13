@@ -18,5 +18,3 @@ These pages cover topics related to integration within an enterprise environment
       logs-and-log-management
       enterprise-single-sign-on-sso
       automation-api
-      govready-q-and-wazuh-via-docker-compose
-      multi-container-govready-q-and-nginx-via-docker-compose
