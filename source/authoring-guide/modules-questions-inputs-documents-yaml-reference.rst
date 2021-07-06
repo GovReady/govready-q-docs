@@ -806,6 +806,22 @@ asked to enter any information.
 In document templates and impute conditions, the value of
 ``interstitial`` questions is always a null value.
 
+``action``
+^^^^^^^^^^^^^^^^
+
+An ``action`` question is a special question that triggers dynamic data changes
+elsewhere in GovReady-Q! Action questions enable questions to automagically do things
+like adding components to systems and setting control baselines.
+
+The ``prompt`` contains template content, as with other questions, but it is
+typically summarizes the result of an other question.
+
+The user can be prompted to confirm the action or just be informed an action has
+automatically occurred.
+
+In document templates and impute conditions, the value of
+``action`` questions is a plain language description of the action.
+
 ``raw``
 ^^^^^^^
 
