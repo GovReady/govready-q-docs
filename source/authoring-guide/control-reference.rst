@@ -67,7 +67,7 @@ control.
    }
 
 .. note::
-   For external control catalogs one can place a `<catalog_key>_baseline.json` and `<catalog_key>_catalog.json` file in their `local/controls/data/` sub-directories `baselines` and `catalogs` respectively.
+   For external control catalogs one can place a `<catalog_key>_baseline.json` and `<catalog_key>_catalog.json` file in their `local/controls/data/` sub-directories `baselines` and `catalogs` respectively. For a reference for either please reference the internal files found in controls/data/<baselines/catalogs>
 
 GovReady treats a System as a subclass of an Element. An Element is any
 person, process, or thing. All Elements have element_type. A System is
