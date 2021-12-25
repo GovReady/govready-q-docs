@@ -17,4 +17,5 @@ These pages cover topics related to integration within an enterprise environment
 
       logs-and-log-management
       enterprise-single-sign-on-sso
+      sign-on-notification
       automation-api
