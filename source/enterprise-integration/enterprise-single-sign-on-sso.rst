@@ -5,6 +5,67 @@
 Enterprise Single Sign-On (SSO)
 -------------------------------
 
+.. _OpenID Connect:
+
+OpenID Connect
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+GovReady-Q can be configured to use OpenID for authentication and authorization.
+
+::
+
+
+   {
+        "authorization_endpoint": "https://issuer.domain.name",
+        "userinfo_signing_alg": "RS256",
+        "jwks_uri": "https://issuer.domain.name/token",
+        "token_endpoint": "https://issuer.domain.name/token",
+        "userinfo_endpoint": "https://issuer.domain.name/userinfo",
+        "scopes_supported": "openid profile",
+        "client_id": "MyClientId",
+        "client_secret": "MyClientSecret",
+        "roles_map": {
+            "admin": "GroupNameThatMapsToAdminUser",
+            "normal": "GroupNameThatMapsToRegularUser"
+        },
+        "claims_map": {
+            "email": "email",
+            "groups": "groups",
+            "first_name": "given_name",
+            "last_name": "family_name",
+            "username": "preferred_username"
+        }
+    }
+
++-----------------------+-------------------------------------------------------------------------------+
+| Key                  	| Description                                                                   |
++-----------------------+-------------------------------------------------------------------------------+
+| authorization_endpoint| Issuer domain for your application                                            |
++-----------------------+-------------------------------------------------------------------------------+
+| jwks_uri              | JWKS Endpoint                                                                 |
++-----------------------+-------------------------------------------------------------------------------+
+| token_endpoint        | Token Endpoint                                                                |
++-----------------------+-------------------------------------------------------------------------------+
+| userinfo_endpoint     | User Info endpoint                                                            |
++-----------------------+-------------------------------------------------------------------------------+
+| scopes_supported      | Supported Scopes; should be a space delimited string ex: "openid profile"     |
++-----------------------+-------------------------------------------------------------------------------+
+| userinfo_signing_alg  | User Info signing Algorithm                                                   |
++-----------------------+-------------------------------------------------------------------------------+
+| client_id             | OIDC app's client id                                                          |
++-----------------------+-------------------------------------------------------------------------------+
+| client_secret         | OIDC app's client secret                                                      |
++-----------------------+-------------------------------------------------------------------------------+
+| roles_map             | This map is meant to map OIDC User Groups to the application groups.          |
++-----------------------+-------------------------------------------------------------------------------+
+| claims_map            | This map is meant to map OIDC Claims to the application's User model columns. |
++-----------------------+-------------------------------------------------------------------------------+
+
+
+This object should be set under the `oidc` section of the environments.json.
+
+Note: Deployment will slightly differ by setting this under `OIDC`.
+
 .. _Okta OpenID Connect:
 
 Okta OpenID Connect
