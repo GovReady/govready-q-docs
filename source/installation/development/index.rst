@@ -58,10 +58,6 @@ Keys and Description - environment.json
      - Data Type
      - Default
      - Description
-   * - ``admins``
-     - Object[]
-     - []
-     - Used to configure a display point of contact “Administrator” on site and unrelated to the configuration of actual administrators configured in the database Ex: ``[{"username": "username", "email":"first.last@example.com", "password": "REPLACEME"}]``.
    * - ``branding``
      - string
      - ""
@@ -86,6 +82,14 @@ Keys and Description - environment.json
      - string
      - ""
      - Used to store API key to interact with GovReady’s CMS agent and dashboard. Not relevant to most users.
+   * - ``govready_admins``
+     - Object[]
+     - []
+     - Used to create "Administrator" accounts during install Ex: ``[{"username": "username", "email":"first.last@example.com", "password": "REPLACEME"}]``.
+   * - ``govready_users``
+     - Object[]
+     - []
+     - Used to create regular user accounts during install Ex: ``[{"username": "username", "email":"first.last@example.com", "password": "REPLACEME"}]``.
    * - ``govready-url``
      - string
      - "http://localhost:8000"
