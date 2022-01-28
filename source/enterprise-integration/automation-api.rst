@@ -251,9 +251,12 @@ field types are:
    ``url`` (a link to download the file content), ``type`` (the MIME
    type), and ``size`` (the size of the file in bytes).
 
--  “Module” questions create recursive structures and are encoded as
+-  "Module" questions create recursive structures and are encoded as
    JSON objects. “Module-set” questions are encoded as JSON arrays of
    JSON objects.
+
+-  "Action" questions that trigger programmatic changes elsewhere in
+   GovReady-Q and update data outside of guidedmodules.
 
 All fields can also hold ``null``, which indicates the question has been
 explicitly “skipped.” If a question is unanswered, it does not appear in
