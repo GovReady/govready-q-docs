@@ -33,13 +33,13 @@ All development environment files are managed in two directories:
 
 To modify Govready-Q settings, you'll need to `generate an environment.json` to pass to the container.  This is modifiable at any time.
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        # Change to dev_env directory
-        cd dev_env
+    # Change to dev_env directory
+    cd dev_env
 
-        #  This will generate dev_env/docker/environment.json
-        python run.py init
+    #  This will generate dev_env/docker/environment.json
+    python run.py init
 
 
 .. warning::
